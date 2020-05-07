@@ -1,0 +1,7 @@
+nombre de la base de datos: bd-mesas-interactivas
+
+contraseña de usuario roor: l14fo5s34IH81cG7
+
+
+id del proyecto: mesas-interactivas
+
