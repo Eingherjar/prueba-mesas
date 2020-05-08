@@ -3,89 +3,72 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
+var api = express.Router();
+
 
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
-  console.log('REST API listening on port ', port);
+    console.log('REST API listening on port ', port);
 });
 
-app.get('/', async (req, res) =>  {
+app.get('/', async (req, res) => {
     res.json({
         status: 'success',
         data: "se ha conectado satisfactoriamente"
     })
 });
 
-// prueba con un añadido a la url 
-app.get('/:id', async (req, res) =>  {
-    const id = parseInt(req.params.id);
-    console.log("entro en el metodo para traer a los usuarios ", {
-        req: req,
-        res:res
-    })
-    const user = await getUsers(id);
+api.get('/users', async (req, res) => {
+    console.log("entro en metodo de los usuarios");
+    const user = await GetUser();
     res.json({
-        status: 'success',
-        data: {user:user},
-        message: "esta funcionando esta monda"
+        status: "success",
+        data: user,
+        message: "esta nonda esta funcionando"
     })
 });
+app.use(api);
 
-// app.get('/:id', async(req, res) => {
-//   const id = parseInt(req.params.id);
-//   const dessert = await getDessert(id); //TODO: write getDessert
-//   res.json({status:'success', data: {dessert: dessert}});
-// });
 
-// app.post('/', async(req, res) => {
-//   const id = await createDessertFromDb(req.body); //TODO: write createDessertFromDb
-//   const dessert = await getDessert(id);
-//   res.json({status: 'success', data: {dessert: dessert}});
-// });
-
-// function createDessertFromDb(fields) {
-//   return new Promise(function(resolve, reject) {
-//     const sql = 'INSERT INTO desserts SET ?';
-//     getDbPool().query(sql, fields, (err, results) => {
-//       resolve(results.insertId);
-//     });
-//   });
-// }
-
-let user = "mesasdb";
-let password = "mesasdb123";
-let database = "mesas_interactivas";
-let const_name = "mesas-interactivas:southamerica-east1:bd-mesas-interactivas";
+// funcion que se encarga de hacer conexión con la base de datos
 let cachedDbPool;
 function getDbPool() {
-  if(!cachedDbPool) {
-      console.log("entro en el metodo que debe de conectar con la base de datos")
-    cachedDbPool = mysql.createPool({
-      connectionLimit: 1,
-    //   user:process.env.SQL_USER,
-    //   password:process.env.SQL_PASSWORD,
-    //   database:process.env.SQL_NAME,
-    //   socketPath:`/cloudsql/${process.env.INST_CON_NAME}`
-        
-    
-        user: user,
-        password:password,
-        database: database,
-        socketPath: const_name
-    });
+    if (!cachedDbPool) {
+        console.log("entro en el metodo que debe de conectar con la base de datos")
+        cachedDbPool = mysql.createPool({
+            // nada mas se puede descomentar cuando se va subir a google cloud
+            // (cuando se suba hay que montar una nueva imagen que contenga los nuevos cambios)
+            connectionLimit: 1,
+            user: process.env.SQL_USER,
+            password: process.env.SQL_PASSWORD,
+            database: process.env.SQL_NAME,
+            socketPath: `/cloudsql/${process.env.INST_CON_NAME}`
 
-    
-  }
-  return cachedDbPool;
+
+            // esto nada mas se descomenta cuando se estan haciendo pruebas locales
+            // host: "34.95.157.90",
+            // user: "mesasdb",
+            // password: "mesasdb123",
+            // database: 'mesas_interactivas'
+        });
+
+
+    }
+    return cachedDbPool;
 }
 
-async function getUsers(id) {
-    console.log("entro en el metodo que trae los datos de los usuarios");
-  return new Promise(function(resolve, reject) {
-    const sql = 'SELECT * FROM usuario WHERE id_usuario=?'
-    getDbPool().query(sql,[id],(err, results) => {
-        resolve(results);
-        console.log("datos que se deben de estar mostrando ahora,", results);
-    });
-  });
+// funcion que se encarga de traer a todos los usuarios;
+async function GetUser(req, res) {
+
+    console.log("entron en el metodo de GetrUser");
+    // Devolvemos una respuesta en JSON
+    return new Promise(function (resolve, reject) {
+        getDbPool().query("SELECT * FROM  usuario", function (err, result) {
+            if (err) resolve(err);
+            resolve(result);
+            console.log("datos que se deben de estar mostrando ahora,", result);
+        });
+
+    })
 }
+
