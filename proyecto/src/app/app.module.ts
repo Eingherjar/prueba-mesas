@@ -1,34 +1,26 @@
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { ToastrModule } from "ngx-toastr";
-
-import { SidebarModule } from './sidebar/sidebar.module';
-import { FooterModule } from './shared/footer/footer.module';
-import { NavbarModule} from './shared/navbar/navbar.module';
-import { FixedPluginModule} from './shared/fixedplugin/fixedplugin.module';
-
+import { APP_ROUTING } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AppRoutes } from './app.routing';
-
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-
-
+import { ClienteModule } from './cliente/cliente.module';
+import {SharedModule} from './shared/shared.module';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
+import { ClienteComponent } from './cliente/cliente.component'
+import {SharedComponent} from './shared/shared.component';
 @NgModule({
   declarations: [
     AppComponent,
-    AdminLayoutComponent
+    ClienteComponent,
+    SharedComponent   
   ],
   imports: [
-    BrowserAnimationsModule,
-    RouterModule.forRoot(AppRoutes,{
-      useHash: true
-    }),
-    SidebarModule,
-    NavbarModule,
-    ToastrModule.forRoot(),
-    FooterModule,
-    FixedPluginModule
+    BrowserModule,
+    APP_ROUTING,
+    SharedModule,
+    ClienteModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
