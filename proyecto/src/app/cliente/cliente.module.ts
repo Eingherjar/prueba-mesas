@@ -23,7 +23,11 @@ import { FinalizarComponent } from './finalizar/finalizar.component';
     ClienteRoutingModule
   ],
   exports:[
-    InformacionComponent
+    InformacionComponent,
+    VistaPlatosComponent,
+    VistaVendidosComponent,
+    PedidoComponent,
+    FinalizarComponent
   ]
 })
 export class ClienteModule { }
