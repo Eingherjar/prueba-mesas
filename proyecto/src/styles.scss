@@ -4,8 +4,37 @@
 // // Todos los botones
 $color-principal: #ff9200;
 $color-secundario: #707070;
+$color-terciario: #757575;
+$color-ayuda: #BCBCBC;
 $color-input: rgba(180, 180, 180, 0.2);
-$color-tercero: #757575;
+
+.textoPrimario{
+  color: $color-secundario;
+  font-size: 32px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+
+.textoSecundario{
+  color: $color-secundario;
+  font-size: 28px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
+.textoCuerpo{
+  color: $color-secundario;
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+}
+
+.textoAyuda{
+  color: $color-ayuda;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 200;
+}
 
 .btn-primary {
   color: white;
@@ -99,7 +128,7 @@ input[type="search"]:focus {
     font-weight: normal;
   }
   .card-text {
-    color: $color-tercero;
+    color: $color-terciario;
     font-size: 15px;
     font-weight: lighter;
   }
