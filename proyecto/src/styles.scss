@@ -152,4 +152,25 @@ input[type="search"]:focus {
       }
     }
   }
+
+  & > .col-md-4 >.card-img{
+    height: 176px;
+    max-height: 176px;
+    max-width: 176px;
+  }
+
+
+  & >.col-md-8 >.card-body{
+    padding: 31px 25px;
+    padding-bottom: 0px;
+
+    & >.card-text{
+      height: 30px;
+    }
+  } 
+}
+
+.select-plato{
+  background-color: $color-principal;
+  color: white;
 }
