@@ -1,0 +1,122 @@
+// Rating input
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+fieldset, label { margin: 0; padding: 0; }
+body{ margin: 20px; }
+h1 { font-size: 1.5em; margin: 10px; }
+
+/****** Style Star Rating Widget *****/
+
+.rating { 
+  border: none;
+  float: left;
+}
+
+.rating > input { display: none; } 
+.rating > label:before { 
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating > .half:before { 
+  content: "\f089";
+  position: absolute;
+}
+
+.rating > label { 
+  color: #ddd; 
+ float: right; 
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label { color:#ff9200;  } /* hover previous stars in list */
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label { color: #FFC77B;  }
+
+.container{
+    text-align: center;
+}
+
+#divHeader{
+    margin-top: 57px;
+    margin-bottom: 41px;
+}
+
+#divMensaje{
+    margin-top: 41px;
+    margin-bottom: 31px;
+}
+
+#divContainerRating{
+    height: 40px;
+
+    margin-top: 31px;
+    margin-bottom: 41px;
+
+    display:flex;
+    justify-content: center;
+}
+
+#divBtnConfirmar{
+    margin-top: 41px;
+    margin-bottom: 41px;
+}
+
+img{
+    max-width: 395px;
+    max-height: 220px;
+}
+
+#divImagen{
+    margin-top: 40px;
+    margin-bottom: 33.5px;
+
+    text-align: center;
+}
+
+#divMensajeTiempo{
+    margin-top: 33.5px;
+    margin-bottom: 20px;
+}
+
+#divContador{
+    margin-top: 20px;
+    margin-bottom: 44px;
+}
+
+#divBtnMenu{
+    margin-top: 44px;
+    margin-bottom: 44px;
+}
+
+@media only screen and (min-width: 768px){
+    #divMensaje{
+        margin-top: 41px;
+        margin-bottom: 70px;
+    }
+    
+    #divContainerRating{
+        height: 40px;
+    
+        margin-top: 70px;
+        margin-bottom: 41px;
+    
+        display:flex;
+        justify-content: center;
+    }
+  }
+
+  @media only screen and (min-width: 1024px){
+    .textoPrimario{
+        font-size: 55px;
+    }
+  }
