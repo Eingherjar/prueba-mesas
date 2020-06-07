@@ -10,13 +10,20 @@ $color-input: rgba(180, 180, 180, 0.2);
     padding: 10px;
 }
 input{
-    background-color: $color-input;
+    background-color: $color-input !important;
     border-radius: 5px !important;
     border: none;
+    height: 50px;
+    // icono
+    background: url(src/iconos/lupa.svg) no-repeat;
+    background-position: 95%;
+    // texto
+    text-decoration-line: none !important;
     color: $color-ayuda;
     font-size: 14px;
     font-family: "Roboto", sans-serif;
     font-weight: 200;
+    // texto
 
     &:hover {
         box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
@@ -24,11 +31,10 @@ input{
     }
 }
 button{
-    border-color: white;
-
+    border-color: rgba(255, 255, 255, 0);
     &:hover {
         border-color: rgba(255, 255, 255, 0) !important;
         background-color: rgba(255, 255, 255, 0) !important;
-        box-shadow: none !important;
+        box-shadow: unset !important;
       }
 }
