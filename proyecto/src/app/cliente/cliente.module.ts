@@ -8,13 +8,15 @@ import { VistaVendidosComponent } from './vista-vendidos/vista-vendidos.componen
 import { VistaPlatosComponent } from './vista-platos/vista-platos.component';
 import { PedidoComponent } from './pedido/pedido.component';
 import { FinalizarComponent } from './finalizar/finalizar.component';
+import { PlatosCategoriaComponent } from './platos-categoria/platos-categoria.component';
 @NgModule({
   declarations: [
     InformacionComponent,
     VistaVendidosComponent,
     VistaPlatosComponent,
     PedidoComponent,
-    FinalizarComponent
+    FinalizarComponent,
+    PlatosCategoriaComponent   
     ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import { FinalizarComponent } from './finalizar/finalizar.component';
     VistaPlatosComponent,
     VistaVendidosComponent,
     PedidoComponent,
-    FinalizarComponent
+    FinalizarComponent,
+    PlatosCategoriaComponent
   ]
 })
 export class ClienteModule { }
