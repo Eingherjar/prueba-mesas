@@ -15,6 +15,7 @@ $color-input: rgba(180, 180, 180, 0.2);
         padding: 10px;
 
         .form-control{
+            margin-top: 10px;
             background-color: $color-input !important;
             border-radius: 5px !important;
             border: none;
@@ -55,6 +56,8 @@ $color-input: rgba(180, 180, 180, 0.2);
             margin-right: 100%;
         }
     }
+
+    
 //-------------------------------------boton-------------------------------------------------
 //-------------------------------------lista-descripcion-------------------------------------------------
 
@@ -62,13 +65,22 @@ $color-input: rgba(180, 180, 180, 0.2);
         text-align: left;
         margin-left: auto;
         margin-right: auto;
+        border: none;
+        width: 600px;
+
     }
     #titulo{
         text-align: center;
+        margin-bottom: 50px;
     }
     #btn-a-p{
-         margin-left: 23%;
+        margin-top: 50px;
+        text-align: center !important;
     }
+    .card-body{
+        padding-left: 50px;
+    }
+    //LISTA
     ul{
         list-style: none;
         padding: 0;
@@ -80,3 +92,11 @@ $color-input: rgba(180, 180, 180, 0.2);
     }
 //-------------------------------------lista-descripcion-------------------------------------------------
 }
+@media (max-width: 600px) {
+    .card {
+      width: 100% !important;
+    }
+    .content{
+        width: 101%;
+    }
+  }
