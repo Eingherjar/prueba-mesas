@@ -16,7 +16,6 @@ export class PlatosCategoriaComponent implements OnInit {
   }
 
   contador(condicion){
-    console.log("entro", condicion);
     if(condicion == true){
       this.con++;
     }else{

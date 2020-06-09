@@ -55,4 +55,55 @@ $color-input: rgba(180, 180, 180, 0.2);
         }
     }
 //-------------------------------------boton-------------------------------------------------
+//-------------------------------------card-------------------------------------------------
+    .card{
+        flex-direction: unset;
+        align-items: center;
+        width: 100%;
+        height: min-content;
+
+        #imagen{
+            display: block;
+            float: left;
+            width: 25%;
+            height: min-content;
+        }
+        #cardb{
+            padding: 1%;
+            width: 65%;
+            height: min-content;
+            display: block;
+        }
+        #precio-agregar{
+            display: -webkit-box;
+        }
+        .btn-group.btn-group-toggle {
+            border: 1px solid rgba(0,0,0,.125);
+            border-radius: 4px;
+            margin: 100%;
+            margin-top: auto;
+            margin-bottom: auto;
+            
+            .btn.btn-secondary {
+              height: 20px;
+              color: black;
+              background-color: white;
+        
+              border: none;
+              p {
+                margin-top: -8.1px;
+                margin-bottom: 1rem;
+                // background-color: white;
+              }
+            }
+          }
+    }
+    
+//-------------------------------------card-------------------------------------------------
 }
+
+@media (max-width: 480px) {
+    .content{
+        width: max-content;
+    }
+  }
