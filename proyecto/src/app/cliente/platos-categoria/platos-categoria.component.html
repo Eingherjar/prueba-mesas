@@ -1,1 +1,66 @@
-<p>platos-categoria works!</p>
+<div class="content">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Buscar plato">
+        <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 3l-.743 2h-1.929l-3.474 12h-13.239l-4.615-11h16.812l-.564 2h-13.24l2.937 7h10.428l3.432-12h4.195zm-15.5 15c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5s1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm6.9-7-1.9 7c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z"/></svg></button>
+        </div>
+        <a href="#" id="btn-regresar" class="btn btn-primary">REGRESAR</a>
+    </div>
+    <h5 class="textoSecundario">Categoria</h5>
+<!-- card -->
+<!-- <div class="card">
+    <div id="imagen">
+        <img class="card-img-top" src="https://picsum.photos/300/300" alt="Imagen Descriptiva">
+    </div>
+    <div id="cardb" class="card-body">
+      <div id="imagen">
+      <h5 id="titulo" class="textoPrimario">Plato prueba</h5>
+      </div>
+      <div id="precio-agregar">
+        <p class="textoCuerpo">Descripción del plato</p>
+        <p id="precio" class="textoCuerpo">$32.000</p> 
+        <div class="btn-group btn-group-toggle" >
+            <label id="restar" class="btn btn-secondary" (click)="contador(false)">
+               <input type="radio" name="options" id="option1" checked /> 
+              <p>-</p>
+            </label>
+            <label id="contador" class="btn btn-secondary">{{con}}</label>
+            <label id="sumar" class="btn btn-secondary" (click)="contador(true)">
+               <input type="radio" name="options" id="option3" />
+              <p>+</p>
+            </label>
+          </div>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="card mb-3" (click)="active = !active"  [ngClass]="{'select-plato': active == true}">
+    <div class="row no-gutters">
+      <div class="col-md-4" style="width: 25%; height: auto;">
+        <img src="https://picsum.photos/120/120" class="card-img" style="width: auto; height: 100%;" alt="Imagen Descriptiva" />
+      </div>
+      <div class="col-md-8" style="width: 75%; height: auto;">
+        <div class="card-body" style="padding-bottom: 0px ;">
+          <h5 id="titulo" class="textoPrimario">Plato prueba</h5>
+          <div class="card-text" style="flex-direction: column;">
+            <p class="textoCuerpo">Descripción del plato</p>
+          </div>
+          <div id="p-a">
+            <p class="textoCuerpo">$32.000</p> 
+            <div class="btn-group btn-group-toggle" >
+              <label class="btn btn-secondary" (click)="contador(false)">
+                <!-- <input type="radio" name="options" id="option1" checked /> -->
+                <p>-</p>
+              </label>
+              <label class="btn btn-secondary">{{con}}</label>
+              <label class="btn btn-secondary" (click)="contador(true)">
+                <!-- <input type="radio" name="options" id="option3" /> -->
+                <p>+</p>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
