@@ -10,11 +10,11 @@
 <!-- card -->
 <div class="card">
     <div id="imagen">
-        <img class="card-img-top" src="https://picsum.photos/300/300" alt="Imagen Descriptiva">
+        <img id="img" class="card-img-top" src="https://picsum.photos/300/300" alt="Imagen Descriptiva">
     </div>
     <div id="cardb">
       <h5 id="titulo" class="textoPrimario">Plato prueba</h5>
-      <p class="textoCuerpo">Descripción del plato</p>
+      <p id="des" class="textoCuerpo">Descripción del plato</p>
       <div id="precio-agregar" >
         <p id="precio" class="textoCuerpo">$32.000</p> 
         <div class="btn-group btn-group-toggle" >
@@ -25,7 +25,7 @@
             <label id="sumar" class="btn btn-secondary" (click)="contador(true)">
               <p>+</p>
             </label>
-          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -17,7 +17,16 @@
         </ul>
         <p class="textoCuerpo">valor del plato:<br> $30.000</p>
         <div id="btn-a-p">
-          <a href="#"  class="btn btn-primary">AGREGAR PLATO</a>
+          <div class="btn-group btn-group-toggle" >
+            <label id="restar" class="btn btn-secondary" (click)="contador(false)"> 
+              <p>-</p>
+            </label>
+            <label id="contador" class="btn btn-secondary">{{con}}</label>
+            <label id="sumar" class="btn btn-secondary" (click)="contador(true)">
+              <p>+</p>
+            </label>
+          </div>
+          <a href="#" id="regresar" class="btn btn-primary">AGREGAR PLATO</a>
         </div>
       </div>
     </div>

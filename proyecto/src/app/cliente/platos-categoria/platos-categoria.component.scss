@@ -58,7 +58,6 @@ $color-input: rgba(180, 180, 180, 0.2);
 //-------------------------------------card-------------------------------------------------
     .card{
         flex-direction: unset;
-        align-items: center;
         width: 100%;
         height: min-content;
         margin-bottom: 10px;
@@ -72,41 +71,49 @@ $color-input: rgba(180, 180, 180, 0.2);
             display: block;
             float: left;
             width: 25%;
-            height: min-content;
+            height: auto;
         }
         #cardb{
             padding: 1%;
             width: 75%;
             height: auto;
-            display: block;
-        }
-        #precio-agregar{
             display: flex;
-            justify-content: space-between;
-
-            #precio{
-                margin: unset;
+            flex-direction: column;
+        
+            #precio-agregar{
+                margin-top: auto;
+                display: flex;
+                justify-content: space-between;
+    
+                #precio{
+                    margin: unset;
+                }
+            }#titulo{
+                margin-bottom: auto;
+            }#des{
+                margin-top: auto;
+                margin-bottom: auto;
+            }
+            .btn-group.btn-group-toggle {
+                border: 1px solid rgba(0,0,0,.125);
+                border-radius: 4px;
+                margin-top: auto;
+                margin-bottom: auto;
+                
+                .btn.btn-secondary {
+                    height: 20px;
+                    color: black;
+                    background-color: white;
+                    border: none;
+                  p {
+                    margin-top: -8.7px;
+                    margin-bottom: 1rem;
+                  }
+                }
             }
         }
-        .btn-group.btn-group-toggle {
-            border: 1px solid rgba(0,0,0,.125);
-            border-radius: 4px;
-            margin-top: auto;
-            margin-bottom: auto;
-            
-            .btn.btn-secondary {
-                height: 20px;
-                color: black;
-                background-color: white;
-                border: none;
-              p {
-                margin-top: -8.7px;
-                margin-bottom: 1rem;
-              }
-            }
-          }
+        
     }
-    
 //-------------------------------------card-------------------------------------------------
 }
 
