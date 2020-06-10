@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
 
   constructor() { }
-  condicion:string = "cambiar_password";
+  condicion:string = "validar";
 
 
   ngOnInit(): void {
