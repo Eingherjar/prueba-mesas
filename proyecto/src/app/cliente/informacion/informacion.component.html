@@ -8,7 +8,7 @@
   </div>
   <div id="descripcion">
     <div class="card">
-      <img class="card-img-top" src="https://picsum.photos/344/194" alt="Imagen demostrativa">
+      <img class="card-img-top" src="https://picsum.photos/600/300" alt="Imagen demostrativa">
       <div class="card-body">
         <h2 id="titulo" class="textoPrimario">Plato prueba</h2>
         <h5 class="textoCuerpo">Descripción del plato:</h5>
@@ -17,7 +17,16 @@
         </ul>
         <p class="textoCuerpo">valor del plato:<br> $30.000</p>
         <div id="btn-a-p">
-          <a href="#"  class="btn btn-primary">AGREGAR PLATO</a>
+          <div class="btn-group btn-group-toggle" >
+            <label id="restar" class="btn btn-secondary" (click)="contador(false)"> 
+              <p>-</p>
+            </label>
+            <label id="contador" class="btn btn-secondary">{{con}}</label>
+            <label id="sumar" class="btn btn-secondary" (click)="contador(true)">
+              <p>+</p>
+            </label>
+          </div>
+          <a href="#" id="regresar" class="btn btn-primary">AGREGAR PLATO</a>
         </div>
       </div>
     </div>

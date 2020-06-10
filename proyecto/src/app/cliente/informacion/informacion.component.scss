@@ -13,9 +13,8 @@ $color-input: rgba(180, 180, 180, 0.2);
     .input-group{
         margin-bottom: 0px !important;
         padding: 10px;
-
+        text-align: center;
         .form-control{
-            margin-top: 10px;
             background-color: $color-input !important;
             border-radius: 5px !important;
             border: none;
@@ -41,7 +40,7 @@ $color-input: rgba(180, 180, 180, 0.2);
             &:hover {
                 border-color: rgba(255, 255, 255, 0) !important;
                 background-color: rgba(255, 255, 255, 0) !important;
-                box-shadow: unset !important;
+                box-shadow: unset;
             }
         }
 //-------------------------------------buscador-------------------------------------------------
@@ -56,8 +55,6 @@ $color-input: rgba(180, 180, 180, 0.2);
             margin-right: 100%;
         }
     }
-
-    
 //-------------------------------------boton-------------------------------------------------
 //-------------------------------------lista-descripcion-------------------------------------------------
 
@@ -68,28 +65,54 @@ $color-input: rgba(180, 180, 180, 0.2);
         border: none;
         width: 600px;
 
+        #titulo{
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        #btn-a-p{
+            display: flex;
+            flex-direction: column;            
+            margin-top: 50px;
+            text-align: center !important;
+
+            .btn-group.btn-group-toggle {
+                border: 1px solid rgba(0,0,0,.125);
+                border-radius: 4px;
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 20px;
+                
+                .btn.btn-secondary {
+                    height: 20px;
+                    color: black;
+                    background-color: white;
+                    border: none;
+                  p {
+                    margin-top: -8.7px;
+                    margin-bottom: 1rem;
+                  }
+                }
+            }
+            #regresar{
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+        }
+        .card-body{
+            padding-left: 50px;
+        }
+        //LISTA
+        ul{
+            list-style: none;
+            padding: 0;
+        }li::before {
+            content: "\2D"; 
+            padding-right: 8px;
+            color:  $color-secundario;
+        }
     }
-    #titulo{
-        text-align: center;
-        margin-bottom: 50px;
-    }
-    #btn-a-p{
-        margin-top: 50px;
-        text-align: center !important;
-    }
-    .card-body{
-        padding-left: 50px;
-    }
-    //LISTA
-    ul{
-        list-style: none;
-        padding: 0;
-    }
-    li::before {
-        content: "\2D"; 
-        padding-right: 8px;
-        color:  $color-secundario;
-    }
+    
 //-------------------------------------lista-descripcion-------------------------------------------------
 }
 @media (max-width: 600px) {

@@ -9,7 +9,18 @@ export class PlatosCategoriaComponent implements OnInit {
 
   constructor() { }
 
+  active:boolean =false;
+
+  con = 0;
   ngOnInit(): void {
+  }
+
+  contador(condicion){
+    if(condicion == true){
+      this.con++;
+    }else{
+      this.con--;
+    }
   }
 
 }

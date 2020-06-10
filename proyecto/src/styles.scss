@@ -124,7 +124,7 @@ input[type="search"]:focus {
 
 .card.mb-3 {
   font-family: "Roboto", sans-serif;
-  
+
   .card-title {
     font-size: 29px;
     font-weight: normal;
@@ -138,8 +138,6 @@ input[type="search"]:focus {
   .btn-group.btn-group-toggle {
     border: 1px solid rgba(0,0,0,.125);
     border-radius: 4px;
-    margin-left: 70%;
-    margin-top: -80px;
     
     .btn.btn-secondary {
       height: 20px;
@@ -155,20 +153,20 @@ input[type="search"]:focus {
     }
   }
 
-  & > .col-md-4 >.card-img{
-    height: 176px;
-    max-height: 176px;
-    max-width: 176px;
-  }
+   & > .col-md-4 >.card-img{
+     height: 176px;
+     max-height: 176px;
+     max-width: 176px;
+   }
 
 
-  & >.col-md-8 >.card-body{
-    padding: 31px 25px;
-    padding-bottom: 0px;
+   & >.col-md-8 >.card-body{
+     padding: 31px 25px;
+     padding-bottom: 0px;
 
-    & >.card-text{
-      height: 30px;
-    }
+     & >.card-text{
+       height: 30px;
+     }
   } 
 }
 
