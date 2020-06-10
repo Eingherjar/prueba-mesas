@@ -5,7 +5,7 @@
   text-align: center;
   margin: 20px auto;
   //Imagen
-  .img-principal {
+  & > .img-principal {
     width: 100%;
     margin-bottom: 35px;
   }
@@ -34,9 +34,9 @@
 
     //box-user, password y submit
 
-    #box-inputs{
+    #box-inputs {
       display: block;
-      text-align: center;;
+      text-align: center;
       margin-bottom: 20px;
     }
     .box-submit {
@@ -79,10 +79,10 @@
     input[type="password"] {
       &:focus {
         outline: none;
-        border:transparent;
+        border: transparent;
         background-color: rgba(180, 180, 180, 0.12);
         border-bottom: 2px solid #ff9200;
-        caret-color:  #ff9200;
+        caret-color: #ff9200;
       }
     }
   }
@@ -115,4 +115,273 @@
     margin-top: 30px;
     height: 40px;
   }
+}
+
+//Responsive
+@media (max-width: 1024px) {
+  .content {
+    //Vista login
+    height: 470px;
+    & > .img-principal {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    & > .btn-login {
+      margin-top: 100px;
+
+      & > #primer-boton > .btn-primary {
+        width: 25%;
+      }
+      & > #segundo-boton > .btn-primary {
+        width: 25%;
+      }
+    }
+    //Fin vista login
+  }
+  //Vista login-usuario
+  .content.login-usuario {
+    height: 535px;
+    & > .content-inputs > #box-inputs > input {
+      width: 32%;
+    }
+    //Fin vista login-usuario
+  }
+  //Vista registro
+  .content.registro {
+    height: 590px;
+    .content-inputs > input {
+      width: 33%;
+    }
+  }
+  //Fin vista registro
+  //Vista validar
+  .v_validar {
+    height: 490px;
+
+    #validar_datos input{
+      width:32%;
+    }
+  }
+  //Fin vista validar
+
+   //Vista nueva contraseña
+   .password{
+    height: 490px;
+    #cambiar_password input{
+      width:32%;
+    }
+   }
+ //Fin vista nueva contraseña
+}
+
+@media (max-width: 768px) {
+  .content {
+    //Vista login
+    height: 470px;
+
+    & > .img-principal {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    & > .btn-login {
+      margin-top: 100px;
+
+      & > #primer-boton > .btn-primary {
+        width: 33%;
+      }
+      & > #segundo-boton > .btn-primary {
+        width: 33%;
+      }
+    }
+    //Fin de vista login
+  }
+  //Vista login-usuario
+  .content.login-usuario {
+    height: 535px;
+    & > .content-inputs > #box-inputs > input {
+      width: 42%;
+    }
+    //Fin vista login-usuario
+  }
+  //Vista registro
+  .content.registro {
+    height: 590px;
+    .content-inputs > input {
+      width: 42%;
+    }
+  }
+  //Fin vista registro
+   //Vista validar
+   .v_validar{
+    height: 495px;
+
+    #validar_datos input{
+      width:43%;
+    }
+  }
+  //Fin vista validar
+  //Vista nueva contraseña
+  .password{
+    height: 495px;
+    #cambiar_password input{
+      width:41%;
+    }
+   }
+ //Fin vista nueva contraseña
+}
+
+@media (max-width: 425px) {
+  .content {
+    //Vista login
+    height: 470px;
+    & > .img-principal {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    & > .btn-login {
+      margin-top: 100px;
+
+      & > #primer-boton > .btn-primary {
+        width: 60%;
+      }
+      & > #segundo-boton > .btn-primary {
+        width: 60%;
+      }
+    }
+    //Fin de vista login
+  }
+  //Vista login-usuario
+  .content.login-usuario {
+    height: 535px;
+    & > .content-inputs > #box-inputs > input {
+      width: 75%;
+    }
+  }
+  //Fin vista login-usuario
+  //Vista registro
+  .content.registro {
+    height: 590px;
+    .content-inputs > input {
+      width: 74%;
+    }
+  }
+  //Fin vista registro
+  //Vista validar
+  .v_validar{
+    height: 495px;
+
+    #validar_datos input{
+      width:74%;
+    }
+  }
+  //Fin vista validar
+  //Vista nueva contraseña
+  .password{
+    height: 495px;
+    #cambiar_password input{
+      width:73%;
+    }
+   }
+ //Fin vista nueva contraseña
+}
+@media (max-width: 375px) {
+  .content {
+    //Vista login
+    height: 470px;
+    & > .img-principal {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    & > .btn-login {
+      margin-top: 100px;
+
+      & > #primer-boton > .btn-primary {
+        width: 66%;
+      }
+      & > #segundo-boton > .btn-primary {
+        width: 66%;
+      }
+    }
+    //Fin vista login
+  }
+  //Vista login-usuario
+  .content.login-usuario {
+    height: 530px;
+    & > .content-inputs > #box-inputs > input {
+      width: 80%;
+    }
+  }
+  //Fin vista login-usuario
+  //Vista registro
+  .content.registro {
+    height: 590px;
+    .content-inputs > input {
+      width: 80%;
+    }
+  }
+  //Fin vista registro
+  //Vista validar
+  .v_validar{
+    height: 497px;
+
+    #validar_datos input{
+      width:85%;
+    }
+  }
+  //Fin vista validar
+  //Vista nueva contraseña
+  .password{
+    height: 497px;
+    #cambiar_password input{
+      width:84%;
+    }
+   }
+ //Fin vista nueva contraseña
+}
+
+@media (max-width: 320px) {
+  .content {
+    //Vista login
+    height: 470px;
+    & > .img-principal {
+      width: 100%;
+      margin-bottom: 20px;
+
+      & > img {
+        width: 95%;
+      }
+    }
+
+    & > .btn-login {
+      margin-top: 90px;
+
+      & > #primer-boton > .btn-primary {
+        width: 78%;
+      }
+      & > #segundo-boton > .btn-primary {
+        width: 78%;
+      }
+    }
+    //Fin vista login
+  }
+  //Vista login-usuario
+  .content.login-usuario {
+    height: 520px;
+    & > .content-inputs > #box-inputs > input {
+      width: 80%;
+    }
+  }
+  //Fin vista login-usuario
+  //Vista registro
+  .content.registro {
+    height: 590px;
+    .content-inputs > input {
+      width: 83%;
+    }
+  }
+  //Fin vista registro
 }
