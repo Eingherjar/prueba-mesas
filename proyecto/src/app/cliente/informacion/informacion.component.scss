@@ -6,14 +6,13 @@ $color-input: rgba(180, 180, 180, 0.2);
 
 .content{
     display: block;
-    width: 100%;
-    height: auto;
-    text-align: center;
+    width: 375px;
+    height: 812px;
+    margin-left: auto;
+    margin-right: auto;
 //-------------------------------------buscador-------------------------------------------------
     .input-group{
-        margin-bottom: 0px !important;
-        padding: 10px;
-        text-align: center;
+
         .form-control{
             background-color: $color-input !important;
             border-radius: 5px !important;
@@ -43,17 +42,14 @@ $color-input: rgba(180, 180, 180, 0.2);
                 box-shadow: unset;
             }
         }
+
+    }        
 //-------------------------------------buscador-------------------------------------------------
 //-------------------------------------boton-------------------------------------------------
-        #btn-regresar{
-            padding-top: 5px !important;
-            padding-bottom: 5px !important;
-            padding-left: 15px !important;
-            padding-right: 15px !important;
-            margin-top: 10px;
-            margin-bottom: 10px;
-            margin-right: 100%;
-        }
+    #btn-regresar{
+        margin-left: 10px;
+        margin-right: auto;
+        margin-bottom: 30px;
     }
 //-------------------------------------boton-------------------------------------------------
 //-------------------------------------lista-descripcion-------------------------------------------------
@@ -63,7 +59,6 @@ $color-input: rgba(180, 180, 180, 0.2);
         margin-left: auto;
         margin-right: auto;
         border: none;
-        width: 600px;
 
         #titulo{
             text-align: center;
@@ -99,27 +94,23 @@ $color-input: rgba(180, 180, 180, 0.2);
             }
 
         }
-        .card-body{
-            padding-left: 50px;
-        }
-        //LISTA
-        ul{
-            list-style: none;
-            padding: 0;
-        }li::before {
-            content: "\2D"; 
-            padding-right: 8px;
-            color:  $color-secundario;
+        .card-body{ 
+
+            #des-plato{
+                padding-left: 4s0px;
+            }
+            //LISTA
+            ul{
+                list-style: none;
+                padding: 0;
+                li::before {
+                    content: "\2D"; 
+                    padding-right: 8px;
+                    color:  $color-secundario;
+                }
+            }
         }
     }
     
 //-------------------------------------lista-descripcion-------------------------------------------------
 }
-@media (max-width: 600px) {
-    .card {
-      width: 100% !important;
-    }
-    .content{
-        width: 101%;
-    }
-  }

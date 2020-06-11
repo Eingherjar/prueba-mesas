@@ -6,12 +6,13 @@ $color-input: rgba(180, 180, 180, 0.2);
 
 .content{
     display: block;
-    width: 100%;
-    height: auto;
+    width: 375px;
+    height: 812px;
     padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
 //-------------------------------------buscador-------------------------------------------------
     .input-group{
-        margin-bottom: 10px !important;
 
         .form-control{
             background-color: $color-input !important;
@@ -42,17 +43,12 @@ $color-input: rgba(180, 180, 180, 0.2);
                 box-shadow: unset;
             }
         }
+    }
 //-------------------------------------buscador-------------------------------------------------
 //-------------------------------------boton-------------------------------------------------
-        #btn-regresar{
-            padding-top: 5px !important;
-            padding-bottom: 5px !important;
-            padding-left: 15px !important;
-            padding-right: 15px !important;
-            margin-top: 10px;
-            margin-bottom: 10px;
-            margin-right: 100%;
-        }
+    #btn-regresar{
+        margin-right: auto;
+        margin-bottom: 30px;
     }
 //-------------------------------------boton-------------------------------------------------
 //-------------------------------------card-------------------------------------------------
@@ -70,11 +66,11 @@ $color-input: rgba(180, 180, 180, 0.2);
         #imagen{
             display: block;
             float: left;
-            width: 25%;
+            width: 28%;
             height: auto;
         }
         #cardb{
-            padding: 1%;
+            padding: 2%;
             width: 75%;
             height: auto;
             display: flex;
@@ -90,6 +86,7 @@ $color-input: rgba(180, 180, 180, 0.2);
                 }
             }#titulo{
                 margin-bottom: auto;
+                color: black;
             }#des{
                 margin-top: auto;
                 margin-bottom: auto;
@@ -116,9 +113,3 @@ $color-input: rgba(180, 180, 180, 0.2);
     }
 //-------------------------------------card-------------------------------------------------
 }
-
-// @media (max-width: 480px) {
-//     .content{
-//         width: max-content;
-//     }
-//   }
