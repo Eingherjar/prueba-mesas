@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class BuscadorComponent implements OnInit {
 
   constructor() { }
-
+  condicion:string = "menu_principal";
   ngOnInit(): void {
   }
 
