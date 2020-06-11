@@ -12,6 +12,8 @@ $color-input: rgba(180, 180, 180, 0.2);
     margin-right: auto;
 //-------------------------------------buscador-------------------------------------------------
     .input-group{
+        padding: 10px;
+        margin-bottom: unset !important;
 
         .form-control{
             background-color: $color-input !important;
@@ -49,7 +51,7 @@ $color-input: rgba(180, 180, 180, 0.2);
     #btn-regresar{
         margin-left: 10px;
         margin-right: auto;
-        margin-bottom: 30px;
+        margin-bottom: 25px;
     }
 //-------------------------------------boton-------------------------------------------------
 //-------------------------------------lista-descripcion-------------------------------------------------

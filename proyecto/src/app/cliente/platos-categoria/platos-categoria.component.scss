@@ -13,7 +13,7 @@ $color-input: rgba(180, 180, 180, 0.2);
     margin-right: auto;
 //-------------------------------------buscador-------------------------------------------------
     .input-group{
-
+        margin-bottom: unset !important;
         .form-control{
             background-color: $color-input !important;
             border-radius: 5px !important;
@@ -47,8 +47,9 @@ $color-input: rgba(180, 180, 180, 0.2);
 //-------------------------------------buscador-------------------------------------------------
 //-------------------------------------boton-------------------------------------------------
     #btn-regresar{
+        margin-top: 10px;
         margin-right: auto;
-        margin-bottom: 30px;
+        margin-bottom: 25px;
     }
 //-------------------------------------boton-------------------------------------------------
 //-------------------------------------card-------------------------------------------------
