@@ -1,24 +1,400 @@
+<!------------------------------- MENU PRINCIPAL ---------------------------------------->
 <div class="content" [hidden]="condicion != 'menu_principal'">
+  <div class="lateral">
+    <div class="imagen">
+      <img src="https://picsum.photos/344/194" alt="menu_principal" />
+    </div>
+    <h2 class="textoSecundario">
+      NOMBRE DEL RESTAURANTE
+    </h2>
 
-    <div class="card">
+    <nav class="menu">
+      <ul class="textoSecundario">
+        <li>Menú</li>
+        <li>Mesas - códigos QR</li>
+        <li>Cerrar sesión</li>
+      </ul>
+    </nav>
+    <div class="clearfix"></div>
+  </div>
+
+  <!------------------------------- PLATOS DE MENÚ PRINCIPAL ---------------------------------------->
+  <section id="platos">
+    <div class="textoPrimario">AÑADIR PLATO +</div>
+    <h2 class="textoSecundario">PLATOS DISPONIBLES</h2>
+    <article>
+      <div class="card">
         <div id="imagen">
-            <img id="img" class="card-img-top" src="https://picsum.photos/300/300" alt="Imagen Descriptiva">
+          <img
+            id="img"
+            class="card-img-top"
+            src="https://picsum.photos/300/300"
+            alt="Imagen Descriptiva"
+          />
+        </div>
+        <div id="modificar"></div>
+        <div id="cardb">
+          <h5 id="titulo" class="textoPrimario">Plato prueba</h5>
+          <p id="des" class="textoCuerpo">Descripción del plato</p>
+          <div id="precio-agregar">
+            <p id="precio" class="textoCuerpo">$32.000</p>
+            <div class="btn-group btn-group-toggle">
+              <label
+                id="restar"
+                class="btn btn-secondary"
+                (click)="contador(false)"
+              >
+                <p>-</p>
+              </label>
+              <label id="contador" class="btn btn-secondary">
+                <p>{{ con }}</p>
+              </label>
+              <label
+                id="sumar"
+                class="btn btn-secondary"
+                (click)="contador(true)"
+              >
+                <p>+</p>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article>
+      <div class="card">
+        <div id="imagen">
+          <img
+            id="img"
+            class="card-img-top"
+            src="https://picsum.photos/300/300"
+            alt="Imagen Descriptiva"
+          />
         </div>
         <div id="cardb">
           <h5 id="titulo" class="textoPrimario">Plato prueba</h5>
           <p id="des" class="textoCuerpo">Descripción del plato</p>
-          <div id="precio-agregar" >
-            <p id="precio" class="textoCuerpo">$32.000</p> 
-            <div class="btn-group btn-group-toggle" >
-                <label id="restar" class="btn btn-secondary" (click)="contador(false)"> 
-                  <p>-</p>
-                </label>
-                <label id="contador" class="btn btn-secondary">{{con}}</label>
-                <label id="sumar" class="btn btn-secondary" (click)="contador(true)">
-                  <p>+</p>
-                </label>
+          <div id="precio-agregar">
+            <p id="precio" class="textoCuerpo">$32.000</p>
+            <div class="btn-group btn-group-toggle">
+              <label
+                id="restar"
+                class="btn btn-secondary"
+                (click)="contador(false)"
+              >
+                <p>-</p>
+              </label>
+              <label id="contador" class="btn btn-secondary">
+                <p>{{ con }}</p>
+              </label>
+              <label
+                id="sumar"
+                class="btn btn-secondary"
+                (click)="contador(true)"
+              >
+                <p>+</p>
+              </label>
             </div>
           </div>
         </div>
+      </div>
+    </article>
 
+    <article>
+      <div class="card">
+        <div id="imagen">
+          <img
+            id="img"
+            class="card-img-top"
+            src="https://picsum.photos/300/300"
+            alt="Imagen Descriptiva"
+          />
+        </div>
+        <div id="cardb">
+          <h5 id="titulo" class="textoPrimario">Plato prueba</h5>
+          <p id="des" class="textoCuerpo">Descripción del plato</p>
+          <div id="precio-agregar">
+            <p id="precio" class="textoCuerpo">$32.000</p>
+            <div class="btn-group btn-group-toggle">
+              <label
+                id="restar"
+                class="btn btn-secondary"
+                (click)="contador(false)"
+              >
+                <p>-</p>
+              </label>
+              <label id="contador" class="btn btn-secondary">
+                <p>{{ con }}</p>
+              </label>
+              <label
+                id="sumar"
+                class="btn btn-secondary"
+                (click)="contador(true)"
+              >
+                <p>+</p>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article>
+      <div class="card">
+        <div id="imagen">
+          <img
+            id="img"
+            class="card-img-top"
+            src="https://picsum.photos/300/300"
+            alt="Imagen Descriptiva"
+          />
+        </div>
+        <div id="cardb">
+          <h5 id="titulo" class="textoPrimario">Plato prueba</h5>
+          <p id="des" class="textoCuerpo">Descripción del plato</p>
+          <div id="precio-agregar">
+            <p id="precio" class="textoCuerpo">$32.000</p>
+            <div class="btn-group btn-group-toggle">
+              <label
+                id="restar"
+                class="btn btn-secondary"
+                (click)="contador(false)"
+              >
+                <p>-</p>
+              </label>
+              <label id="contador" class="btn btn-secondary">
+                <p>{{ con }}</p>
+              </label>
+              <label
+                id="sumar"
+                class="btn btn-secondary"
+                (click)="contador(true)"
+              >
+                <p>+</p>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article>
+      <div class="card">
+        <div id="imagen">
+          <img
+            id="img"
+            class="card-img-top"
+            src="https://picsum.photos/300/300"
+            alt="Imagen Descriptiva"
+          />
+        </div>
+        <div id="cardb">
+          <h5 id="titulo" class="textoPrimario">Plato prueba</h5>
+          <p id="des" class="textoCuerpo">Descripción del plato</p>
+          <div id="precio-agregar">
+            <p id="precio" class="textoCuerpo">$32.000</p>
+            <div class="btn-group btn-group-toggle">
+              <label
+                id="restar"
+                class="btn btn-secondary"
+                (click)="contador(false)"
+              >
+                <p>-</p>
+              </label>
+              <label id="contador" class="btn btn-secondary">
+                <p>{{ con }}</p>
+              </label>
+              <label
+                id="sumar"
+                class="btn btn-secondary"
+                (click)="contador(true)"
+              >
+                <p>+</p>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article>
+      <div class="card">
+        <div id="imagen">
+          <img
+            id="img"
+            class="card-img-top"
+            src="https://picsum.photos/300/300"
+            alt="Imagen Descriptiva"
+          />
+        </div>
+        <div id="cardb">
+          <h5 id="titulo" class="textoPrimario">Plato prueba</h5>
+          <p id="des" class="textoCuerpo">Descripción del plato</p>
+          <div id="precio-agregar">
+            <p id="precio" class="textoCuerpo">$32.000</p>
+            <div class="btn-group btn-group-toggle">
+              <label
+                id="restar"
+                class="btn btn-secondary"
+                (click)="contador(false)"
+              >
+                <p>-</p>
+              </label>
+              <label id="contador" class="btn btn-secondary">
+                <p>{{ con }}</p>
+              </label>
+              <label
+                id="sumar"
+                class="btn btn-secondary"
+                (click)="contador(true)"
+              >
+                <p>+</p>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
 </div>
+<!------------------------------- FIN MENU PRINCIPAL ---------------------------------------->
+
+<!------------------------------- INICIO AÑADIR PLATO -------------------------------------->
+<div
+  class="content agregar_plato"
+  [hidden]="condicion != 'vista_agregar_plato'"
+>
+  <div class="lateral">
+    <div class="imagen">
+      <img src="https://picsum.photos/344/194" alt="menu_principal" />
+    </div>
+    <h2 class="textoSecundario">
+      NOMBRE DEL RESTAURANTE
+    </h2>
+
+    <nav class="menu">
+      <ul class="textoSecundario">
+        <li>Menú</li>
+        <li>Mesas - códigos QR</li>
+        <li>Cerrar sesión</li>
+      </ul>
+    </nav>
+    <div class="clearfix"></div>
+  </div>
+
+  <!--------------------- AÑADIR NUEVO PLATO ----------------------->
+
+  <section class="nuevo_plato">
+    <h2 class="textoPrimario">NUEVO PLATO</h2>
+    <div id="box-inputs">
+      <input type="text" placeholder="Nombre del plato" /> <br />
+      <textarea
+        id="Descripcion"
+        cols="40"
+        rows="5"
+        placeholder=" Descripción del plato"
+      ></textarea>
+      <br />
+      <input type="number" placeholder="Precio del plato" /> <br />
+      <input type="file" value="Subir imagen" /> <br />
+      <input type="submit" class="btn-primary" value="Crear plato" /> <br />
+    </div>
+    <div class="clearfix"></div>
+  </section>
+  <!--------------------- CATEGORIAS ----------------------->
+
+  <div class="content_categorias">
+    <h2 class="textoSecundario">CATEGORÍAS</h2>
+    <div class="categoria">
+      <p class="textoCuerpo">
+        Categoría prueba: <input type="checkbox" checked="checked" />
+      </p>
+    </div>
+    <div class="categoria">
+      <p class="textoCuerpo">
+        Categoría prueba: <input type="checkbox" checked="checked" />
+      </p>
+    </div>
+    <div class="categoria">
+      <p class="textoCuerpo">
+        Categoría prueba: <input type="checkbox" checked="checked" />
+      </p>
+    </div>
+    <div class="categoria">
+      <p class="textoCuerpo">
+        Categoría prueba: <input type="checkbox" checked="checked" />
+      </p>
+    </div>
+    <div class="categoria">
+      <p class="textoCuerpo">
+        Categoría prueba: <input type="checkbox" checked="checked" />
+      </p>
+    </div>
+    <div class="categoria">
+      <p class="textoCuerpo">
+        Categoría prueba: <input type="checkbox" checked="checked" />
+      </p>
+    </div>
+    <div class="categoria">
+      <p class="textoCuerpo">
+        Categoría prueba: <input type="checkbox" checked="checked" />
+      </p>
+    </div>
+    <div class="categoria">
+      <p class="textoCuerpo">
+        Categoría prueba: <input type="checkbox" checked="checked" />
+      </p>
+    </div>
+  </div>
+</div>
+
+<!------------------------ MESAS QR ----------------------->
+
+<!------------------------------- INICIO MESAS QR -------------------------------------->
+<div
+  id= "mesas_qr" class="content"
+  [hidden]="condicion != 'vista_mesas_qr'"
+>
+  <div class="lateral">
+    <div class="imagen">
+      <img src="https://picsum.photos/344/194" alt="menu_principal" />
+    </div>
+    <h2 class="textoSecundario">
+      NOMBRE DEL RESTAURANTE
+    </h2>
+
+    <nav class="menu">
+      <ul class="textoSecundario">
+        <li>Menú</li>
+        <li>Mesas - códigos QR</li>
+        <li>Cerrar sesión</li>
+      </ul>
+    </nav>
+    <div class="clearfix"></div>
+  </div>
+
+  <section id="content_section" class="nuevo_plato">
+    <h2 class="textoPrimario">MESAS</h2>
+    <div class="content_codigos_qr">
+       <article>
+           <img src="https://static-unitag.com/images/help/QRCode/qrcode.png?mh=07b7c2a2" alt="codigo">
+       </article>
+       <article>
+        <img src="https://static-unitag.com/images/help/QRCode/qrcode.png?mh=07b7c2a2" alt="codigo">
+    </article>
+    <article>
+        <img src="https://static-unitag.com/images/help/QRCode/qrcode.png?mh=07b7c2a2" alt="codigo">
+    </article>
+    <article>
+        <img src="https://static-unitag.com/images/help/QRCode/qrcode.png?mh=07b7c2a2" alt="codigo">
+    </article>
+    <article>
+        <img src="https://static-unitag.com/images/help/QRCode/qrcode.png?mh=07b7c2a2" alt="codigo">
+    </article>
+    </div>
+  </section>
+</div>
+  <!--------------------- MESAS QR ----------------------->
+
+  
