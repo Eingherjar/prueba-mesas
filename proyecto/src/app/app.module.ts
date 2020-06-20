@@ -8,11 +8,13 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { ClienteComponent } from './cliente/cliente.component'
 import {SharedComponent} from './shared/shared.component';
+import { AdministradorComponent } from './administrador/administrador.component';
 @NgModule({
   declarations: [
     AppComponent,
     ClienteComponent,
     SharedComponent,
+    AdministradorComponent,
   ],
   imports: [
     BrowserModule,
