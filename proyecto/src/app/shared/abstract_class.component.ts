@@ -5,8 +5,7 @@ export class class_http {
   public API_URL = 'https://rest-api-qdxcx3pcaa-uc.a.run.app/';
   public getHeaders(){
     let headers =  new HttpHeaders({
-        'Content-Type': 'application/json',
-        'charset':'utf-8'
+      "Content-Type": "application/json"
       });
 
     return {headers}
