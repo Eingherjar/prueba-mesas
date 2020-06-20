@@ -1,0 +1,241 @@
+//-------------------------------CONTENEDOR----------------------------------------------------------
+.content {
+  width: 100%;
+  height: auto;
+
+  .clearfix {
+    clear: both;
+    float: none;
+  }
+  //-------------------------------Lateral----------------
+  & > .lateral {
+    display: block;
+    float: left;
+    width: 25%;
+    height: 620px;
+    padding: 4px;
+    border: 1px solid #ccc;
+
+    .imagen {
+      display: block;
+      width: 100%;
+      margin-bottom: 25px;
+      & > img {
+        display: block;
+        width: 100%;
+      }
+    }
+    & > .textoSecundario {
+      font-size: 20px;
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .menu {
+      display: block;
+      width: 100%;
+      margin-top: 4%;
+
+      & > ul > li {
+        display: block;
+        font-size: 20px;
+        text-decoration: none;
+        line-height: 35px;
+      }
+    }
+  }
+
+  //------------------------------- PLATOS ----------------
+
+  #platos {
+    display: block;
+    float: right;
+    width: 75%;
+    padding: 1% 5%;
+
+    //#modificar {
+    //------------------------------- FALTA ----------------
+    //}
+    .textoPrimario {
+      display: block;
+      font-weight: 500;
+      margin-top: 30px;
+      margin-bottom: 40px;
+      color: #ff9200;
+    }
+
+    .textoSecundario {
+      display: inline-block;
+      font-size: 24px;
+      font-weight: 500;
+      margin-bottom: 18px;
+    }
+
+    & > article > .card {
+      display: block;
+      float: left;
+      width: 49%;
+      margin-right: 1%;
+      height: min-content;
+      margin-bottom: 10px;
+
+      &:hover {
+        box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+          0 2px 10px 1px rgba(0, 0, 0, 0.13), 0 3px 12px 2px rgba(0, 0, 0, 0.1);
+      }
+
+      #imagen {
+        display: block;
+        float: left;
+        width: 28%;
+        height: auto;
+      }
+      #cardb {
+        padding: 2%;
+        width: 72%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+
+        #precio-agregar {
+          margin-top: auto;
+          display: flex;
+          justify-content: space-between;
+
+          #precio {
+            margin: unset;
+          }
+        }
+        #titulo {
+          margin-bottom: auto;
+          color: black;
+        }
+        #des {
+          margin-top: auto;
+          margin-bottom: auto;
+        }
+        .btn-group.btn-group-toggle {
+          border: 1px solid rgba(0, 0, 0, 0.125);
+          border-radius: 4px;
+          margin-top: auto;
+          margin-bottom: auto;
+
+          .btn.btn-secondary {
+            height: 20px;
+            color: black;
+            background-color: white;
+            border: none;
+            p {
+              margin-top: -8.7px;
+              margin-bottom: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  //----------------------------------------FIN MENU PRINCIPAL------------------------------------------------
+
+  //-------------------------------------INICIO AÑADIR PLATO------------------------------------------------
+
+  .nuevo_plato {
+    display: inline-block;
+    width: 53%;
+    padding: 2% 0% 0% 5%;
+
+    .textoPrimario {
+      display: block;
+      font-weight: 500;
+      margin-top: 20px;
+      margin-bottom: 40px;
+      color: #ff9200;
+    }
+    & > #box-inputs {
+      display: block;
+      width: 100%;
+    }
+    input[type="text"],
+    input[type="file"],
+    input[type="number"] {
+      width: 70%;
+      height: 48px;
+      padding: 7px 8px;
+      border: none;
+      outline: unset;
+      border-radius: 4px 4px 0px 0px;
+      background-color: rgba(180, 180, 180, 0.09);
+      margin-bottom: 25px;
+      transition: all 0.5ms;
+    }
+
+    #Descripcion {
+      display: block;
+      outline: unset;
+      width: 70%;
+      border: none;
+      padding: 6px;
+      background-color: rgba(180, 180, 180, 0.09);
+    }
+
+    input[type="submit"] {
+      height: 36px;
+      width: 25%;
+      margin-left: 25%;
+      margin-bottom: 5%;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    #Descripcion {
+      &:focus {
+        outline: unset;
+        border: transparent;
+        background-color: rgba(180, 180, 180, 0.12);
+        border-bottom: 2px solid #ff9200;
+        caret-color: #ff9200;
+      }
+    }
+    ::-webkit-input-placeholder {
+      color: rgba(97, 94, 94, 0.8);
+      font-weight: 500;
+      border: none;
+    }
+  }
+  //-------------------------------------CATEGORIA------------------------------------------------
+
+  .content_categorias {
+    display: block;
+    float: right;
+    width: 20%;
+    margin-top: 3%;
+    margin-right: 2%;
+    padding: 3% 1% 2% 1%;
+
+    .textoSecundario {
+      line-height: 2px;
+      margin-bottom: 20px;
+    }
+    & > .categoria {
+      display: block;
+      padding: 2%;
+      border-radius: 4px;
+      box-shadow: 0px 1px 2px #ccc;
+      margin-bottom: 10px;
+    }
+
+    input[type="checkbox"] {
+      box-sizing: border-box;
+      padding: 0;
+      margin-left: 38%;
+    }
+  }
+  //---------------------------------------CÓDIGO QR----------------------------------------------
+
+  #content_section {
+    width: 60%;
+    .content_codigos_qr {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}

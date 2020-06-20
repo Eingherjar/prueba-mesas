@@ -1,12 +1,117 @@
-<!-- login -->
-<p>login works!</p>
+
+<!-- login de inicio-->
+<div class="content" [hidden]="condicion != 'login_inicio'">
+  <div class="img-principal">
+    <img src="https://picsum.photos/344/194" alt="principal" />
+  </div>
+  <h2 class="textoSecundario">
+    ¡Nuevo menú virtual!
+  </h2>
+  <div class="btn-login">
+    <div id="primer-boton">
+      <button class="btn-primary">INICIAR SESIÓN</button>
+    </div>
+    <div id="segundo-boton">
+      <button class="btn-primary">INGRESAR COMO INVITADO</button>
+    </div>
+  </div>
+</div>
 <!-- cierrre de login -->
 
 
+
 <!-- login usuario -->
-<p>login works!</p>
+
+<div class="content login-usuario" [hidden]="condicion != 'vista_iniciar'">
+  <div class="img-principal">
+    <img src="https://picsum.photos/344/194" alt="principal" />
+  </div>
+  <h2 class="textoPrimario">
+    Iniciar sesión
+  </h2>
+
+  <div class="content-inputs">
+    <!-- Usuario -->
+    <div id="box-inputs">
+      <input type="text" placeholder="Usuario" /> <br />
+      <input type="password" placeholder="Contraseña" />
+    </div>
+    <!-- Ingresar -->
+    <div id="iniciar" class="box-submit">
+      <input type="submit" class="btn-primary" value="INGRESAR" /> <br />
+      <a href="#" class="textoCuerpo">¿Ha olvidado su contraseña?</a>
+    </div>
+  </div>
+</div>
+
 <!-- cierre login usuario -->
 
+
 <!-- registro -->
-<p>login works!</p>
+
+<div class="content registro" [hidden]="condicion != 'registrarse'">
+  <div class="img-principal">
+    <img src="https://picsum.photos/344/194" alt="principal" />
+  </div>
+  <h2 class="textoSecundario">
+    Ingresar credenciales
+  </h2>
+  <div id="datos" class="content-inputs">
+    <input type="text" class="pedir_datos" placeholder="Usuario" /><br />
+    <input type="text" class="pedir_datos" placeholder="Correo" /> <br />
+    <input type="password" class="pedir_datos" placeholder="Contraseña" />
+  </div>
+
+  <div id="RadioButton">
+    <input type="radio" class="r_button" name="optradio" checked /> Masculino
+    <input type="radio" class="r_button" name="optradio" /> Femenino
+    <input type="radio" class="r_button" name="optradio" /> Otro
+  </div>
+
+  <div class="box-submit">
+    <input type="submit" class="btn-primary registro" value="REGISTRAR" />
+  </div>
+</div>
 <!-- cierre registro -->
+
+
+<!-- Validar usuario -->
+<div class="content v_validar" [hidden]="condicion != 'validar'">
+  <div class="img-principal">
+    <img src="https://picsum.photos/344/194" alt="principal" />
+  </div>
+  <h2 class="textoSecundario">
+    Validar usuario
+  </h2>
+  <div id="validar_datos" class="content-inputs">
+    <input type="text" class="pedir_datos" placeholder="Usuario" /><br />
+    <input type="text" class="pedir_datos" placeholder="Correo" /> <br />
+  </div>
+
+  <div class="box-submit">
+    <input type="submit" class="btn-primary registro" value="VALIDAR USUARIO" />
+  </div>
+</div>
+<!-- Fin de validar usuario -->
+
+
+<!-- Cambiar contraseña -->
+
+<div class="content password" [hidden]="condicion != 'cambiar_password'">
+  <div class="img-principal">
+    <img src="https://picsum.photos/344/194" alt="principal" />
+  </div>
+  <h2 class="textoSecundario">
+    Cambiar contraseña
+  </h2>
+  <div id="cambiar_password" class="content-inputs">
+    <input type="password" class="pedir_datos" placeholder="Nueva contraseña" /><br />
+    <input type="password" class="pedir_datos" placeholder="Confirmar contraseña" /> <br />
+  </div>
+
+  <div class="box-submit">
+    <input type="submit" class="btn-primary registro" value="CAMBIAR CONTRASEÑA" />
+  </div>
+</div>
+
+<!-- Fin de cambiar contraseña -->
