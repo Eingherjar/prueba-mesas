@@ -1,5 +1,5 @@
 <!-- login de inicio-->
-<div class="content" [hidden]="condicion != 'login_inicio'">
+<div class="content" *ngIf="condicion == 'login_inicio'">
   <div class="img-principal">
     <img src="https://picsum.photos/344/194" alt="principal" />
   </div>
@@ -20,7 +20,7 @@
 
 <!-- login usuario -->
 
-<div class="content login-usuario" [hidden]="condicion != 'vista_iniciar'">
+<div class="content login-usuario" *ngIf="condicion == 'vista_iniciar'">
   <div class="img-principal">
     <img src="https://picsum.photos/344/194" alt="principal" />
   </div>
@@ -46,7 +46,7 @@
 
 <!-- registro -->
 
-<div class="content registro" [hidden]="condicion != 'registrarse'">
+<div class="content registro"*ngIf="condicion == 'registrarse'">
   <div class="img-principal">
     <img src="https://picsum.photos/344/194" alt="principal" />
   </div>
@@ -72,7 +72,7 @@
 <!-- cierre registro -->
 
 <!-- Validar usuario -->
-<div class="content v_validar" [hidden]="condicion != 'validar'">
+<div class="content v_validar" *ngIf="condicion == 'validar'">
   <div class="img-principal">
     <img src="https://picsum.photos/344/194" alt="principal" />
   </div>
@@ -92,7 +92,7 @@
 
 <!-- Cambiar contraseña -->
 
-<div class="content password" [hidden]="condicion != 'cambiar_password'">
+<div class="content password" *ngIf="condicion == 'cambiar_password'">
   <div class="img-principal">
     <img src="https://picsum.photos/344/194" alt="principal" />
   </div>

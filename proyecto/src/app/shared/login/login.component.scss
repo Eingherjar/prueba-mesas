@@ -28,7 +28,7 @@
   .content-inputs {
     display: block;
     margin-top: 40px;
-    color: #ff9200;
+    color: var(--color-principal);
     font-family: "Roboto";
     font-weight: 200;
 
@@ -81,8 +81,8 @@
         outline: none;
         border: transparent;
         background-color: rgba(180, 180, 180, 0.12);
-        border-bottom: 2px solid #ff9200;
-        caret-color: #ff9200;
+        border-bottom: 2px solid var(--color-principal);
+        caret-color: var(--color-principal);
       }
     }
   }
@@ -103,7 +103,7 @@
     font-family: "Roboto";
     font-size: 15px;
     text-align: center;
-    color: #707070;
+    color: var(--color-secundario);
 
     .r_button {
       margin-top: 5px;
