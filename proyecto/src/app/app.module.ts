@@ -12,7 +12,7 @@ import {SharedComponent} from './shared/shared.component';
   declarations: [
     AppComponent,
     ClienteComponent,
-    SharedComponent   
+    SharedComponent,
   ],
   imports: [
     BrowserModule,
