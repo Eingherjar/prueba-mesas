@@ -174,6 +174,7 @@ api.get('/Platos/Disponibles', async (req, res) => {
 api.get('/Platos/NoDisponibles', async (req, res) => {  
     const platos = await No_Disponibles();
 
+    res.append('Access-Control-Allow-Origin','*')
     if (platos[0][0].id_alerta){
         res.json({
             status: "error",
@@ -448,17 +449,17 @@ app.use(api);
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.writeHead(200,{'Access-Control-Allow-Origin':'*'});
 
     // Request methods you wish to allow
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.header('Access-Control-Allow-Methods', '*');
 
     // Request headers you wish to allow
-    res.setHeader('Access-Control-Allow-Headers', 'content-type');
+    res.header('Access-Control-Allow-Headers', 'content-type');
 
     // Set to true if you need the website to include cookies in the requests sent
     // to the API (e.g. in case you use sessions)
-    res.setHeader('Access-Control-Allow-Credentials', false);
+    res.header('Access-Control-Allow-Credentials', false);
 
     // Pass to next layer of middleware
     next();
