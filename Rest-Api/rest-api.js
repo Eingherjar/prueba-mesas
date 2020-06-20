@@ -16,18 +16,18 @@ function getDbPool() {
         cachedDbPool = mysql.createPool({
             // nada mas se puede descomentar cuando se va subir a google cloud
             // (cuando se suba hay que montar una nueva imagen que contenga los nuevos cambios)
-            // connectionLimit: 1,
-            // user: process.env.SQL_USER,
-            // password: process.env.SQL_PASSWORD,
-            // database: process.env.SQL_NAME,
-            // socketPath: `/cloudsql/${process.env.INST_CON_NAME}`
+            connectionLimit: 1,
+            user: process.env.SQL_USER,
+            password: process.env.SQL_PASSWORD,
+            database: process.env.SQL_NAME,
+            socketPath: `/cloudsql/${process.env.INST_CON_NAME}`
 
 
             // esto nada mas se descomenta cuando se estan haciendo pruebas locales
-            host: "34.95.157.90",
-            user: "mesasdb",
-            password: "mesasdb123",
-            database: 'mesas_interactivas'
+            // host: "34.95.157.90",
+            // user: "mesasdb",
+            // password: "mesasdb123",
+            // database: 'mesas_interactivas'
         });
 
 
@@ -49,7 +49,7 @@ app.get('/', async (req, res) => {
 // Inicio de las rutas de los usarios
 
 // ruta del login del usuario
-api.get('/Usuario/Login', async (req, res) => { 
+api.post('/Usuario/Login', async (req, res) => { 
     let parametros ={
         nombre:req.body.nombre,
         contraseña: req.body.password
@@ -104,7 +104,7 @@ api.post('/Usuario/Crear', async (req, res) => {
 });
 
 // ruta para verificar usuario para el cambio de contraseña
-api.get('/Usuario/Verificar', async (req, res) => { 
+api.post('/Usuario/Verificar', async (req, res) => { 
     let parametros ={
         nombre:req.body.nombre,
         correo: req.body.correo
@@ -291,7 +291,7 @@ api.get('/Categorias', async (req, res) => {
 });
 
 // ruta para mostrar las todos los platos que tiene una categoria
-api.get('/Categorias/Id', async (req, res) => {  
+api.post('/Categorias/Id', async (req, res) => {  
     let parametros ={
         id_categoria: req.body.id_categoria
     }
@@ -312,7 +312,7 @@ api.get('/Categorias/Id', async (req, res) => {
 });
 
 // ruta poara mostrar los detalles de un plato
-api.get('/Plato/Id', async (req, res) => {  
+api.post('/Plato/Id', async (req, res) => {  
     let parametros ={
         id_plato: req.body.id_plato
     }
