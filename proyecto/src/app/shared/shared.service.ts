@@ -11,9 +11,10 @@ export class SharedService extends class_http {
   constructor( private http:HttpClient) {
     super();
   }
+  headers: string='application/json'
 
   login(data):Observable<Object>{
-    return this.http.get(this.API_URL+'Usuario/Login',data).pipe(
+    return this.http.post(this.API_URL+'Usuario/Login',data, this.getHeaders()).pipe(
       map(data=>{
         console.log("datos que trae la peticion del login",data);
         return data
