@@ -1,58 +1,27 @@
-<div class="content">
-    <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Buscar plato">
-        <div class="input-group-append">
-        <button class="btn btn-outline-secondary" type="button" id="button-addon2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 3l-.743 2h-1.929l-3.474 12h-13.239l-4.615-11h16.812l-.564 2h-13.24l2.937 7h10.428l3.432-12h4.195zm-15.5 15c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5s1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm6.9-7-1.9 7c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z"/></svg></button>
-        </div>
-        <a href="#" id="btn-regresar" class="btn btn-primary">REGRESAR</a>
-    </div>
-    <h5 class="textoSecundario">Categoria</h5>
-<!-- card -->
 <div class="card">
-    <div id="imagen">
-        <img id="img" class="card-img-top" src="https://picsum.photos/300/300" alt="Imagen Descriptiva">
-    </div>
-    <div id="cardb">
-      <h5 id="titulo" class="textoPrimario">Plato prueba</h5>
-      <p id="des" class="textoCuerpo">Descripción del plato</p>
-      <div id="precio-agregar" >
-        <p id="precio" class="textoCuerpo">$32.000</p> 
-        <div class="btn-group btn-group-toggle" >
-            <label id="restar" class="btn btn-secondary" (click)="contador(false)"> 
-              <p>-</p>
-            </label>
-            <label id="contador" class="btn btn-secondary">{{con}}</label>
-            <label id="sumar" class="btn btn-secondary" (click)="contador(true)">
-              <p>+</p>
-            </label>
-        </div>
+  <div class="imagen">
+    <img src="https://picsum.photos/110/135" alt="Imagen Descriptiva" />
+  </div>
+  <div class="cardb">
+    <h5 class="titulo" class="textoPrimario">Plato prueba</h5>
+    <p class="des" class="textoCuerpo">Descripción del plato</p>
+    <div class="precio-agregar">
+      <p class="precio" class="textoCuerpo">$32.000</p>
+      <div class="btn-group btn-group-toggle">
+        <label
+          class="restar"
+          class="btn btn-secondary"
+          (click)="contador(false)"
+        >
+          <p>-</p>
+        </label>
+        <label id="contador" class="btn btn-secondary">
+          <p>{{ con }}</p>
+        </label>
+        <label class="sumar" class="btn btn-secondary" (click)="contador(true)">
+          <p>+</p>
+        </label>
       </div>
     </div>
   </div>
-<!-- 
-  <div class="card mb-3" style="width: 100%; height: min-content; display: block;">
-    <div class="row no-gutters">
-      <div class="col-md-4">
-        <img src="https://picsum.photos/120/120" class="card-img" style="width: 100%; height: auto;" alt="Imagen Descriptiva" />
-      </div>
-      <div class="col-md-8">
-        <div class="card-body" style="height: auto; padding: 0%; padding-left: 1%;">
-          <h5 id="titulo" class="textoPrimario">Plato prueba</h5>
-          <div class="card-text" style="flex-direction: column;">
-            <p class="textoCuerpo">Descripción del plato</p>
-          </div>
-            <p class="textoCuerpo">$32.000</p> 
-            <div class="btn-group btn-group-toggle" style="margin-bottom: 0px;">
-              <label class="btn btn-secondary" (click)="contador(false)">   
-                <p>-</p>
-              </label>
-              <label class="btn btn-secondary">{{con}}</label>
-              <label class="btn btn-secondary" (click)="contador(true)">
-                <p>+</p>
-              </label>
-            </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
+</div>
