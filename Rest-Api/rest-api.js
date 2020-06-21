@@ -54,6 +54,7 @@ res.append('Access-Control-Allow-Origin','*')
 api.post('/Usuario/Login', async (req, res) => {
 
 res.append('Access-Control-Allow-Origin','*') 
+res.append('Access-Control-Allow-Methods','*')
     let parametros ={
         nombre:req.body.nombre,
         contraseña: req.body.password
