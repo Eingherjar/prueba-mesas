@@ -44,7 +44,6 @@ app.listen(port, () => {
 
 app.get('/', async (req, res) => {
 
-res.append('Access-Control-Allow-Origin','*')
     res.json({
         status: 'success',
         data: "se ha conectado satisfactoriamente"
@@ -56,8 +55,8 @@ res.append('Access-Control-Allow-Origin','*')
 // ruta del login del usuario
 api.post('/Usuario/Login', async (req, res) => {
 
-res.append('Access-Control-Allow-Origin','*') 
-res.append('Access-Control-Allow-Methods','*')
+res.append('Access-Control-Allow-Methods','*') 
+
     let parametros ={
         nombre:req.body.nombre,
         contraseña: req.body.password
@@ -80,7 +79,7 @@ res.append('Access-Control-Allow-Methods','*')
 // ruta para entrar como usuario invitado
 api.get('/Usuario/LoginInvitado', async (req, res) => {
 
-res.append('Access-Control-Allow-Origin','*')  
+res.append('Access-Control-Allow-Methods','*')  
     const user = await Login_Invitado();
     res.json({
         estado: "success",
@@ -92,7 +91,7 @@ res.append('Access-Control-Allow-Origin','*')
 // ruta para la creacion del usuario
 api.post('/Usuario/Crear', async (req, res) => {
 
-res.append('Access-Control-Allow-Origin','*') 
+res.append('Access-Control-Allow-Methods','*') 
     let parametros ={
         nombre:req.body.nombre,
         correo:req.body.correo,
@@ -118,7 +117,7 @@ res.append('Access-Control-Allow-Origin','*')
 // ruta para verificar usuario para el cambio de contraseña
 api.post('/Usuario/Verificar', async (req, res) => {
 
-res.append('Access-Control-Allow-Origin','*') 
+res.append('Access-Control-Allow-Methods','*') 
     let parametros ={
         nombre:req.body.nombre,
         correo: req.body.correo
@@ -141,7 +140,7 @@ res.append('Access-Control-Allow-Origin','*')
 // ruta para cambiar la contraseña del usuario
 api.post('/Usuario/Cambiar', async (req, res) => {
 
-res.append('Access-Control-Allow-Origin','*') 
+res.append('Access-Control-Allow-Methods','*') 
     let parametros ={
         id_usuario:req.body.id_usuario,
         password: req.body.password
@@ -171,7 +170,7 @@ res.append('Access-Control-Allow-Origin','*')
 // ruta para mostrar los platos disponibles tanto para el administrador como para los usuarios
 api.get('/Platos/Disponibles', async (req, res) => {
 
-res.append('Access-Control-Allow-Origin','*')  
+res.append('Access-Control-Allow-Methods','*')  
     const platos = await Disponibles();
 
     if (platos[0][0].id_alerta){
@@ -190,7 +189,7 @@ res.append('Access-Control-Allow-Origin','*')
 
 // ruta para traer los platos no disponibles
 api.get('/Platos/NoDisponibles', async (req, res) => {
-res.append('Access-Control-Allow-Origin','*')  
+res.append('Access-Control-Allow-Methods','*')  
     const platos = await No_Disponibles();
 
     
@@ -210,7 +209,7 @@ res.append('Access-Control-Allow-Origin','*')
 
 // ruta para crear platos
 api.post('/Platos/Crear', async (req, res) => {
-res.append('Access-Control-Allow-Origin','*') 
+res.append('Access-Control-Allow-Methods','*') 
     let parametros ={
         nombre:req.body.nombre,
         precio:req.body.precio,
@@ -237,7 +236,7 @@ res.append('Access-Control-Allow-Origin','*')
 
 // ruta para mnodificar un plato
 api.post('/Platos/Modificar', async (req, res) => {
-res.append('Access-Control-Allow-Origin','*') 
+res.append('Access-Control-Allow-Methods','*') 
     let parametros ={
         id:req.body.id,
         nombre:req.body.nombre,
@@ -266,7 +265,7 @@ res.append('Access-Control-Allow-Origin','*')
 // ruta para asignar categorias a un plato
 api.post('/Categorias/Agregar', async (req, res) => {
 
-res.append('Access-Control-Allow-Origin','*') 
+res.append('Access-Control-Allow-Methods','*') 
     let parametros ={
         id_plato:req.body.id_plato,
         id_categoria: req.body.id_categoria
@@ -298,7 +297,7 @@ res.append('Access-Control-Allow-Origin','*')
 
 // ruta para mostrar todas las categorias activas
 api.get('/Categorias', async (req, res) => {
-res.append('Access-Control-Allow-Origin','*')  
+res.append('Access-Control-Allow-Methods','*')  
     const platos = await Mostrar_Categorias();
 
     if (platos[0][0].id_alerta){
@@ -318,7 +317,7 @@ res.append('Access-Control-Allow-Origin','*')
 // ruta para mostrar las todos los platos que tiene una categoria
 api.post('/Categorias/Id', async (req, res) => {
 
-res.append('Access-Control-Allow-Origin','*')  
+res.append('Access-Control-Allow-Methods','*')  
     let parametros ={
         id_categoria: req.body.id_categoria
     }
@@ -341,7 +340,7 @@ res.append('Access-Control-Allow-Origin','*')
 // ruta poara mostrar los detalles de un plato
 api.post('/Plato/Id', async (req, res) => {
 
-res.append('Access-Control-Allow-Origin','*')  
+res.append('Access-Control-Allow-Methods','*')  
     let parametros ={
         id_plato: req.body.id_plato
     }
@@ -367,7 +366,7 @@ res.append('Access-Control-Allow-Origin','*')
 // ruta para realizar pedidos
 api.post('/Pedidos/Realizar', async (req, res) => {
 
-res.append('Access-Control-Allow-Origin','*') 
+res.append('Access-Control-Allow-Methods','*') 
     let parametros ={
         id_usuario:req.body.id_usuario,
         mesa:req.body.mesa,
@@ -394,7 +393,7 @@ res.append('Access-Control-Allow-Origin','*')
 // ruta para especificar los platos que tiene un pedido (error de fecha pedido)
 api.post('/Pedidos/Especificar', async (req, res) => {
 
-res.append('Access-Control-Allow-Origin','*') 
+res.append('Access-Control-Allow-Methods','*') 
     let parametros ={
         id_pedido:req.body.id_pedido,
         id_plato:req.body.id_plato,
@@ -420,7 +419,7 @@ res.append('Access-Control-Allow-Origin','*')
 // ruta para mostarar todos los pedidos activos
 api.get('/Pedidos/Activos', async (req, res) => {
 
-res.append('Access-Control-Allow-Origin','*')  
+res.append('Access-Control-Allow-Methods','*')  
     const pedido = await Pedidos_Activos();
 
     if (pedido[0][0].id_alerta){
@@ -439,7 +438,7 @@ res.append('Access-Control-Allow-Origin','*')
 
 // ruta para confirmar un pedido
 api.post('/Pedidos/Confirmar', async (req, res) => {
-res.append('Access-Control-Allow-Origin','*') 
+res.append('Access-Control-Allow-Methods','*') 
     let parametros ={
         id_pedido:req.body.id_pedido,
     }
@@ -462,7 +461,7 @@ res.append('Access-Control-Allow-Origin','*')
 // ruta para mostrar los pedidos en curso
 api.get('/Pedidos/EnCurso', async (req, res) => {
 
-res.append('Access-Control-Allow-Origin','*')  
+res.append('Access-Control-Allow-Methods','*')  
     const pedido = await Pedidos_EnCurso();
 
     if (pedido[0][0].id_alerta){
