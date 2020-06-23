@@ -7,26 +7,27 @@
     </div>
     <button href="#" id="btn-regresar" class="btn btn-primary">REGRESAR</button>
     <h5 class="textoSecundario">Categoria</h5>
-<!-- card -->
+  <!-- card -->
   <div class="card">
-    <div id="imagen">
-        <img id="img" class="card-img-top" src="https://picsum.photos/300/300" alt="Imagen Descriptiva">
+    <div class="imagen">
+      <img src="https://picsum.photos/115/128" alt="Imagen Descriptiva" />
     </div>
-    <div id="cardb">
-      <h5 id="titulo" class="textoPrimario">Plato prueba</h5>
-      <p id="des" class="textoCuerpo">Descripción del plato</p>
-      <div id="precio-agregar" >
-        <p id="precio" class="textoCuerpo">$32.000</p> 
-        <div class="btn-group btn-group-toggle" >
-            <label id="restar" class="btn btn-secondary" (click)="contador(false)"> 
-              <p>-</p>
-            </label>
-            <label id="contador" class="btn btn-secondary">
-              <p>{{con}}</p>
-              </label>
-            <label id="sumar" class="btn btn-secondary" (click)="contador(true)">
-              <p>+</p>
-            </label>
+    <div class="cardb">
+      <button class="eliminar">?</button>
+      <h1 class="titulo textoPrimario">Plato prueba</h1>
+      <p class="des" class="textoCuerpo">Descripción del plato</p>
+      <div class="precio-agregar">
+        <p class="precio" class="textoCuerpo">$32.000</p>
+        <div class="btn-group btn-group-toggle">
+          <label class="restar" class="btn btn-secondary" (click)="contador(false)">
+            <p>-</p>
+          </label>
+          <label id="contador" class="btn btn-secondary">
+            <p>{{ con }}</p>
+          </label>
+          <label class="sumar" class="btn btn-secondary" (click)="contador(true)">
+            <p>+</p>
+          </label>
         </div>
       </div>
     </div>
