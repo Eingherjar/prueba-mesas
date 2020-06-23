@@ -1,0 +1,47 @@
+.content {
+    width: 100%;
+    height: auto;
+
+    .clearfix {
+        clear: both;
+        float: none;
+    }
+    //-------------------------------Lateral----------------
+    & > .lateral {
+        display: block;
+        float: left;
+        width: 25%;
+        height: 1000px;
+        padding: 4px;
+        border: 1px solid #ccc;
+        border-bottom: unset;
+
+        .imagen {
+            display: block;
+            width: 100%;
+            margin-bottom: 25px;
+            & > img {
+                display: block;
+                width: 100%;
+            }
+        }
+        & > .textoSecundario {
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .menu {
+            display: block;
+            width: 100%;
+            margin-top: 4%;
+
+            & > ul > li {
+                display: block;
+                font-size: 20px;
+                text-decoration: none;
+                line-height: 35px;
+            }
+        }
+    }
+}

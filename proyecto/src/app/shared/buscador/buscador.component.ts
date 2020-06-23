@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BuscadorComponent implements OnInit {
   constructor() {}
-  condicion: string = 'vista_mesas_qr'
+
+  condicion: string = 'menu_principal';
   active: boolean = false;
   con = 0;
 

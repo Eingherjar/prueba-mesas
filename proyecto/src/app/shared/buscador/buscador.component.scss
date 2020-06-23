@@ -13,10 +13,11 @@
     display: block;
     float: left;
     width: 25%;
-    height: 620px;
+    height: 1000px;
     padding: 4px;
     border: 1px solid #ccc;
-
+    border-bottom: unset;
+  
     .imagen {
       display: block;
       width: 100%;
@@ -92,15 +93,15 @@
         height: auto;
       }
       #cardb {
-        padding: 2%;
-        width: 72%;
-        height: auto;
         display: flex;
         flex-direction: column;
+        width: 72%;
+        height: auto;
+        padding: 2%;
 
         #precio-agregar {
-          margin-top: auto;
           display: flex;
+          margin-top: auto;
           justify-content: space-between;
 
           #precio {
@@ -240,47 +241,43 @@
     }
   }
 
+  //--------------------------------------- PROCESANDO ----------------------------------------------
 
- .content {
-    display: block;
+  & > .imagen {
     width: 100%;
-    height: 600px;
     text-align: center;
-    margin: 20px auto;
-    //-------------------------------------buscador-------------------------------------------------
-    .input-group {
-        margin-bottom: 0px !important;
-        padding: 10px;
-        text-align: center;
-        .form-control {
-            background-color: var(--color-input) !important;
-            border-radius: 5px !important;
-            border: none;
-            height: 50px;
-            // icono
-            background: url(src/iconos/lupa.svg) no-repeat;
-            background-position: 95%;
-            // texto
-            text-decoration-line: none !important;
-            color: var(--color-secundario);
-            font-size: 14px;
-            font-family: "Roboto", sans-serif;
-            font-weight: 200;
-            // texto
+    margin-top: 20px;
+    margin-bottom: 60px;
+  }
+  & > .textoSecundario {
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 100px;
+  }
+}
 
-            &:hover {
-                box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 2px 10px 1px rgba(0, 0, 0, 0.13),
-                    0 3px 12px 2px rgba(0, 0, 0, 0.1);
-            }
-        }
-        button {
-            border-color: rgba(255, 255, 255, 0);
-            &:hover {
-                border-color: rgba(255, 255, 255, 0) !important;
-                background-color: rgba(255, 255, 255, 0) !important;
-                box-shadow: unset;
-            }
-        }
-    }
+// }
+// ------------------ VISTA DE PEDIDOS POR CONFIRMAR, EN CURSO Y FINALIZADOS ---------
+
+.p-confirmar, .p-curso, .p-finalizados {
+  display: block;
+  width: 25%;
+  float: left;
+  padding: 2% 0% 2% 2%;
+
+  & > .textoSecundario{
+    font-size: 23px;
+    margin-right: 20px;
+    margin-bottom: 25px;
+  }
+
+  & > .info-pedido{
+    display: block;
+    width: 80%;
+    padding: 2px 0px 2px 10px;
+    margin:0px;
+    margin-bottom: 25px;
+    background-color: white;
+    box-shadow: 0px 0px 3px #ccc;
   }
 }

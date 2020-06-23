@@ -1,0 +1,44 @@
+<div class="content">
+    <app-menu-principal></app-menu-principal>
+    <section id="platos">
+        <div class="textoPrimario">AÑADIR PLATO +</div>
+        <h2 class="textoSecundario">PLATOS DISPONIBLES</h2>
+
+        <article>
+          <div class="card">
+            <div class="imagen2">
+              <img
+                class="card-img-top"
+                src="https://picsum.photos/300/300"
+                alt="Imagen Descriptiva"
+              />
+            </div>
+            <!-- <div id="modificar"></div> -->
+            <div class="cardb2">
+              <h5 class="titulo" class="textoPrimario">Plato prueba</h5>
+              <p class="des" class="textoCuerpo">Descripción del plato</p>
+              <div class="precio-agregar">
+                <p class="textoCuerpo  precio">$32.000</p>
+                <div class="btn-group btn-group-toggle">
+                    <!-- id="restar" -->
+                  <label class="btn btn-secondary" (click)="contador(false)" >
+                    <p>-</p>
+                  </label>
+                  <!-- id="contador" -->
+                  <label  class="btn btn-secondary">
+                    <p>{{ con }}</p>
+                  </label>
+                  <!-- id="sumar" -->
+                  <label class="btn btn-secondary" (click)="contador(true)">
+                    <p>+</p>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+    
+        
+
+      </section>
+</div>
