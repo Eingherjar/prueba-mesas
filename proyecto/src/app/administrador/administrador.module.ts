@@ -6,7 +6,7 @@ import {PlatoComponent} from './plato/plato.component';
 import {MenuPrincipalComponent} from './menu-principal/menu-principal.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import {SharedModule} from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     CommonModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
   exports:[
    MesasComponent,

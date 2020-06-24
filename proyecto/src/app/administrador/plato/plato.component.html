@@ -1,44 +1,59 @@
-<div class="content">
-    <app-menu-principal></app-menu-principal>
-    <section id="platos">
-        <div class="textoPrimario">AÑADIR PLATO +</div>
-        <h2 class="textoSecundario">PLATOS DISPONIBLES</h2>
+<div class="content" *ngIf="vista == 'menu_principal'">
+  <app-menu-principal></app-menu-principal>
+  <section class="platos">
+    <div class="textoPrimario" (click)="vista='crear_plato';texto_boton = 'CREAR PLATO'; titulo= 'NUEVO PLATO'">AÑADIR PLATO +</div>
+    <h2 class="textoSecundario">PLATOS DISPONIBLES</h2>
 
-        <article>
-          <div class="card">
-            <div class="imagen2">
-              <img
-                class="card-img-top"
-                src="https://picsum.photos/300/300"
-                alt="Imagen Descriptiva"
-              />
-            </div>
-            <!-- <div id="modificar"></div> -->
-            <div class="cardb2">
-              <h5 class="titulo" class="textoPrimario">Plato prueba</h5>
-              <p class="des" class="textoCuerpo">Descripción del plato</p>
-              <div class="precio-agregar">
-                <p class="textoCuerpo  precio">$32.000</p>
-                <div class="btn-group btn-group-toggle">
-                    <!-- id="restar" -->
-                  <label class="btn btn-secondary" (click)="contador(false)" >
-                    <p>-</p>
-                  </label>
-                  <!-- id="contador" -->
-                  <label  class="btn btn-secondary">
-                    <p>{{ con }}</p>
-                  </label>
-                  <!-- id="sumar" -->
-                  <label class="btn btn-secondary" (click)="contador(true)">
-                    <p>+</p>
-                  </label>
-                </div>
-              </div>
-            </div>
+    <article>
+      <div class="card">
+        <div class="imagen">
+          <img src="https://picsum.photos/115/128" alt="Imagen Descriptiva" />
+        </div>
+        <div class="cardb">
+          <span class="glyphicon glyphicon-edit" style="color: var(--color-principal); font-size: small;"></span>
+          <h1 class="titulo textoPrimario">Plato prueba</h1>
+          <p class="des" class="textoCuerpo">Descripción del plato</p>
+          <div class="precio-agregar">
+            <p class="precio" class="textoCuerpo">$32.000</p>
           </div>
-        </article>
-    
-        
-
-      </section>
+        </div>
+      </div>
+    </article>
+  </section>
 </div>
+
+
+<!-- vista de añadir y modificar un plato -->
+
+
+<div class="content agregar_plato" *ngIf="vista != 'menu_principal'">
+  <app-menu-principal></app-menu-principal>
+  <!--------------------- AÑADIR NUEVO PLATO ----------------------->
+
+  <section class="nuevo_plato">
+    <h2 class="textoPrimario">{{titulo}}</h2>
+    <div id="box-inputs">
+      <input type="text" placeholder="Nombre del plato" [(ngModel)]="nombre"/> <br />
+      <textarea id="Descripcion" cols="40" rows="5" placeholder=" Descripción del plato" [(ngModel)]= "descripcion" ></textarea>
+      <br />
+      <input type="number" placeholder="Precio del plato" [(ngModel)]= "precio"/> <br />
+      <input type="text" placeholder="Subir imagen" [(ngModel)]= "imagen"/> <br />
+      <input type="submit" class="btn-primary" [ngStyle]="{'width.%':vista =='modificar_plato' ? 31 : 25}" value="{{texto_boton}}" (click)="plato(vista == 'modificar_plato' ? 'modificar' : 'crear')" /> <br />
+      <input type="submit" class="btn-primary" style="background-color: red; width: 31%;" value="ELIMINAR PLATO" (click)="plato('eliminar')"  *ngIf="vista == 'modificar_plato' "/> <br />
+    </div>
+    <div class="clearfix"></div>
+  </section>
+
+  <!--------------------- FIN AÑADIR NUEVO PLATO ----------------------->
+
+  <!--------------------- CATEGORIAS ----------------------->
+
+  <div class="content_categorias">
+    <h2 class="textoSecundario">CATEGORÍAS</h2>
+    <div class="categoria" *ngFor="let categoria of categroias ; let index = index">
+      <p class="textoCuerpo">{{categoria.nombre}}<input type="checkbox" [id]="'categoria-'+categoria.id" (change)="onChecked(categoria.id, $event.target.checked)" />
+      </p>
+    </div>
+  </div>
+</div>
+

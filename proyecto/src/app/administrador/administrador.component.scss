@@ -1,0 +1,50 @@
+.content {
+    width: 100%;
+    height: auto;
+
+    .clearfix {
+        clear: both;
+        float: none;
+    }
+    & > .imagen {
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 60px;
+    }
+    & > .textoSecundario {
+        font-size: 22px;
+        text-align: center;
+        margin-bottom: 100px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .content {
+      width: 30%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .content {
+      width: 40%;
+    }
+  }
+  
+  @media (max-width: 425px) {
+    .content {
+      width: 70%;
+    }
+  }
+  
+  @media (max-width: 375px) {
+    .content {
+      width: 80%;
+    }
+  }
+  
+  @media (max-width: 320px) {
+    .content {
+      width: 86%;
+    }
+  }

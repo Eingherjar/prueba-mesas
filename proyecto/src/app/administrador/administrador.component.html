@@ -1,1 +1,16 @@
-<p>administrador works!</p>
+<section class="content procesando" hidden>
+    <div class="imagen">
+      <img src="https://picsum.photos/344/194" alt="procesando" />
+    </div>
+  
+    <h1 class="textoSecundario">
+      Estamos procesando su orden, <br />
+      en unos minutos será confirmada
+    </h1>
+    <div class="imagen boton-regresar">
+      <input type="submit" class="btn-primary" value="REGRESAR AL MENÚ" />
+    </div>
+  </section>
+
+  <app-plato [config]="config_plato" (send_plato)="events_plato($event)" [config_vista]="config_vista_plato"></app-plato>
+  

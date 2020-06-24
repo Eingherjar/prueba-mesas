@@ -6,7 +6,7 @@
         clear: both;
         float: none;
     }
-    #platos {
+    .platos {
         display: block;
         float: right;
         width: 75%;
@@ -18,79 +18,233 @@
         .textoPrimario {
             display: block;
             font-weight: 500;
-            margin-top: 30px;
+            margin-top: 17px;
             margin-bottom: 40px;
             color: var(--color-principal);
         }
 
         .textoSecundario {
-            display: inline-block;
             font-size: 24px;
             font-weight: 500;
             margin-bottom: 18px;
         }
 
-        & > article > .card {
+        & > article {
             display: block;
             float: left;
             width: 49%;
             margin-right: 1%;
             height: min-content;
             margin-bottom: 10px;
+        }
+    }
 
-            &:hover {
-                box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 2px 10px 1px rgba(0, 0, 0, 0.13),
-                    0 3px 12px 2px rgba(0, 0, 0, 0.1);
+    .nuevo_plato {
+        display: inline-block;
+        width: 53%;
+        padding: 2% 0% 0% 5%;
+
+        .textoPrimario {
+            display: block;
+            font-weight: 500;
+            margin-top: 20px;
+            margin-bottom: 40px;
+            color: var(--color-principal);
+        }
+        & > #box-inputs {
+            display: block;
+            width: 100%;
+        }
+        input[type="text"],
+        input[type="file"],
+        input[type="number"] {
+            width: 70%;
+            height: 48px;
+            padding: 7px 8px;
+            border: none;
+            outline: unset;
+            border-radius: 4px 4px 0px 0px;
+            background-color: rgba(180, 180, 180, 0.09);
+            margin-bottom: 25px;
+            transition: all 0.5ms;
+        }
+
+        #Descripcion {
+            display: block;
+            outline: unset;
+            width: 70%;
+            border: none;
+            padding: 6px;
+            background-color: rgba(180, 180, 180, 0.09);
+        }
+
+        input[type="submit"] {
+            height: 36px;
+            width: 25%;
+            margin-left: 25%;
+            margin-bottom: 5%;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        #Descripcion {
+            &:focus {
+                outline: unset;
+                border: transparent;
+                background-color: rgba(180, 180, 180, 0.12);
+                border-bottom: 2px solid var(--color-principal);
+                caret-color: var(--color-principal);
             }
+        }
+        ::-webkit-input-placeholder {
+            color: rgba(97, 94, 94, 0.8);
+            font-weight: 500;
+            border: none;
+        }
+    }
 
-            .imagen2 {
-                display: block;
-                float: left;
-                width: 28%;
-                height: auto;
+    .content_categorias {
+        display: block;
+        float: right;
+        width: 20%;
+        margin-top: 3%;
+        margin-right: 2%;
+        padding: 3% 1% 2% 1%;
+
+        .textoSecundario {
+            line-height: 2px;
+            margin-bottom: 20px;
+        }
+        & > .categoria {
+            display: block;
+            padding: 2%;
+            border-radius: 4px;
+            box-shadow: 0px 1px 2px #ccc;
+            margin-bottom: 10px;
+        }
+
+        input[type="checkbox"] {
+            box-sizing: border-box;
+            padding: 0;
+            margin-left: 38%;
+        }
+    }
+}
+
+.card {
+    display: block;
+    width: 100%;
+    height: min-content;
+    margin: 0px auto;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+
+    &:hover {
+        box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 2px 10px 1px rgba(0, 0, 0, 0.13),
+            0 3px 12px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .imagen {
+        display: block;
+        float: left;
+        width: 28%;
+
+        & > img {
+            width:calc(101% - -2px);
+            height: auto;
+        }
+    }
+
+    .cardb {
+        display: flex;
+        flex-direction: column;
+        width: 72%;
+        padding: 1% 1% 0% 2%;
+
+        & > .eliminar {
+            position: absolute;
+            top: 6px;
+            right: 10px;
+            width: 25px;
+            border-radius: 10px;
+            border: unset;
+            font-family: "Roboto";
+            font-size: 15px;
+            font-weight: bold;
+            color: white;
+            background-color: red;
+            outline: unset;
+        }
+
+        & > .titulo.textoPrimario {
+            color: black;
+            font-size: 25px;
+        }
+
+        .precio-agregar {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+
+            .precio {
+                margin: unset;
             }
-            .cardb2 {
-                display: flex;
-                flex-direction: column;
-                width: 72%;
-                height: auto;
-                padding: 2%;
+        }
 
-                .precio-agregar {
-                    display: flex;
-                    margin-top: auto;
-                    justify-content: space-between;
+        .btn-group.btn-group-toggle {
+            border: 1px solid rgba(0, 0, 0, 0.125);
+            border-radius: 4px;
+            margin-top: 4px;
+            margin-bottom: auto;
 
-                    .precio {
-                        margin: unset;
-                    }
-                }
-                .titulo {
-                    margin-bottom: auto;
-                    color: black;
-                }
-                .des {
-                    margin-top: auto;
-                    margin-bottom: auto;
-                }
-                .btn-group.btn-group-toggle {
-                    border: 1px solid rgba(0, 0, 0, 0.125);
-                    border-radius: 4px;
-                    margin-top: auto;
-                    margin-bottom: auto;
+            .btn.btn-secondary {
+                height: 20px;
+                color: black;
+                background-color: white;
+                border: none;
 
-                    .btn.btn-secondary {
-                        height: 20px;
-                        color: black;
-                        background-color: white;
-                        border: none;
-                        p {
-                            margin-top: -8.7px;
-                            margin-bottom: 1rem;
-                        }
-                    }
+                p {
+                    margin-top: -8.7px;
+                    margin-bottom: 1rem;
                 }
             }
         }
+    }
+}
+
+@media (max-width: 1024px) {
+    .content {
+        width: 30%;
+    }
+
+    
+}
+
+@media (max-width: 768px) {
+    .content {
+        width: 40%;
+    }
+
+}
+
+@media (max-width: 425px) {
+    .content {
+        width: 70%;
+    }
+
+
+}
+
+@media (max-width: 375px) {
+    .content {
+        width: 80%;
+    }
+
+   
+}
+
+@media (max-width: 320px) {
+    .content {
+        width: 86%;
     }
 }

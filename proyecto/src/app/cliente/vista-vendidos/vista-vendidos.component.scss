@@ -1,0 +1,68 @@
+.content {
+  display: block;
+  width: 25%;
+  margin: 20px auto;
+
+  & > .p-recomendados {
+    display: block;
+    width: 100%;
+    padding: 2px;
+    margin-top: 20px;
+
+    & > .textoSecundario {
+      font-size: 17px;
+    }
+
+    & > .img-recomendados img {
+      width: 24%;
+      margin-right: 3px;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .content {
+    width: 28%;
+
+    & > .p-recomendados > .pollos,
+    .carnes,
+    .bebidas,
+    .arroces {
+      margin-top: 10px;
+    }
+    & > .btn-primary {
+      font-size: 15px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    width: 37%;
+
+    & > .btn-primary {
+      font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 425px) {
+  .content {
+    width: 65%;
+    & > .btn-primary {
+      font-size: 13px;
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .content {
+    width: 73%;
+  }
+}
+
+@media (max-width: 320px) {
+    .content {
+      width: 80%;
+    }
+}
