@@ -1,10 +1,10 @@
 import { Routes, RouterModule } from '@angular/router';
-import {FinalizarComponent} from './cliente/finalizar/finalizar.component'
 import {AdministradorComponent} from './administrador/administrador.component';
-import {PlatoComponent} from './administrador/plato/plato.component';
+import {LoginComponent} from './shared/login/login.component';
 const routes: Routes = [
-  { path: '', redirectTo: '/prueba', pathMatch: 'full' },
-  { path: 'prueba', component:AdministradorComponent},
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'admin', component:AdministradorComponent},
+  { path: 'login', component:LoginComponent},
 ];
 export const APP_ROUTING = RouterModule.forRoot(routes);
 

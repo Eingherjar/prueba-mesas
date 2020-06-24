@@ -9,9 +9,18 @@
 
         <nav class="menu">
             <ul class="textoSecundario">
-                <li>Menú</li>
-                <li>Mesas - códigos QR</li>
-                <li>Cerrar sesión</li>
+                <li [style.color]="seleccion == 'menu' ?'#ff9200' : '#707070'" 
+                (click)="envio('menu')" style="cursor: pointer;">Menú</li>
+
+                <li [style.color]="seleccion == 'mesas' ?'#ff9200' : '#707070'" 
+                (click)="envio('mesas')" style="cursor: pointer;">Mesas - códigos QR</li>
+
+                <li [style.color]="seleccion == 'pedidos' ?'#ff9200' : '#707070'"
+                (click)="envio('pedidos')" style="cursor: pointer;">Pedidos</li>
+
+                <li [style.color]="seleccion == 'cerrar' ?'#ff9200' : '#707070'"
+                (click)="envio('cerrar')" style="cursor: pointer;">Cerrar sesión</li>
+
             </ul>
         </nav>
         <div class="clearfix"></div>

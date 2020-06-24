@@ -17,8 +17,11 @@ export class PlatoComponent implements OnInit {
 
   titulo:String;
 
-  // datos del plato;
+  // datos de los platos;
+  data_platos:any;
 
+  // para cuando se vaya a modificar un plato
+  id_plato:number=0;
   // contenedor de los datos de las categorias
   categroias:Array<any>=[];
 
@@ -85,6 +88,29 @@ export class PlatoComponent implements OnInit {
             })
           }
         
+        break;
+
+        case 'agregado_plato':
+          this.nombre="";
+          this.descripcion="";
+          this.precio="";
+          this.imagen="";
+
+          for(let i=0; i < this.id_categorias.length ;i++){
+            console.log("id de la categoria ",'categoria-'+this.id_categorias[i]);
+            let id= this.id_categorias.indexOf(this.id_categorias[i]);
+            console.log("id:",id);
+            if(this.id_categorias.length == 1){
+              this.id_categorias=[]
+            }else{
+              this.id_categorias.splice(id,1);
+            }
+          }
+          break;
+
+        case 'listado_platos':
+          this.data_platos = this.config.platos
+          console.log("datos de data_platos",this.data_platos);
         break;
       }
     }

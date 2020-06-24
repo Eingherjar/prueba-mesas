@@ -31,6 +31,13 @@ export class AdministradorService  extends class_http{
     )
   }
 
-
+  Listado_Platos():Observable<Object>{
+    return this.http.get(this.API_URL+"Platos/Disponibles",this.getHeaders()).pipe(
+      map(data=>{
+        console.log("datos que regresa el servicio de listado platos ",data);
+        return data;
+      })
+    )
+  }
 
 }

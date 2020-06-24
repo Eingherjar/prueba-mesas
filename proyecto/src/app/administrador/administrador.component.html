@@ -12,5 +12,15 @@
     </div>
   </section>
 
-  <app-plato [config]="config_plato" (send_plato)="events_plato($event)" [config_vista]="config_vista_plato"></app-plato>
+  <div class="content">
+    <app-menu-principal (send_menu)="events_menu($event)" ></app-menu-principal>
+
+    <app-plato [config]="config_plato" (send_plato)="events_plato($event)" [config_vista]="config_vista_plato" *ngIf="display_components == 'menu'"></app-plato>
   
+    <app-mesas *ngIf="display_components == 'mesas'"></app-mesas>
+  
+    <app-pedidos *ngIf="display_components == 'pedidos'"></app-pedidos>
+  
+    
+  </div>
+ 

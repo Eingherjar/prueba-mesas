@@ -10,15 +10,64 @@ export class AdministradorComponent implements OnInit {
 
   config_plato={};
 
-  config_vista_plato= 'modificar_plato';
+  config_vista_plato:String='menu_principal';
+
+  display_components:String ='menu';
 
   private notifier: NotifierService;
 
   constructor( private service:AdministradorService ,notifier: NotifierService) { this.notifier = notifier }
 
 
-
   ngOnInit(): void {
+    this.service.Listado_Platos().subscribe((data:any)=>{
+      if(data.estado === 'success'){
+
+        this.config_plato = {
+          event:'listado_platos',
+          platos: data.plato,
+        } 
+
+      }else if(data.estado === 'error'){
+        this.notifier.notify("error","Ha ocurrido un error al traer los platos disponibles",data);
+      }
+    });
+  }
+
+
+  events_menu(e){
+    console.log("entro en el evento del menu",e.event);
+    switch (e.event) {
+      case 'menu':
+        this.service.Listado_Platos().subscribe((data:any)=>{
+          if(data.estado === 'success'){
+            this.config_plato = {
+              event:'listado_platos',
+              platos: data.plato,
+            } 
+          }else if(data.estado0 === 'error'){
+            this.notifier.notify("error","Ha ocurrido un error al traer los platos disponibles",data);
+          }
+        });
+
+        this.display_components = e.event;
+        this.config_vista_plato ='menu_principal'; 
+      break;
+
+      case 'mesas':
+        this.display_components = e.event;
+      
+      break;
+
+      case 'pedidos':
+        this.display_components = e.event;
+      
+      break;
+
+      case 'cerrar':
+        localStorage.setItem("id_usuario", "null");
+      break;
+    }
   }
 
   events_plato(e){
@@ -55,6 +104,9 @@ export class AdministradorComponent implements OnInit {
 
             if(i == e.ciclo.length - 1){
               this.notifier.notify("success","se ha añadido todas las categorias al plato");
+              this.config_plato={
+                event: 'agregado_plato'
+              }
             }
           });
         }

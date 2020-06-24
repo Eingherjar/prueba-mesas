@@ -1,20 +1,24 @@
-<div class="content" *ngIf="vista == 'menu_principal'">
-  <app-menu-principal></app-menu-principal>
-  <section class="platos">
-    <div class="textoPrimario" (click)="vista='crear_plato';texto_boton = 'CREAR PLATO'; titulo= 'NUEVO PLATO'">AÑADIR PLATO +</div>
+<div class="content" >
+
+  <section class="platos"*ngIf="vista == 'menu_principal' ">
+    <div class="textoPrimario" style="cursor: pointer;"
+     (click)="vista='crear_plato';texto_boton = 'CREAR PLATO'; titulo= 'NUEVO PLATO'">AÑADIR PLATO +</div>
+     
     <h2 class="textoSecundario">PLATOS DISPONIBLES</h2>
 
-    <article>
-      <div class="card">
+    <article *ngFor="let platos of data_platos; let index = index">
+      <div class="card" (click)="id_plato = platos.id_plato">
         <div class="imagen">
-          <img src="https://picsum.photos/115/128" alt="Imagen Descriptiva" />
+          <img src="{{platos.imagen}}"  
+           alt="Imagen Descriptiva" />
         </div>
         <div class="cardb">
-          <span class="glyphicon glyphicon-edit" style="color: var(--color-principal); font-size: small;"></span>
-          <h1 class="titulo textoPrimario">Plato prueba</h1>
-          <p class="des" class="textoCuerpo">Descripción del plato</p>
+
+          <!-- falta añadir el icono de editar -->
+          <h1 class="titulo textoPrimario">{{platos.nombre}}</h1>
+          <p class="des" class="textoCuerpo">{{platos.descripcion}}</p>
           <div class="precio-agregar">
-            <p class="precio" class="textoCuerpo">$32.000</p>
+            <p class="precio" class="textoCuerpo">${{platos.precio}}</p>
           </div>
         </div>
       </div>
@@ -27,7 +31,6 @@
 
 
 <div class="content agregar_plato" *ngIf="vista != 'menu_principal'">
-  <app-menu-principal></app-menu-principal>
   <!--------------------- AÑADIR NUEVO PLATO ----------------------->
 
   <section class="nuevo_plato">
@@ -51,7 +54,7 @@
   <div class="content_categorias">
     <h2 class="textoSecundario">CATEGORÍAS</h2>
     <div class="categoria" *ngFor="let categoria of categroias ; let index = index">
-      <p class="textoCuerpo">{{categoria.nombre}}<input type="checkbox" [id]="'categoria-'+categoria.id" (change)="onChecked(categoria.id, $event.target.checked)" />
+      <p class="textoCuerpo">{{categoria.nombre}}<input type="checkbox" [checked]="id_categorias.includes(categoria.id)" [id]="'categoria-'+categoria.id" (change)="onChecked(categoria.id, $event.target.checked)" />
       </p>
     </div>
   </div>

@@ -151,7 +151,7 @@
 
         & > img {
             width:calc(101% - -2px);
-            height: auto;
+            height: 168px;
         }
     }
 
@@ -211,6 +211,9 @@
         }
     }
 }
+
+
+
 
 @media (max-width: 1024px) {
     .content {
