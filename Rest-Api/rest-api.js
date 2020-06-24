@@ -138,6 +138,7 @@ res.append('Access-Control-Allow-Methods','*')
 });
 
 // ruta para cambiar la contraseña del usuario
+//cambio
 api.post('/Usuario/Cambiar', async (req, res) => {
 
 res.append('Access-Control-Allow-Methods','*') 
