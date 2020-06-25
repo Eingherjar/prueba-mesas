@@ -19,18 +19,18 @@ function getDbPool() {
         cachedDbPool = mysql.createPool({
             // nada mas se puede descomentar cuando se va subir a google cloud
             // (cuando se suba hay que montar una nueva imagen que contenga los nuevos cambios)
-            connectionLimit: 1,
-            user: process.env.SQL_USER,
-            password: process.env.SQL_PASSWORD,
-            database: process.env.SQL_NAME,
-            socketPath: `/cloudsql/${process.env.INST_CON_NAME}`
+            // connectionLimit: 1,
+            // user: process.env.SQL_USER,
+            // password: process.env.SQL_PASSWORD,
+            // database: process.env.SQL_NAME,
+            // socketPath: `/cloudsql/${process.env.INST_CON_NAME}`
 
 
             // esto nada mas se descomenta cuando se estan haciendo pruebas locales
-            // host: "34.95.157.90",
-            // user: "mesasdb",
-            // password: "mesasdb123",
-            // database: 'mesas_interactivas'
+            host: "34.95.157.90",
+            user: "mesasdb",
+            password: "mesasdb123",
+            database: 'mesas_interactivas'
         });
 
 
@@ -425,7 +425,7 @@ res.append('Access-Control-Allow-Methods','*')
     }
 
     const pedidos = await Especificar_Pedido(parametros);
-    if(pedidos[0][0].id_alerta ){
+    if(pedidos[0][0].id_alerta != 12 ){
         res.json({
             estado: "error",
             error: pedidos[0][0],
@@ -434,8 +434,8 @@ res.append('Access-Control-Allow-Methods','*')
     }else{
         res.json({
             estado: "success",
-            pedido: pedidos[0][0],
-            mensaje: "Plato añadido al pedido satisfactoriamente"
+            mensaje: pedidos[0][0].mensaje,
+            
         })
     }
 });
@@ -501,6 +501,94 @@ res.append('Access-Control-Allow-Methods','*')
         })
     }
 });
+
+// ruta para mostrar la informacion del pedido
+api.post('/Pedidos/Informacion', async (req, res) => {
+    res.append('Access-Control-Allow-Methods','*') 
+        let parametros ={
+            id_pedido:req.body.id_pedido,
+        }
+    
+        const pedidos = await Mostrar_Informacion_Pedido(parametros);
+        if(pedidos[0][0].id_alerta ){
+            res.json({
+                estado: "error",
+                error: pedidos[0][0],
+                // mensaje: "Plato creado satisfactoriamente"
+            })
+        }else{
+            res.json({
+                estado: "success",
+                pedido: pedidos[0][0],
+                mensaje:"datos del pedido"
+            })
+        }
+});
+
+// ruta para añadir una valoracion al pedido 
+api.post('/Pedidos/Valoracion', async (req, res) => {
+    res.append('Access-Control-Allow-Methods','*') 
+        let parametros ={
+            id_pedido:req.body.id_pedido,
+            valoracion: req.body.valoracion
+        }
+    
+        const pedidos = await Valorar_Pedido(parametros);
+        if(pedidos[0][0].id_alerta){
+            res.json({
+                estado: "error",
+                error: pedidos[0][0],
+                // mensaje: "Plato creado satisfactoriamente"
+            })
+        }else{
+            res.json({
+                estado: "success",
+                mensaje: pedidos[0][0]
+            })
+        }
+});
+
+// ruta para finalizar un pedido
+api.post('/Pedidos/Finalizar', async (req, res) => {
+    res.append('Access-Control-Allow-Methods','*') 
+        let parametros ={
+            id_pedido:req.body.id_pedido,
+        }
+    
+        const pedidos = await Finalizar_Pedido(parametros);
+        if(pedidos[0][0].id_alerta != 18){
+            res.json({
+                estado: "error",
+                error: pedidos[0][0],
+                // mensaje: "Plato creado satisfactoriamente"
+            })
+        }else{
+            res.json({
+                estado: "success",
+                mensaje: pedidos[0][0].mensaje
+            })
+        }
+});
+
+// ruta para mostrar los pedidos en finalizados
+api.get('/Pedidos/Finalizados', async (req, res) => {
+
+    res.append('Access-Control-Allow-Methods','*')  
+        const pedido = await Pedidos_Finalizados();
+    
+        if (pedido[0][0].id_alerta){
+            res.json({
+                status: "error",
+                error: pedido[0][0]
+            })
+        }else{
+            res.json({
+                estado: "success",
+                pedidos: pedido[0],
+                mensaje: "Listad de pedidos en curso"
+            })
+        }
+    });
 // fin de las rutas de pedido
 
 // esto es para definir las rutas de la api 
@@ -724,6 +812,53 @@ async function Pedidos_EnCurso(req, res) {
     })
 }
 
+// metodo para ver los pedidos finalizados
+async function Pedidos_Finalizados(req, res) {
+
+    return new Promise(function (resolve, reject) {
+        getDbPool().query("call mostrarPedidosRealizados()", function (err, result) {
+            if (err) resolve(err);
+            resolve(result);
+            console.log("datos que se deben de estar mostrando ahora,", result);
+        });
+    })
+}
+
+async function Finalizar_Pedido(req, res) {
+
+    return new Promise(function (resolve, reject) {
+        getDbPool().query("call finalizarPedido("+req.id_pedido+")", function (err, result) {
+            if (err) resolve(err);
+            resolve(result);
+            console.log("datos que se deben de estar mostrando ahora,", result);
+        });
+    })
+}
+
+async function Valorar_Pedido(req, res) {
+
+    return new Promise(function (resolve, reject) {
+        getDbPool().query("call valorarPedido("+req.id_pedido+","+req.valoracion+")", function (err, result) {
+            if (err) resolve(err);
+            resolve(result);
+            console.log("datos que se deben de estar mostrando ahora,", result);
+        });
+    })
+}
+
+
+async function Mostrar_Informacion_Pedido(req, res) {
+
+    return new Promise(function (resolve, reject) {
+        getDbPool().query("call mostrarInformacionPedido("+req.id_pedido+")", function (err, result) {
+            if (err) resolve(err);
+            resolve(result);
+            console.log("datos que se deben de estar mostrando ahora,", result);
+        });
+    })
+}
+
+// metodo para mostrar todas las categorias que tiene un plato
 async function Mostrar_Platos_Categorias(req, res) {
 
     return new Promise(function (resolve, reject) {
@@ -734,3 +869,4 @@ async function Mostrar_Platos_Categorias(req, res) {
         });
     })
 }
+
