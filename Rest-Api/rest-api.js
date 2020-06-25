@@ -338,6 +338,29 @@ res.append('Access-Control-Allow-Methods','*')
     }
 });
 
+
+api.post('/Platos/Categorias', async (req, res) => {
+
+    res.append('Access-Control-Allow-Methods','*')  
+        let parametros ={
+            id_plato: req.body.id_plato
+        }
+        const platos = await Mostrar_Platos_Categorias(parametros);
+    
+        if (platos[0][0].id_alerta){
+            res.json({
+                status: "error",
+                error: platos[0][0]
+            })
+        }else{
+            res.json({
+                estado: "success",
+                categortias: platos[0],
+                mensaje: "Listas de las categorias pertenecientes al plato"
+            })
+        }
+    });
+
 // ruta poara mostrar los detalles de un plato
 api.post('/Plato/Id', async (req, res) => {
 
@@ -694,6 +717,17 @@ async function Pedidos_EnCurso(req, res) {
 
     return new Promise(function (resolve, reject) {
         getDbPool().query("call mostrarPedidosEnCurso()", function (err, result) {
+            if (err) resolve(err);
+            resolve(result);
+            console.log("datos que se deben de estar mostrando ahora,", result);
+        });
+    })
+}
+
+async function Mostrar_Platos_Categorias(req, res) {
+
+    return new Promise(function (resolve, reject) {
+        getDbPool().query("call mostrarCategoriasPlato("+req.id_plato+")", function (err, result) {
             if (err) resolve(err);
             resolve(result);
             console.log("datos que se deben de estar mostrando ahora,", result);
