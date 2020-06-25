@@ -17,11 +17,19 @@ export class PlatoComponent implements OnInit {
 
   titulo:String;
 
-  // datos de los platos;
-  data_platos:any;
+  // datos de los platos disponibles;
+  data_platos:Array<any>;
+
+  // datos de los platos no disponibles;
+  platos_no_disponibles:any;
+
+  // imagen en caso de que no se haya añadido
+  imagen_provisional:string="https://pbs.twimg.com/profile_images/600060188872155136/st4Sp6Aw_400x400.jpg";
 
   // para cuando se vaya a modificar un plato
-  id_plato:number=0;
+  id_plato_seleccionado:number=0;
+
+  id_plato_creado:number=0;
   // contenedor de los datos de las categorias
   categroias:Array<any>=[];
 
@@ -79,6 +87,8 @@ export class PlatoComponent implements OnInit {
               ciclo:this.id_categorias,
               id_plato:this.config.data.plato.id_plato
             })
+            this.id_plato_creado = this.config.data.plato;
+            console.log("datos del plato creaado de id_plato_creado",this.id_plato_creado);
 
           }else{
             this.send_plato.emit({
@@ -91,6 +101,15 @@ export class PlatoComponent implements OnInit {
         break;
 
         case 'agregado_plato':
+
+          this.data_platos.push({
+            descripcion: this.descripcion,
+            estado: 1,
+            id_plato: this.id_plato_creado,
+            imagen: this.imagen != "" ? this.imagen : this.imagen_provisional,
+            nombre: this.nombre,
+            precio: this.precio,
+          })
           this.nombre="";
           this.descripcion="";
           this.precio="";
@@ -111,6 +130,11 @@ export class PlatoComponent implements OnInit {
         case 'listado_platos':
           this.data_platos = this.config.platos
           console.log("datos de data_platos",this.data_platos);
+        break;
+
+        case 'platos_no_disponibles':
+          this.platos_no_disponibles = this.config.platos;
+          console.log("datos de los platos no disponibles en plato", this.platos_no_disponibles);
         break;
       }
     }
@@ -153,6 +177,12 @@ export class PlatoComponent implements OnInit {
       this.id_categorias.splice(this.id_categorias.indexOf(categoria),1);
       console.log("se elimino la categria con la id: ",this.id_categorias);
     }
+  }
+
+  // metodo para regresar al menu principal
+
+  volver(){
+    this.vista = "menu_principal";
   }
 
 }

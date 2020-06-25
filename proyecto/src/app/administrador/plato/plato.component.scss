@@ -6,6 +6,8 @@
         clear: both;
         float: none;
     }
+
+   
     .platos {
         display: block;
         float: right;
@@ -15,6 +17,8 @@
         //#modificar {
         //------------------------------- FALTA ----------------
         //}
+
+
         .textoPrimario {
             display: block;
             font-weight: 500;
@@ -29,7 +33,7 @@
             margin-bottom: 18px;
         }
 
-        & > article {
+        & >div> article {
             display: block;
             float: left;
             width: 49%;
@@ -44,12 +48,22 @@
         width: 53%;
         padding: 2% 0% 0% 5%;
 
+       
         .textoPrimario {
             display: block;
             font-weight: 500;
             margin-top: 20px;
             margin-bottom: 40px;
             color: var(--color-principal);
+
+            & > .volver {
+                width: 6%;
+                font-size: 30px;
+                color: gray;
+                background-color: transparent;
+                border: unset;
+                outline: unset;
+            }
         }
         & > #box-inputs {
             display: block;
@@ -150,7 +164,7 @@
         width: 28%;
 
         & > img {
-            width:calc(101% - -2px);
+            width: calc(101% - -2px);
             height: 168px;
         }
     }
@@ -212,38 +226,49 @@
     }
 }
 
+.scroll {
+    height: 550px;
+    max-height: 550px;
+    overflow-y: scroll;
 
 
+    &::-webkit-scrollbar {
+        width: 20px;
+        margin-left:2px;
+      }
+    &::-webkit-scrollbar-thumb{
+        background: var(--color-secundario); 
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-track{
+        box-shadow: inset 0 0 5px grey; 
+        border-radius: 10px;
+    }
+}
 
 @media (max-width: 1024px) {
     .content {
         width: 30%;
     }
-
-    
 }
 
 @media (max-width: 768px) {
     .content {
         width: 40%;
     }
-
 }
 
 @media (max-width: 425px) {
     .content {
         width: 70%;
     }
-
-
 }
 
 @media (max-width: 375px) {
     .content {
         width: 80%;
     }
-
-   
 }
 
 @media (max-width: 320px) {

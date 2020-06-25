@@ -1,13 +1,18 @@
 <div class="content" >
 
   <section class="platos"*ngIf="vista == 'menu_principal' ">
-    <div class="textoPrimario" style="cursor: pointer;"
-     (click)="vista='crear_plato';texto_boton = 'CREAR PLATO'; titulo= 'NUEVO PLATO'">AÑADIR PLATO +</div>
+
+   
+
+    <div class="textoPrimario" style="cursor: pointer;">     
+     <span  (click)="vista='crear_plato';texto_boton = 'CREAR PLATO'; titulo= 'NUEVO PLATO'" >AÑADIR PLATO +</span>
+    </div>
      
     <h2 class="textoSecundario">PLATOS DISPONIBLES</h2>
-
+    
+    <div [ngClass]="{'scroll':data_platos.length > 6}" *ngIf="data_platos" >
     <article *ngFor="let platos of data_platos; let index = index">
-      <div class="card" (click)="id_plato = platos.id_plato">
+      <div class="card" (click)="id_plato_seleccionado = platos.id_plato">
         <div class="imagen">
           <img src="{{platos.imagen}}"  
            alt="Imagen Descriptiva" />
@@ -23,6 +28,28 @@
         </div>
       </div>
     </article>
+  </div>
+    <h2 class="textoSecundario" style="margin-top: 30px;">PLATOS NO DISPONIBLES</h2>
+
+    <div [ngClass]="{'scroll':platos_no_disponibles.length > 6}" *ngIf="platos_no_disponibles">
+    <article *ngFor="let platos of platos_no_disponibles; let index = index">
+      <div class="card" (click)="id_plato_seleccionado = platos.id_plato">
+        <div class="imagen">
+          <img src="{{platos.imagen}}"  
+           alt="Imagen Descriptiva" />
+        </div>
+        <div class="cardb">
+
+          <!-- falta añadir el icono de editar -->
+          <h1 class="titulo textoPrimario">{{platos.nombre}}</h1>
+          <p class="des" class="textoCuerpo">{{platos.descripcion}}</p>
+          <div class="precio-agregar">
+            <p class="precio" class="textoCuerpo">${{platos.precio}}</p>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
   </section>
 </div>
 
@@ -34,7 +61,11 @@
   <!--------------------- AÑADIR NUEVO PLATO ----------------------->
 
   <section class="nuevo_plato">
-    <h2 class="textoPrimario">{{titulo}}</h2>
+   
+    <div class="textoPrimario">
+      <button class="volver" (click)="volver()">❮</button>
+      <span>{{titulo}}</span>
+    </div>
     <div id="box-inputs">
       <input type="text" placeholder="Nombre del plato" [(ngModel)]="nombre"/> <br />
       <textarea id="Descripcion" cols="40" rows="5" placeholder=" Descripción del plato" [(ngModel)]= "descripcion" ></textarea>

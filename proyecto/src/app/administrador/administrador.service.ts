@@ -21,6 +21,14 @@ export class AdministradorService  extends class_http{
     )
   }
 
+  Modificar_platos(data):Observable<Object>{
+    return this.http.post(this.API_URL+"Platos/Modificar",data,this.getHeaders()).pipe(
+      map(data=>{
+        console.log("datos que trae el servicio de modificar platos",data);
+        return data;
+      })
+    )
+  }
 
   Agregar_Categorias_Plato(data):Observable<Object>{
     return this.http.post(this.API_URL+"Categorias/Agregar",data,this.getHeaders()).pipe(
@@ -35,6 +43,15 @@ export class AdministradorService  extends class_http{
     return this.http.get(this.API_URL+"Platos/Disponibles",this.getHeaders()).pipe(
       map(data=>{
         console.log("datos que regresa el servicio de listado platos ",data);
+        return data;
+      })
+    )
+  }
+
+  Listado_no_Dispopnibles():Observable<Object>{
+    return this.http.get(this.API_URL+"Platos/NoDisponibles",this.getHeaders()).pipe(
+      map(data=>{
+        console.log("datos que responde el servicio de listrado de platos no disponibles",data);
         return data;
       })
     )
