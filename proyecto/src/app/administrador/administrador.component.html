@@ -19,7 +19,7 @@
   
     <app-mesas *ngIf="display_components == 'mesas'"></app-mesas>
   
-    <app-pedidos *ngIf="display_components == 'pedidos'"></app-pedidos>
+    <app-pedidos *ngIf="display_components == 'pedidos'" [config]="config_pedidos" (send_pedidos)="events_pedidos($event)"></app-pedidos>
   
     
   </div>

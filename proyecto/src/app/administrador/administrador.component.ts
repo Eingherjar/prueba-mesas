@@ -8,8 +8,11 @@ import { NotifierService } from 'angular-notifier';
 })
 export class AdministradorComponent implements OnInit {
 
-  config_plato = {};
+  // datos que se envian al componente plato
+  config_plato:any={};
 
+  // datos que se envian al compnente pedidos
+  config_pedidos:any={};
   config_vista_plato: String = 'menu_principal';
 
   display_components: String = 'menu';
