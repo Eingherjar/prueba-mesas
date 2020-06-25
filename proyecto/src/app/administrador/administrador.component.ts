@@ -92,6 +92,44 @@ export class AdministradorComponent implements OnInit {
       case 'pedidos':
         this.display_components = e.event;
 
+        // pedidos activos 
+        this.service.Mostrar_Pedidos_Realizados().subscribe((data:any)=>{
+          if(data.estado === "success" ){
+            this.config_pedidos={
+              event:"pedidos_activos",
+              activos:data            
+            }
+          } 
+          else if (data.estado === "error"){
+            console.log("error al traer los datos del pedido",data); 
+          }
+        });
+
+        // pedidos en curso
+        this.service.Mostrar_Pedidos_EnCurso().subscribe((data:any)=>{
+          if(data.estado === "success" ){
+            this.config_pedidos={
+              event:"pedidos_en_curso",
+              encurso:data            
+            }
+          } 
+          else if (data.estado === "error"){
+            console.log("error al traer los datos del pedido",data); 
+          }
+        });
+
+        // pedidos finalizados
+        this.service.Mostrar_Pedidos_Finalizados().subscribe((data:any)=>{
+          if(data.estado === "success" ){
+            this.config_pedidos={
+              event:"pedidos_finalizados",
+              finalizados:data            
+            }
+          } 
+          else if (data.estado === "error"){
+            console.log("error al traer los datos del pedido",data); 
+          }
+        });
         break;
 
       case 'cerrar':
