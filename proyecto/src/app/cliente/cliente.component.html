@@ -1,49 +1,5 @@
+<div class="content">
+  <app-buscador></app-buscador>
 
-<!-- <div>
-  
-    <button type="button" class="btn btn-info">Info</button>
-    <app-informacion></app-informacion>
-    <app-vista-vendidos></app-vista-vendidos>
-</div> -->
-<!-- <app-informacion></app-informacion> -->
-
-<!-- Botones -->
-<!-- 
-  <button type="button" class="btn btn-primary">Primary</button>
-
-  <button type="button" class="btn btn-primary btn-lg">Large button</button> -->
-
-<!-- Login -->
-
-<!-- <input autocomplete="off" type="search"/> -->
-
-<!-- CARDS -->
-
-<div class="card mb-3" style="max-width: 540px;" (click)="active = !active"  [ngClass]="{'select-plato': active == true}">
-    <div class="row no-gutters">
-      <div class="col-md-4" >
-        <img src="https://picsum.photos/120/120" class="card-img" alt="..." />
-      </div>
-      <div class="col-md-8">
-        <div class="card-body" style="padding-bottom: 0px ;">
-          <h5 class="card-title">Card title</h5>
-          <div class="card-text">
-           <p>descripcion de plato</p>
-          </div>
-          <p class="card-text">Precio</p>
-  
-          <div class="btn-group btn-group-toggle" >
-            <label class="btn btn-secondary" (click)="contador(false)">
-              <!-- <input type="radio" name="options" id="option1" checked /> -->
-              <p>-</p>
-            </label>
-            <label class="btn btn-secondary">{{con}}</label>
-            <label class="btn btn-secondary" (click)="contador(true)">
-
-              <p>+</p>
-            </label>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <app-vista-vendidos></app-vista-vendidos>
+</div>

@@ -132,8 +132,9 @@ export class AdministradorComponent implements OnInit {
             if (i == e.ciclo.length - 1) {
               this.notifier.notify("success", "se ha añadido todas las categorias al plato");
               this.config_plato = {
-                event: 'agregado_plato'
+                event: e.case === "crear" ? 'agregado_plato' : 'modificado_plato'
               }
+              console.log("enveto mandado desde agregar categoria",e.case);
             }
           });
         }
@@ -180,8 +181,8 @@ export class AdministradorComponent implements OnInit {
             }
           }
           else if (data.estado === 'error') {
-            this.notifier.notify("error", "Error al modirficar el plato");
-            console.log("datos de la modificacion del plato", data);
+            this.notifier.notify("error", data.error.mensaje ? data.error.mensaje : "Error al modificar el plato");
+            console.log("datos de la modificacion del plato", data.error.mensaje ? data.error.mensaje : "Error al modificar el plato");
           }
         }) 
       break;

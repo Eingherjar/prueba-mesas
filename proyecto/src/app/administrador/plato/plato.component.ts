@@ -33,6 +33,8 @@ export class PlatoComponent implements OnInit {
   // contenedor de los datos de las categorias
   categroias:Array<any>=[];
 
+  // se encarga de ver la disponibilidad del plato 
+  estado_plato:boolean;
   // contenedor de las ids de las categroias selccionadas
   id_categorias:Array<any>=[]
 
@@ -84,6 +86,7 @@ export class PlatoComponent implements OnInit {
           if(this.config.data){
             this.send_plato.emit({
               event: "agregar_categoria",
+              case:"crear",
               ciclo:this.id_categorias,
               id_plato:this.config.data.plato.id_plato
             })
@@ -101,7 +104,6 @@ export class PlatoComponent implements OnInit {
         break;
 
         case 'agregado_plato':
-
           this.data_platos.push({
             descripcion: this.descripcion,
             estado: 1,
@@ -137,16 +139,90 @@ export class PlatoComponent implements OnInit {
           console.log("datos de los platos no disponibles en plato", this.platos_no_disponibles);
         break;
 
-
         case 'traer_categorias':
           for(let i=0; i< this.config.categorias.length ;i++){
-            this.id_categorias.push(this.config.categortias[i].id_categoria);
+            this.id_categorias.push(""+this.config.categorias[i].id_categoria);
+            console.log("datos de las categorias",this.id_categorias);
           } 
         break;
 
         case 'mostrar_plato':
-          this.nombre = this.config.nombre;
-          this.descripcion = this.config
+          this.nombre = this.config.plato[0].nombre;
+          this.descripcion = this.config.plato[0].descripcion;
+          this.imagen = this.config.plato[0].imagen;
+          this.precio = this.config.plato[0].precio;
+          this.estado_plato = this.config.plato[0].estado == 0 ? false : true;
+          console.log("datos que trae el nombre",{
+            nombre:this.nombre,
+            descripcion:this.descripcion,
+            imagen:this.imagen,
+            precio:this.precio,
+            estado: this.estado_plato
+          })
+          this.send_plato.emit({
+            event: 'traer_categorias',
+            data:{
+              id_plato: this.id_plato_seleccionado
+            }
+          });
+
+        break;
+      
+        case 'modificar_plato':
+          this.send_plato.emit({
+            event: "agregar_categoria",
+            case:"modificar",
+            ciclo:this.id_categorias,
+            id_plato:this.id_plato_seleccionado
+          }) 
+        break
+      
+        case 'modificado_plato':
+
+          console.log("entro en la condicion de modificado plato");
+           
+          if(this.estado_plato === true){
+
+            this.data_platos.forEach((data,index)=>{
+              let incluido = data.id_plato === this.id_plato_seleccionado ? true : false ;
+
+              if (incluido === true){
+                this.data_platos[index]={
+                  descripcion: this.descripcion,
+                  estado: 1,
+                  id_plato: this.id_plato_seleccionado,
+                  imagen: this.imagen,
+                  nombre: this.nombre,
+                  precio: this.precio
+                }
+              }
+              if (index  ===  this.data_platos.length -1  && incluido === false){
+                this.platos_no_disponibles.forEach((data,index)=>{
+                  let incluido = data.id_plato === this.id_plato_seleccionado ? true : false ;
+    
+                  if (incluido === true){
+                    this.data_platos.push(this.platos_no_disponibles[index]);
+                    this.platos_no_disponibles.splice(index,1);
+                    console.log("datos eliminados de los platos no disponibles y añadido en los platos disponibles");
+                  }
+                })
+              }
+            })
+          }
+           
+          else{
+
+            this.data_platos.forEach((data,index)=>{
+              let incluido = data.id_plato === this.id_plato_seleccionado ? true : false ;
+
+              if (incluido === true){
+                this.platos_no_disponibles.push(this.data_platos[index]);
+                this.data_platos.splice(index,1);
+                console.log("datos eliminados de los platos disponibles y añadido en los platos no disponibles");
+               
+              }
+            })
+          }
         break;
       }
     }
@@ -173,7 +249,18 @@ export class PlatoComponent implements OnInit {
     }
 
     else if(condicion === 'modificar'){
-
+      let plato ={
+        id:this.id_plato_seleccionado,
+        nombre:this.nombre,
+        precio:this.precio,
+        descripcion:this.descripcion,
+        estado:this.estado_plato == true ? 1 : 0,
+        imagen:this.imagen
+      }
+      this.send_plato.emit({
+        event: 'modificar_plato',
+        data:plato
+      })
     }
 
     else if(condicion  === 'eliminar'){
@@ -182,7 +269,7 @@ export class PlatoComponent implements OnInit {
   }
 
   onChecked(categoria, cheked){
-    if(cheked){
+    if(cheked === true){
       this.id_categorias.push(categoria);
       console.log("se añadio la categria con la id: ",this.id_categorias);
     }else{
@@ -199,14 +286,18 @@ export class PlatoComponent implements OnInit {
     this.vista = "modificar_plato";
     
     this.send_plato.emit({
-      event: 'traer_categorias',
-      data:this.id_plato_seleccionado
-    })
+      event:'mostrar_plato',
+      data:{
+        id_plato: this.id_plato_seleccionado
+      }
+    });
   }
 
 
   volver(){
     this.vista = "menu_principal";
+    this.id_categorias =[];
+    this.id_plato_seleccionado=0;
   }
 
 }

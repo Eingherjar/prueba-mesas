@@ -65,6 +65,8 @@
     <div class="textoPrimario">
       <button class="volver" (click)="volver()">❮</button>
       <span>{{titulo}}</span>
+      <br>
+      <input type="checkbox" [checked]="estado_plato" (change)="estado_plato = $event.target.checked " /> <span style="color: var(--color-secundario);">Estado del plato</span>
     </div>
     <div id="box-inputs">
       <input type="text" placeholder="Nombre del plato" [(ngModel)]="nombre"/> <br />
@@ -73,7 +75,6 @@
       <input type="number" placeholder="Precio del plato" [(ngModel)]= "precio"/> <br />
       <input type="text" placeholder="Subir imagen" [(ngModel)]= "imagen"/> <br />
       <input type="submit" class="btn-primary" [ngStyle]="{'width.%':vista =='modificar_plato' ? 31 : 25}" value="{{texto_boton}}" (click)="plato(vista == 'modificar_plato' ? 'modificar' : 'crear')" /> <br />
-      <input type="submit" class="btn-primary" style="background-color: red; width: 31%;" value="ELIMINAR PLATO" (click)="plato('eliminar')"  *ngIf="vista == 'modificar_plato' "/> <br />
     </div>
     <div class="clearfix"></div>
   </section>
