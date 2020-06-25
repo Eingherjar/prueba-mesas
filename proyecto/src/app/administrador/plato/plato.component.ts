@@ -136,6 +136,18 @@ export class PlatoComponent implements OnInit {
           this.platos_no_disponibles = this.config.platos;
           console.log("datos de los platos no disponibles en plato", this.platos_no_disponibles);
         break;
+
+
+        case 'traer_categorias':
+          for(let i=0; i< this.config.categorias.length ;i++){
+            this.id_categorias.push(this.config.categortias[i].id_categoria);
+          } 
+        break;
+
+        case 'mostrar_plato':
+          this.nombre = this.config.nombre;
+          this.descripcion = this.config
+        break;
       }
     }
 
@@ -180,6 +192,18 @@ export class PlatoComponent implements OnInit {
   }
 
   // metodo para regresar al menu principal
+
+  seleccion_plato(plato:number){
+    this.id_plato_seleccionado = plato;
+
+    this.vista = "modificar_plato";
+    
+    this.send_plato.emit({
+      event: 'traer_categorias',
+      data:this.id_plato_seleccionado
+    })
+  }
+
 
   volver(){
     this.vista = "menu_principal";

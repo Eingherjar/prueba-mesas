@@ -140,9 +140,34 @@ export class AdministradorComponent implements OnInit {
 
       break;
 
-      case 'categorias_plato':
-        
+      case 'traer_categorias':
+        this.service.Listado_Categorias_Platos(e.data).subscribe((data:any)=>{
+          if(data.estado === "success"){
+            this.config_plato={
+              event: 'traer_categorias',
+              categorias:data.categortias
+            }
+
+          }else if(data.estado === "error"){
+            this.notifier.notify("error",data.error.mensaje);
+          }
+        })
       
+      break;
+
+      case 'mostrar_plato':
+        this.service.Mostrar_Plato(e.data).subscribe((data:any)=>{
+          if(data.estado === "success"){
+            this.config_plato={
+              event: 'mostrar_plato',
+              plato:data.plato
+            }
+
+          }else if(data.estado === "error"){
+            this.notifier.notify("error",data.error.mensaje);
+          }
+        })
+
       break;
 
       case 'modificar_plato':

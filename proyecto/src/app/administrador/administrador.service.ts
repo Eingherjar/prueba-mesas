@@ -12,6 +12,7 @@ export class AdministradorService  extends class_http{
     super();
   }
 
+  // crear un plato 
   Crear_Platos(data):Observable<Object>{
     return this.http.post(this.API_URL+"/Platos/Crear",data,this.getHeaders()).pipe(
       map(data=>{
@@ -21,6 +22,7 @@ export class AdministradorService  extends class_http{
     )
   }
 
+  // modificar un plato por medio del id del plato que se quiere modificar
   Modificar_platos(data):Observable<Object>{
     return this.http.post(this.API_URL+"Platos/Modificar",data,this.getHeaders()).pipe(
       map(data=>{
@@ -30,6 +32,7 @@ export class AdministradorService  extends class_http{
     )
   }
 
+  // añadir categorias a los platos
   Agregar_Categorias_Plato(data):Observable<Object>{
     return this.http.post(this.API_URL+"Categorias/Agregar",data,this.getHeaders()).pipe(
       map(data=>{
@@ -39,6 +42,7 @@ export class AdministradorService  extends class_http{
     )
   }
 
+  //lista de platos disponibles
   Listado_Platos():Observable<Object>{
     return this.http.get(this.API_URL+"Platos/Disponibles",this.getHeaders()).pipe(
       map(data=>{
@@ -48,6 +52,7 @@ export class AdministradorService  extends class_http{
     )
   }
 
+  // lista de platos no disponibles
   Listado_no_Dispopnibles():Observable<Object>{
     return this.http.get(this.API_URL+"Platos/NoDisponibles",this.getHeaders()).pipe(
       map(data=>{
@@ -56,5 +61,25 @@ export class AdministradorService  extends class_http{
       })
     )
   }
+
+
+  Listado_Categorias_Platos(data):Observable<Object>{
+    return this.http.post(this.API_URL+"Platos/Categorias",data,this.getHeaders()).pipe(
+      map(data=>{
+        console.log("datos que se estan mostrando en el servicio de listado categorias platos",data);
+        return data;
+      })
+    )
+  }
+
+  Mostrar_Plato(data):Observable<Object>{
+    return this.http.post(this.API_URL+"Plato/Id",data,this.getHeaders()).pipe(
+      map(data=>{
+        console.log("datos del servicio de mostrar plato",data);
+        return data;
+      })
+    )
+  }
+
 
 }

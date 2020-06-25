@@ -12,7 +12,7 @@
     
     <div [ngClass]="{'scroll':data_platos.length > 6}" *ngIf="data_platos" >
     <article *ngFor="let platos of data_platos; let index = index">
-      <div class="card" (click)="id_plato_seleccionado = platos.id_plato">
+      <div class="card" (click)="seleccion_plato(platos.id_plato)">
         <div class="imagen">
           <img src="{{platos.imagen}}"  
            alt="Imagen Descriptiva" />
@@ -33,7 +33,7 @@
 
     <div [ngClass]="{'scroll':platos_no_disponibles.length > 6}" *ngIf="platos_no_disponibles">
     <article *ngFor="let platos of platos_no_disponibles; let index = index">
-      <div class="card" (click)="id_plato_seleccionado = platos.id_plato">
+      <div class="card" (click)="seleccion_plato(platos.id_plato)">
         <div class="imagen">
           <img src="{{platos.imagen}}"  
            alt="Imagen Descriptiva" />
