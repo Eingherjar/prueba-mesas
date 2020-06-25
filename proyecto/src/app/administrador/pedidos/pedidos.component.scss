@@ -1,59 +1,102 @@
 .content {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 
-    .p-confirmar,
-    .p-curso,
-    .p-finalizados {
-        display: block;
-        width: 25%;
-        float: left;
-        padding: 2% 0% 2% 2%;
+  .p-confirmar,
+  .p-curso,
+  .p-finalizados {
+    display: block;
+    width: 25%;
+    float: left;
+    padding: 2% 0% 2% 2%;
 
-        & > .textoSecundario {
-            font-size: 23px;
-            margin-right: 20px;
-            margin-bottom: 25px;
-        }
-
-        & > .info-pedido {
-            display: block;
-            width: 80%;
-            padding: 2px 0px 2px 10px;
-            margin: 0px;
-            margin-bottom: 25px;
-            background-color: white;
-            box-shadow: 0px 0px 3px #ccc;
-        }
+    &>.textoSecundario {
+      font-size: 23px;
+      margin-right: 20px;
+      margin-bottom: 25px;
     }
+
+    &>.info-pedido {
+      display: block;
+      width: 80%;
+      padding: 2px 0px 2px 10px;
+      margin: 0px;
+      margin-bottom: 25px;
+      background-color: white;
+      box-shadow: 0px 0px 3px #ccc;
+    }
+  }
+
+  // Información del pedido
+
+  &>.info .informacion {
+    padding-top: 2%;
+    padding-left: 30%;
+
+    &>.textoPrimario {
+      font-size: 25px;
+      margin-bottom: 15px;
+    }
+
+    &>.textoSecundario {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    &>.platos_pedido {
+      margin-top: 50px;
+
+      &>.textoPrimario {
+        font-size: 25px;
+        margin-bottom: 35px;
+      }
+
+      &>.btn-primary {
+        margin-left: 10px;
+      }
+
+      &>.table {
+        width: 90%;
+      }
+
+      .table th {
+        border-top: unset;
+      }
+
+      .table td {
+        border-bottom: 1px solid #dee2e6;
+      }
+    }
+  }
 }
 
+
 @media (max-width: 1024px) {
-    .content {
-      width: 30%;
-    }
+  .content {
+    width: 30%;
   }
-  
-  @media (max-width: 768px) {
-    .content {
-      width: 40%;
-    }
+}
+
+@media (max-width: 768px) {
+  .content {
+    width: 40%;
   }
-  
-  @media (max-width: 425px) {
-    .content {
-      width: 70%;
-    }
+}
+
+@media (max-width: 425px) {
+  .content {
+    width: 70%;
   }
-  
-  @media (max-width: 375px) {
-    .content {
-      width: 80%;
-    }
+}
+
+@media (max-width: 375px) {
+  .content {
+    width: 80%;
   }
-  
-  @media (max-width: 320px) {
-    .content {
-      width: 86%;
-    }
+}
+
+@media (max-width: 320px) {
+  .content {
+    width: 86%;
   }
+}
