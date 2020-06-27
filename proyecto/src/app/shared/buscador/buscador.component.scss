@@ -55,9 +55,24 @@
         }
       }
     }
+
+    & > .input-group-append {
+      span {
+        position: absolute;
+        top: 9px;
+        right: 15px;
+        background-color: var(--color-principal);
+        width: 20px;
+        border-radius: 30px;
+        color: white;
+        font-size: 14px;
+      }
+      button{
+        border:unset;
+      }
+    }
   }
 }
-
 
 @media (max-width: 768px) {
   .content {

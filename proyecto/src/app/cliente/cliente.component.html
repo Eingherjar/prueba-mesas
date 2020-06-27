@@ -1,5 +1,5 @@
 <div class="content">
-  <app-buscador></app-buscador>
+  <app-buscador [config]="config_buscador" (buscador)="events_buscador($event)"></app-buscador>
 
   <app-vista-vendidos *ngIf="vista_components == 'vista vendidos'" (send_vista_vendidos)="events_vista_vendidos($event)" [config]="config_vista_vendidos"></app-vista-vendidos>
 
@@ -8,9 +8,10 @@
 
   <app-platos-categoria *ngIf="vista_components == 'vista platos categorias'" (send_vista_categorias)="events_vista_categorias($event)" [config]="config_vista_categoria"></app-platos-categoria>
 
-  <app-pedido *ngIf="vista_components == 'vista pedidos'"></app-pedido>
+  <app-pedido *ngIf="vista_components == 'vista pedidos'" [config]="config_vista_pedidos" (send_vista_pedidos)="events_vista_pedidos($event)"></app-pedido>
 
-  <app-informacion *ngIf="vista_components == 'vista informacion'"></app-informacion>
+  <app-informacion *ngIf="vista_components == 'vista informacion'"
+   [config]="config_vista_informacion" (send_vista_informacion)="events_vista_informacion($event)"></app-informacion>
 
   <app-finalizar *ngIf="vista_components == 'vista finalizar'"></app-finalizar>
 </div>

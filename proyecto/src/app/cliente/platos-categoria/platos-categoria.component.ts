@@ -36,4 +36,11 @@ export class PlatosCategoriaComponent implements OnInit {
     })
   }
 
+  plato_selccionado(id){
+    this.send_vista_categorias.emit({
+      event:"plato_seleccionado",
+      id:id
+    })
+  }
+
 }

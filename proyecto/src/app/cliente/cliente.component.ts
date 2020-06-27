@@ -19,6 +19,12 @@ export class ClienteComponent implements OnInit {
   config_vista_vendidos:any;
 
   config_vista_categoria:any;
+
+  config_vista_informacion:any;
+
+  config_vista_pedidos:any;
+
+  config_buscador:any;
   
   private notifier: NotifierService;
 
@@ -73,6 +79,29 @@ export class ClienteComponent implements OnInit {
         })
         
       break;
+
+      case 'plato_seleccionado': 
+
+      this.vista_components ="vista informacion";
+      let plato ={
+        id_plato: e.id
+      }
+      this.service.Mostrar_Plato(plato).subscribe((data:any)=>{
+        if(data.estado === 'success'){
+          this.config_vista_informacion={
+            event:"plato_seleccionado",
+            plato: data.plato ,
+            lugar:"principal"
+          }
+        }
+
+        else if(data.estado === 'error'){
+          this.notifier.notify("error","ha ocurrido un erro al mostar los detalles del plato");
+          console.log("error al mostar el detalle de un plato",data);
+        }
+      })
+
+      break;
     }
   }
 
@@ -120,6 +149,75 @@ export class ClienteComponent implements OnInit {
           }  
         })
         
+      break;
+
+      case 'plato_seleccionado':
+        this.vista_components ="vista informacion";
+        let plato ={
+          id_plato: e.id
+        }
+        this.service.Mostrar_Plato(plato).subscribe((data:any)=>{
+          if(data.estado === 'success'){
+            this.config_vista_informacion={
+              event:"plato_seleccionado",
+              plato: data.plato,
+              lugar:"categorias" 
+            }
+          }
+
+          else if(data.estado === 'error'){
+            this.notifier.notify("error","ha ocurrido un erro al mostar los detalles del plato");
+            console.log("error al mostar el detalle de un plato",data);
+          }
+        })
+      break;
+    }
+  }
+
+  events_vista_informacion(e){
+    switch(e.event){
+      case 'regresar':
+        console.log("datos que trae el event",e.destino);
+      this.vista_components = e.destino === "principal " ? "vista platos" : e.destino === "categorias"  ? "vista platos categorias" : "vista platos";
+      break;
+
+      case 'agregar_carro':
+        console.log("entro en la condicion de agregar carro");
+        this.config_buscador={
+          event:"añadir",
+          datos: e.envio
+        } 
+      break;
+    }
+  }
+
+  events_buscador(e){
+    switch(e.event){
+      case 'carrito':
+        this.vista_components = 'vista pedidos';
+        this.config_vista_pedidos = {
+          event:"carrito",
+          datos: e.datos
+        }
+      break;
+    }
+  }
+
+  events_vista_pedidos(e){
+    switch(e.event){
+      case "prueba": 
+      console.log("dasdasd");
+      break;
+
+      case 'cantidad_platos':
+        this.config_buscador={
+          event:"cantidad_platos",
+          cantidad:e.cantidad
+        } 
+      break;
+
+      case 'regresar':
+        this.vista_components ="vista platos" ;
       break;
     }
   }

@@ -62,4 +62,14 @@ export class ClienteService extends class_http {
       })
     )
   }
+
+
+  Mostrar_Plato(data):Observable<Object>{
+    return this.http.post(this.API_URL+"Plato/Id",data,this.getHeaders()).pipe(
+      map(data=>{
+        console.log("datos del servicio de mostrar plato",data);
+        return data;
+      })
+    )
+  }
 }

@@ -80,6 +80,13 @@
       outline: unset;
     }
 
+    & > .textoCuerpo {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
     & > .titulo.textoPrimario {
       color: black;
       font-size: 25px;
@@ -118,183 +125,168 @@
 
 //-------------------------------------card-------------------------------------------------
 
-@media (max-width: 1024px) {
-  .content {
-    width: 28%;
+.scroll {
+  height: 786px;
+  max-height: 786px;
+  overflow-y: scroll;
 
-    & > .btn-primary {
-      font-size: 17px;
-      width: 60%;
+
+  &::-webkit-scrollbar {
+      width: 10px;
+      margin-left:2px;
     }
+  &::-webkit-scrollbar-thumb{
+      background: var(--color-secundario); 
+      border-radius: 5px;
   }
 
-  .card {
-    display: block;
-    width: 100%;
-    height: 93px;
-    margin: 0px auto;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-
-    &:hover {
-      box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 2px 10px 1px rgba(0, 0, 0, 0.13),
-        0 3px 12px 2px rgba(0, 0, 0, 0.1);
-    }
-
-    .imagen {
-      display: block;
-      float: left;
-      width: 28%;
-
-      & > img {
-        width: 100%;
-        height: auto;
-      }
-    }
-
-    .cardb {
-      display: flex;
-      flex-direction: column;
-      width: 72%;
-      padding: 1% 1% 0% 2%;
-
-      & > .eliminar {
-        font-size: 12px;
-      }
-
-      & > .titulo.textoPrimario {
-        color: black;
-        font-size: 22px;
-      }
-
-      .precio-agregar {
-        margin-top: auto;
-        display: flex;
-        justify-content: space-between;
-
-        .textoCuerpo {
-          margin-top: -7px;
-        }
-      }
-
-      .btn-group.btn-group-toggle {
-        border: 1px solid rgba(0, 0, 0, 0.125);
-        border-radius: 4px;
-        margin-top: -8px;
-        margin-bottom: auto;
-      }
-    }
+  &::-webkit-scrollbar-track{
+      box-shadow: inset 0 0 5px grey; 
+      border-radius: 5px;
   }
 }
 
 @media (max-width: 768px) {
   .content {
-    width: 37%;
-
-    & > .textoPrimario {
-      font-size: 28px;
-    }
+    width: 90%;
 
     & > .btn-primary {
-      width: 68%;
-      font-size: 18px;
+      font-size: 27px;
     }
 
-    & > .total > .textoPrimario {
-      font-size: 26px;
+    & > .p-recomendados {
+      &.img-recomendados img {
+        width: 20%;
+        margin-right: 0px;
+        margin-bottom: 20px;
+      }
+
+      & > .textoSecundario {
+        font-size: 34px;
+      }
     }
   }
 
-  .card .imagen {
-    display: block;
-    float: left;
-    width: 28%;
-
-    & > img {
-      width: 100%;
-      height: auto;
+  .card {
+    height: 185px;
+    & > .imagen {
+      height: 185px;
+      & > img {
+        height: 183px;
+      }
+    }
+    & > .cardb {
+      padding: 4% 1% 0% 2%;
     }
   }
 }
 
 @media (max-width: 425px) {
   .content {
-    width: 65%;
-  }
+    width: 90%;
 
-  .card {
-    height: 92px;
+    & > .btn-primary {
+      font-size: 23px;
+    }
 
-    & > .imagen {
-      height: 90px;
-
-      & > img {
-        height: 90px;
+    & > .p-recomendados {
+      & > .img-recomendados > img {
+        margin-right: 3px;
+      }
+      & > .textoSecundario {
+        font-size: 25px;
       }
     }
+  }
+  .card {
+    height: 116px;
+    & > .imagen {
+      height: 116px;
+      & > img {
+        height: 114px;
+      }
+    }
+  
+    & > .cardb {
+      padding: 4% 1% 0% 2%;
+      .titulo.textoPrimario {
+        font-size: 21px;
+      }
+    }
+  }
+
+  .scroll{
+    max-height: 560px;
+    height: 560px;
   }
 }
 
+
 @media (max-width: 375px) {
   .content {
-    width: 73%;
-  }
+    width: 93%;
+    & > .p-recomendados {
+      width: 98%;
+    }
 
-  .card {
-    height: 89px;
-
-    & > .imagen {
-      height: 87px;
-
-      & > img {
-        height: 87px;
+    &>div>.card {
+      height: 115px;
+      & > .imagen {
+        height: 113px;
+        & > img {
+          height: 111px;
+        }
+      }
+      & > .cardb {
+        padding: 4% 1% 0% 2%;
       }
     }
-
-    & > .cardb {
-      padding: 0% 1% 0% 2%;
-    }
+  
+  }
+  .scroll{
+    height: 560px;
+    max-height: 560px;
   }
 }
 
 @media (max-width: 320px) {
   .content {
-    width: 76%;
+    width: 93%;
+    & > .p-recomendados {
+      width: 98%;
 
-    & > .textoPrimario {
-      font-size: 26px;
+      & > .img-recomendados img {
+        width: 24%;
+      }
     }
 
-    & > .btn-primary {
-      width: 75%;
+    & > .btn-primary{
+      font-size: 20px;
     }
 
-    & > .total > .textoPrimario {
-      font-size: 24px;
+    .card {
+      height: 105px;
+      & > .imagen {
+        height: 102px;
+        & > img {
+          height: 102px;
+        }
+      }
+      & > .cardb {
+        padding: 4% 1% 0% 2%;
+
+        & > .informacion {
+          font-size: 10px;
+        }
+        & > .titulo.textoPrimario {
+          font-size: 17px;
+        }
+      }
     }
   }
 
-  .card {
-    height: 83px;
-
-    & > .imagen {
-      height: 80px;
-
-      & > img {
-        height: 80px;
-      }
-    }
-
-    & > .cardb {
-      padding: 0% 1% 0% 2%;
-
-      & > .eliminar {
-        font-size: 10px;
-      }
-
-      & > .titulo.textoPrimario {
-        font-size: 17px;
-      }
-    }
+  .scroll{
+    height: 560px;
+    max-height: 560px;
   }
 }

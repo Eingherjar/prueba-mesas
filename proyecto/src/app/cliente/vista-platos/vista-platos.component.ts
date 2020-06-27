@@ -35,4 +35,15 @@ export class VistaPlatosComponent implements OnInit {
       event: "select_categorias"
     })
   }
+
+  plato_selccionado(id){
+    this.send_vista_platos.emit({
+      event:"plato_seleccionado",
+      id:id
+    })
+    console.log("datos que se mandan para la informacion ",{
+      event:"plato_seleccionado",
+      id:id
+    })
+  }
 }
