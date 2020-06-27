@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input,SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,11 +8,9 @@ import { Component, OnInit, Output, EventEmitter, Input,SimpleChanges } from '@a
 })
 export class LoginComponent implements OnInit {
 
-  @Output() send_login = new EventEmitter();
+  @Output()send_login = new EventEmitter();
 
-  @Input() configuracion: any;
-
-  constructor() { }
+  @Input()configuracion: any;
 
 
   condicion: string = "login_inicio";
@@ -35,8 +34,14 @@ export class LoginComponent implements OnInit {
   femenino:boolean=false;
   otro:boolean=false;
 
-  ngOnInit(): void {
+  constructor(private router: Router) { }
 
+
+  ngOnInit(): void {
+    let usuario = localStorage.getItem('id_usuario');
+    if(usuario != 'null' && usuario != "0"){
+      this.router.navigate(['cliente/'+1]);
+    }
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -49,7 +54,7 @@ export class LoginComponent implements OnInit {
           console.log("entro en el login", this.configuracion);
           this.data_login = this.configuracion;
           localStorage.setItem("id_usuario", this.data_login ? this.data_login.id_usuario : 0);
-
+          this.router.navigate(['cliente/'+1]);
           this.send_login.emit({
             event: "mensaje",
             tipo: "success",

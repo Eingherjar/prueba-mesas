@@ -97,7 +97,7 @@ export class AdministradorComponent implements OnInit {
           if(data.estado === "success" ){
             this.config_pedidos={
               event:"pedidos_activos",
-              activos:data            
+              activos:data.pedidos            
             }
           } 
           else if (data.estado === "error"){
@@ -110,7 +110,7 @@ export class AdministradorComponent implements OnInit {
           if(data.estado === "success" ){
             this.config_pedidos={
               event:"pedidos_en_curso",
-              encurso:data            
+              encurso:data.pedidos            
             }
           } 
           else if (data.estado === "error"){
@@ -123,7 +123,7 @@ export class AdministradorComponent implements OnInit {
           if(data.estado === "success" ){
             this.config_pedidos={
               event:"pedidos_finalizados",
-              finalizados:data            
+              finalizados:data.pedidos            
             }
           } 
           else if (data.estado === "error"){
@@ -232,5 +232,9 @@ export class AdministradorComponent implements OnInit {
         this.notifier.notify(e.tipo, e.mensaje);
         break;
     }
+  }
+
+  events_pedidos(e){
+    console.log("esto");
   }
 }

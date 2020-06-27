@@ -29,14 +29,17 @@ export class PedidosComponent implements OnInit {
       switch(this.config.event){
         case 'pedidos_activos':
           this.data_activos = this.config.activos;
+          console.log("datos_activos",this.data_activos);
         break;  
 
         case 'pedidos_en_curso':
           this.data_en_curso = this.config.encurso;
+          console.log("datos_en_curso",this.data_en_curso);
         break;
 
         case 'pedidos_finalizados':
           this.data_finalizados = this.config.finalizados;
+          console.log("datos_finalizados",this.data_finalizados);
         break;
       }
     }

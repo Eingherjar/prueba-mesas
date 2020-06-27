@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input,Output, EventEmitter, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-vista-platos',
@@ -6,15 +6,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vista-platos.component.scss'],
 })
 export class VistaPlatosComponent implements OnInit {
+
+  @Output() send_vista_platos= new EventEmitter();
+  @Input() config:any;
+  
+  // datos de los platos activos que aparecen en el menu principal
+  data_activos:Array<any>;
+
   constructor() {}
-  con = 0;
+  
   ngOnInit(): void {}
 
-  contador(condicion) {
-    if (condicion == true) {
-      this.con++;
-    } else {
-      this.con--;
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log("simple changes", changes);
+
+    if (changes.hasOwnProperty('config') && this.config) {
+
+      switch(this.config.event){
+        case 'platos_activos':
+          this.data_activos = this.config.platos
+        break;
+      }
     }
+  }
+
+  select_categorias(){
+    this.send_vista_platos.emit({
+      event: "select_categorias"
+    })
   }
 }

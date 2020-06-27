@@ -1,6 +1,7 @@
-<div class="content">
-  <button class="btn-primary">VER CATEGORÍAS</button>
+<div class="content" *ngIf="data_activos">
+  <button class="btn-primary" (click)="select_categorias()">VER CATEGORÍAS</button>
   <br />
+ 
   <div class="p-recomendados">
     <h1 class="textoSecundario">Platos recomendados</h1>
     <div class="img-recomendados">
@@ -12,75 +13,17 @@
     <h1 class="textoSecundario">Menú del restaurante</h1>
   </div>
 
-  <div class="card">
-    <div class="imagen">
-      <img src="https://picsum.photos/115/128" alt="Imagen Descriptiva" />
-    </div>
-    <div class="cardb">
-      <button class="eliminar">✓</button>
-      <h1 class="titulo textoPrimario">Plato prueba</h1>
-      <p class="des" class="textoCuerpo">Descripción del plato</p>
-      <div class="precio-agregar">
-        <p class="precio" class="textoCuerpo">$32.000</p>
-        <div class="btn-group btn-group-toggle">
-          <label class="restar" class="btn btn-secondary" (click)="contador(false)">
-            <p>-</p>
-          </label>
-          <label id="contador" class="btn btn-secondary">
-            <p>{{ con }}</p>
-          </label>
-          <label class="sumar" class="btn btn-secondary" (click)="contador(true)">
-            <p>+</p>
-          </label>
-        </div>
+  <div [ngClass]="{'scroll': data_activos.length > 4}" >
+    <div class="card" *ngFor="let activos of data_activos ; let index = index">
+      <div class="imagen">
+        <img src="{{activos.imagen}}" alt="Imagen Descriptiva" />
       </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="imagen">
-      <img src="https://picsum.photos/115/128" alt="Imagen Descriptiva" />
-    </div>
-    <div class="cardb">
-      <button class="eliminar">✓</button>
-      <h1 class="titulo textoPrimario">Plato prueba</h1>
-      <p class="des" class="textoCuerpo">Descripción del plato</p>
-      <div class="precio-agregar">
-        <p class="precio" class="textoCuerpo">$32.000</p>
-        <div class="btn-group btn-group-toggle">
-          <label class="restar" class="btn btn-secondary" (click)="contador(false)">
-            <p>-</p>
-          </label>
-          <label id="contador" class="btn btn-secondary">
-            <p>{{ con }}</p>
-          </label>
-          <label class="sumar" class="btn btn-secondary" (click)="contador(true)">
-            <p>+</p>
-          </label>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="imagen">
-      <img src="https://picsum.photos/115/128" alt="Imagen Descriptiva" />
-    </div>
-    <div class="cardb">
-      <button class="eliminar">✓</button>
-      <h1 class="titulo textoPrimario">Plato prueba</h1>
-      <p class="des" class="textoCuerpo">Descripción del plato</p>
-      <div class="precio-agregar">
-        <p class="precio" class="textoCuerpo">$32.000</p>
-        <div class="btn-group btn-group-toggle">
-          <label class="restar" class="btn btn-secondary" (click)="contador(false)">
-            <p>-</p>
-          </label>
-          <label id="contador" class="btn btn-secondary">
-            <p>{{ con }}</p>
-          </label>
-          <label class="sumar" class="btn btn-secondary" (click)="contador(true)">
-            <p>+</p>
-          </label>
+      <div class="cardb">
+        <h1 class="titulo textoPrimario">{{activos.nombre}}</h1>
+  
+        <div class="des-precio">
+          <p class="des" class="textoCuerpo">{{activos.descripcion}}</p>
+          <span class="precio" class="textoCuerpo">${{activos.precio}}</span>
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@
 .content {
   width: 100%;
   height: auto;
-
+  margin: 0px auto;
   .clearfix {
     clear: both;
     float: none;
@@ -58,32 +58,27 @@
   }
 }
 
-@media (max-width: 1024px) {
-  .content {
-    width: 30%;
-  }
-}
 
 @media (max-width: 768px) {
   .content {
-    width: 40%;
+    width: 93%;
   }
 }
 
 @media (max-width: 425px) {
   .content {
-    width: 70%;
+    width: 96%;
   }
 }
 
 @media (max-width: 375px) {
   .content {
-    width: 80%;
+    width: 100%;
   }
 }
 
 @media (max-width: 320px) {
   .content {
-    width: 86%;
+    width: 100%;
   }
 }

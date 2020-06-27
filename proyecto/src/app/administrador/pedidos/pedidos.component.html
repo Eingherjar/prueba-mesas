@@ -1,76 +1,42 @@
 <div class="content">
 
-  <div class="p-confirmar" hidden>
+  <div class="p-confirmar" *ngIf="data_activos">
     <h1 class="textoSecundario">PEDIDOS POR CONFIRMAR</h1>
-    <div class="info-pedido">
-      <h2>Pedido N°34</h2>
-      <p>Mesa 3</p>
-      <p>$78500</p>
-    </div>
-    <div class="info-pedido">
-      <h2>Pedido N°34</h2>
-      <p>Mesa 3</p>
-      <p>$78500</p>
-    </div>
-    <div class="info-pedido">
-      <h2>Pedido N°34</h2>
-      <p>Mesa 3</p>
-      <p>$78500</p>
-    </div>
-    <div class="info-pedido">
-      <h2>Pedido N°34</h2>
-      <p>Mesa 3</p>
-      <p>$78500</p>
-    </div>
+    <div  [ngClass]="{'scroll':data_activos.length > 5}">
+      <div class="info-pedido" *ngFor="let activos of data_activos; let index = index">
+        <h2>Pedido N°{{activos.id_pedido}}</h2>
+        <p>Mesa {{activos.mesa}}</p>
+        <p>${{activos.precio}}</p>
+      </div>
+    </div>  
   </div>
 
-  <div class="p-curso" hidden>
+  <div class="p-curso" *ngIf="data_en_curso" >
     <h1 class="textoSecundario">PEDIDOS EN CURSO</h1>
-    <div class="info-pedido">
-      <h2>Pedido N°34</h2>
-      <p>Mesa 3</p>
-      <p>$78500</p>
+    <div [ngClass]="{'scroll':data_en_curso.length > 5}"> 
+      <div class="info-pedido" *ngFor="let curso of data_en_curso; let index = index">
+        <h2>Pedido N°{{curso.id_pedido}}</h2>
+        <p>Mesa {{curso.mesa}}</p>
+        <p>${{curso.precio}}</p>
+      </div>
     </div>
   </div>
 
-  <div class="p-finalizados" hidden>
+  <div class="p-finalizados" *ngIf="data_finalizados">
     <h1 class="textoSecundario">PEDIDOS FINALIZADOS</h1>
-    <div class="info-pedido">
-      <h2>Pedido N°34</h2>
-      <p>Mesa 3</p>
-      <p>$78500</p>
-    </div>
-    <div class="info-pedido">
-      <h2>Pedido N°34</h2>
-      <p>Mesa 3</p>
-      <p>$78500</p>
-    </div>
-    <div class="info-pedido">
-      <h2>Pedido N°34</h2>
-      <p>Mesa 3</p>
-      <p>$78500</p>
-    </div>
-    <div class="info-pedido">
-      <h2>Pedido N°34</h2>
-      <p>Mesa 3</p>
-      <p>$78500</p>
-    </div>
-    <div class="info-pedido">
-      <h2>Pedido N°34</h2>
-      <p>Mesa 3</p>
-      <p>$78500</p>
-    </div>
-    <div class="info-pedido">
-      <h2>Pedido N°34</h2>
-      <p>Mesa 3</p>
-      <p>$78500</p>
+    <div [ngClass]="{'scroll':data_finalizados.length > 5}">
+      <div class="info-pedido"  *ngFor="let finalizados of data_finalizados; let index = index">
+        <h2>Pedido N°{{finalizados.id_pedido}}</h2>
+        <p>Mesa {{finalizados.mesa}}</p>
+        <p>${{finalizados.precio}}</p>
+      </div>
     </div>
   </div>
 
 
   <!-- INFORMACIÓN DEL PEDIDO -->
 
-  <div class="content info">
+  <div class="content info" hidden>
     <div class="informacion">
       <h1 class="textoPrimario">INFORMACIÓN DEL PEDIDO</h1>
       <h2 class="textoSecundario">ID del pedido: 35</h2>

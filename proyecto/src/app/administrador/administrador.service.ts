@@ -83,7 +83,7 @@ export class AdministradorService  extends class_http{
 
   Mostrar_Pedidos_Realizados():Observable<Object>{
     return this.http.get(this.API_URL+ "Pedidos/Activos" ,this.getHeaders()).pipe(
-      (data=>{
+      map(data=>{
         console.log("datos que muestra el servicio de mostrar pedidos realizados",data);
         return data;
       })
@@ -92,15 +92,16 @@ export class AdministradorService  extends class_http{
 
   Mostrar_Pedidos_EnCurso():Observable<Object>{
     return this.http.get(this.API_URL + "Pedidos/EnCurso" ,this.getHeaders()).pipe(
-      (data=>{
+      map(data=>{
         console.log("datos que muestra el servicio de mostrar pedidos realizados",data);
         return data;
       })
     )
   }
+  
   Mostrar_Pedidos_Finalizados():Observable<Object>{
     return this.http.get(this.API_URL + "Pedidos/Finalizados" ,this.getHeaders()).pipe(
-      (data=>{
+      map(data=>{
         console.log("datos que muestra el servicio de mostrar pedidos realizados",data);
         return data;
       })
