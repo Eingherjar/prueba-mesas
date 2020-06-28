@@ -52,6 +52,8 @@ export class BuscadorComponent implements OnInit {
       
         case 'cantidad_platos':
             this.contador = this.config.cantidad
+            
+            this.platos_añadidos = this.contador === 0 ? [] : this.platos_añadidos;
         break; 
       }
     }

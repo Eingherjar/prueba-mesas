@@ -14,7 +14,11 @@ export class PedidoComponent implements OnInit {
   data_recibidos:Array<any>=[];
 
   precio_total:number=0;
+
+  precio_base:number=0;
   constructor() {}
+
+
  
   ngOnInit(): void {}
 
@@ -29,6 +33,7 @@ export class PedidoComponent implements OnInit {
 
           this.data_recibidos.forEach(element=>{
             this.precio_total += element.precio * element.cantidad;
+            this.precio_base += element.precio
           })
 
         break;
@@ -38,6 +43,7 @@ export class PedidoComponent implements OnInit {
 
   eliminar_plato(index){
     this.precio_total = this.precio_total - (this.data_recibidos[index].precio * this.data_recibidos[index].cantidad)
+    this.precio_base = this.precio_base - this.data_recibidos[index].precio;
     if(this.data_recibidos.length === 1 ){
       this.data_recibidos = []
       this.regresar();
@@ -51,15 +57,20 @@ export class PedidoComponent implements OnInit {
     })
   }
 
-
+  
   cambiar_precio_total(index,condicion){
     if (condicion === "sumar"){
       this.precio_total += this.data_recibidos[index].precio
 
     }else if (condicion === "restar"){
-      this.precio_total = this.data_recibidos[index].cantidad > 1 ? this.precio_total - this.data_recibidos[index].precio : this.precio_total;
+      this.precio_total = this.data_recibidos[index].cantidad >= 1  && this.precio_total > this.precio_base? this.precio_total - this.data_recibidos[index].precio : this.precio_total;
+      
     }
+
   }
+
+
+
 
   regresar(){
     this.send_vista_pedidos.emit({
