@@ -511,7 +511,7 @@ api.post('/Pedidos/Informacion', async (req, res) => {
         }else{
             res.json({
                 estado: "success",
-                pedido: pedidos[0][0],
+                pedido: pedidos[0],
                 mensaje:"datos del pedido"
             })
         }
