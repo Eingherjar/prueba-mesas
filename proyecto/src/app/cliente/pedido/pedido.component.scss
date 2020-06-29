@@ -3,7 +3,7 @@
   width: 25%;
   margin: 20px auto;
 
-  & > .volver {
+  &>.volver {
     font-size: 30px;
     color: gray;
     background-color: transparent;
@@ -11,25 +11,26 @@
     outline: unset;
   }
 
-  & > .textoPrimario {
+  &>.textoPrimario {
+    color: var(--color-principal);
     text-align: center;
     margin-bottom: 50px;
   }
 
-  & > .nota {
+  &>.nota {
     margin: 35px 0px;
 
-    & > textarea {
+    &>textarea {
       width: 100%;
     }
   }
 
-  & > .total {
+  &>.total {
     text-align: center;
     margin: 0px;
   }
 
-  & > .btn-primary {
+  &>.btn-primary {
     display: block;
     width: 50%;
     margin: 20px auto;
@@ -53,7 +54,7 @@
     float: left;
     width: 28%;
 
-    & > img {
+    &>img {
       width: 100%;
       height: auto;
     }
@@ -65,12 +66,12 @@
     width: 72%;
     padding: 1% 1% 0% 2%;
 
-    & > .eliminar {
+    &>.eliminar {
       position: absolute;
       top: 6px;
       right: 10px;
       width: 25px;
-      border-radius: 10px;
+      border-radius: 30px;
       border: unset;
       font-family: "Roboto";
       font-size: 15px;
@@ -80,14 +81,14 @@
       outline: unset;
     }
 
-    & > .textoCuerpo {
+    &>.textoCuerpo {
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden;
       margin-bottom: 10px;
     }
 
-    & > .titulo.textoPrimario {
+    &>.titulo.textoPrimario {
       color: black;
       font-size: 25px;
     }
@@ -132,17 +133,18 @@
 
 
   &::-webkit-scrollbar {
-      width: 10px;
-      margin-left:2px;
-    }
-  &::-webkit-scrollbar-thumb{
-      background: var(--color-secundario); 
-      border-radius: 5px;
+    width: 10px;
+    margin-left: 2px;
   }
 
-  &::-webkit-scrollbar-track{
-      box-shadow: inset 0 0 5px grey; 
-      border-radius: 5px;
+  &::-webkit-scrollbar-thumb {
+    background: var(--color-secundario);
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 5px;
   }
 }
 
@@ -150,18 +152,24 @@
   .content {
     width: 90%;
 
-    & > .btn-primary {
-      font-size: 27px;
+    &>.textoPrimario {
+      margin-top: -6%;
+      margin-bottom: 8%;
     }
 
-    & > .p-recomendados {
+    &>.btn-primary {
+      font-size: 27px;
+      width: 37%;
+    }
+
+    &>.p-recomendados {
       &.img-recomendados img {
         width: 20%;
         margin-right: 0px;
         margin-bottom: 20px;
       }
 
-      & > .textoSecundario {
+      &>.textoSecundario {
         font-size: 34px;
       }
     }
@@ -169,14 +177,23 @@
 
   .card {
     height: 185px;
-    & > .imagen {
+
+    &>.imagen {
       height: 185px;
-      & > img {
+
+      &>img {
         height: 183px;
       }
     }
-    & > .cardb {
+
+    .cardb {
       padding: 4% 1% 0% 2%;
+
+      .btn-group.btn-group-toggle {
+        border: 1px solid rgba(0, 0, 0, 0.125);
+        border-radius: 4px;
+        margin-top: 61px !important;
+      }
     }
   }
 }
@@ -185,37 +202,55 @@
   .content {
     width: 90%;
 
-    & > .btn-primary {
-      font-size: 23px;
+    &>.textoPrimario {
+      margin-top: -10%;
+      margin-bottom: 12%;
+      font-size: 27px;
     }
 
-    & > .p-recomendados {
-      & > .img-recomendados > img {
+    &>.btn-primary {
+      width: 50%;
+      font-size: 20px;
+    }
+
+    &>.p-recomendados {
+      &>.img-recomendados>img {
         margin-right: 3px;
       }
-      & > .textoSecundario {
+
+      &>.textoSecundario {
         font-size: 25px;
       }
     }
   }
+
   .card {
     height: 116px;
-    & > .imagen {
+
+    &>.imagen {
       height: 116px;
-      & > img {
+
+      &>img {
         height: 114px;
       }
     }
-  
-    & > .cardb {
+
+    &>.cardb {
       padding: 4% 1% 0% 2%;
+
+      .btn-group.btn-group-toggle {
+        border: 1px solid rgba(0, 0, 0, 0.125);
+        border-radius: 4px;
+        margin-top: 10px !important;
+      }
+
       .titulo.textoPrimario {
         font-size: 21px;
       }
     }
   }
 
-  .scroll{
+  .scroll {
     max-height: 560px;
     height: 560px;
   }
@@ -225,25 +260,44 @@
 @media (max-width: 375px) {
   .content {
     width: 93%;
-    & > .p-recomendados {
+
+    &>.textoPrimario {
+      margin: -11% -1% 14% 0%;
+      font-size: 25px;
+    }
+
+    &>.btn-primary {
+      width: 55%;
+      font-size: 19px;
+    }
+
+    &>.total {
+      font-size: 30px;
+    }
+
+    &>.p-recomendados {
       width: 98%;
     }
 
     &>div>.card {
       height: 115px;
-      & > .imagen {
+
+      &>.imagen {
         height: 113px;
-        & > img {
+
+        &>img {
           height: 111px;
         }
       }
-      & > .cardb {
-        padding: 4% 1% 0% 2%;
+
+      &>.cardb {
+        padding: 4% 1% 0% 4% !important;
       }
     }
-  
+
   }
-  .scroll{
+
+  .scroll {
     height: 560px;
     max-height: 560px;
   }
@@ -252,40 +306,55 @@
 @media (max-width: 320px) {
   .content {
     width: 93%;
-    & > .p-recomendados {
+
+    &>.volver {
+      font-size: 28px;
+    }
+
+    &>.textoPrimario {
+      margin: -11% -8% 14% 0%;
+      font-size: 23px;
+    }
+
+    &>.p-recomendados {
       width: 98%;
 
-      & > .img-recomendados img {
+      &>.img-recomendados img {
         width: 24%;
       }
     }
 
-    & > .btn-primary{
+    &>.btn-primary {
+      width: 64%;
       font-size: 20px;
     }
 
     .card {
       height: 105px;
-      & > .imagen {
+
+      &>.imagen {
         height: 102px;
-        & > img {
+
+        &>img {
+          width: 102px;
           height: 102px;
         }
       }
-      & > .cardb {
-        padding: 4% 1% 0% 2%;
 
-        & > .informacion {
+      &>.cardb {
+        padding: 3% 0% 0% 11% !important;
+        &>.informacion {
           font-size: 10px;
         }
-        & > .titulo.textoPrimario {
+
+        &>.titulo.textoPrimario {
           font-size: 17px;
         }
       }
     }
   }
 
-  .scroll{
+  .scroll {
     height: 560px;
     max-height: 560px;
   }

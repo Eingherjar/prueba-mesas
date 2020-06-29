@@ -38,14 +38,16 @@
 
   <div class="content info" *ngIf="data_seleccion_pedido.length > 0">
     <div class="informacion">
-      <button (click)="data_seleccion_pedido =[]; seleccion={}">regresar</button>
-      <h1 class="textoPrimario">INFORMACIÓN DEL PEDIDO</h1>
-      <h2 class="textoSecundario">ID del pedido: {{seleccion.pedido.id_pedido}}</h2>
+      <button class="volver" (click)="data_seleccion_pedido =[]; seleccion={}">❮</button>
+      <h1 class="textoPrimario">PEDIDO #{{seleccion.pedido.id_pedido}}</h1>
+      <h2 class="inf textoSecundario">Información del pedido: </h2>
       <h2 class="textoSecundario">Mesa: {{seleccion.pedido.mesa}}</h2>
       <h2 class="textoSecundario">Precio del pedido: ${{seleccion.pedido.precio}}</h2>
+      <fieldset class="rating">
       <input type="radio" id="starhalf" name="rating" value="half" checked   /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars">{{data_seleccion_pedido[0].valoracion / 2}} </label>
+      </fieldset>
       <div class="platos_pedido">
-        <h1 class="textoPrimario">PLATOS DEL PEDIDO</h1>
+      <h1 class="textoPrimario">PLATOS DEL PEDIDO</h1>
 
         <table class="table table-hover">
           <thead>
@@ -65,7 +67,7 @@
             </tr>
           </tbody>
         </table>
-        <textarea cols="40" rows="5" placeholder="Nota al cocinero" [(ngModel)]="data_seleccion_pedido[0].nota_cocinero" disabled ></textarea>
+        <textarea cols="40" rows="5" placeholder="Nota al cocinero" [(ngModel)]="data_seleccion_pedido[0].nota_cocinero" disabled ></textarea> <br>
         <input type="submit" class="btn-primary" value="{{seleccion.condicion === 'activos' ? 'CONFIRMAR PEDIDO' :seleccion.condicion === 'curso' ? 'FINALIZAR PEDIDO' : '' }}"
          (click)="confirmar_pedido()" *ngIf="seleccion.condicion !== 'finalizados'">
         <br/>

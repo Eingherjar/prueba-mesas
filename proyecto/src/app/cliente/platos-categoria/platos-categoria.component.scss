@@ -129,7 +129,7 @@
     width: 90%;
 
     & > .btn-primary {
-      font-size: 27px;
+      font-size: 18px;
     }
 
     & > .p-recomendados {
@@ -239,7 +239,7 @@
     }
 
     & > .btn-primary{
-      font-size: 20px;
+      font-size: 18px;
     }
 
     .card {
@@ -247,11 +247,12 @@
       & > .imagen {
         height: 102px;
         & > img {
+          width: 102px;
           height: 102px;
         }
       }
       & > .cardb {
-        padding: 4% 1% 0% 2%;
+        padding: 4% 1% 0% 12% !important;
 
         & > .informacion {
           font-size: 10px;

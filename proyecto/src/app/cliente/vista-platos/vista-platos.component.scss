@@ -129,7 +129,7 @@
     width: 90%;
 
     & > .btn-primary {
-      font-size: 27px;
+      font-size: 21px;
     }
 
     & > .p-recomendados {
@@ -164,7 +164,7 @@
     width: 90%;
 
     & > .btn-primary {
-      font-size: 23px;
+      font-size: 16px;
     }
 
     & > .p-recomendados {
@@ -198,6 +198,7 @@
 @media (max-width: 375px) {
   .content {
     width: 93%;
+    
     & > .p-recomendados {
       width: 98%;
     }
@@ -207,11 +208,12 @@
       & > .imagen {
         height: 113px;
         & > img {
+          width: 111px;
           height: 111px;
         }
       }
       & > .cardb {
-        padding: 4% 1% 0% 2%;
+        padding: 4% 1% 0% 10%;
       }
     }
   }
@@ -220,16 +222,17 @@
 @media (max-width: 320px) {
   .content {
     width: 93%;
+
+    & > .btn-primary {
+      font-size: 18px;
+    }
+
     & > .p-recomendados {
       width: 98%;
 
       & > .img-recomendados img {
         width: 24%;
       }
-    }
-
-    & > .btn-primary{
-      font-size: 20px;
     }
 
     .card {
@@ -241,7 +244,7 @@
         }
       }
       & > .cardb {
-        padding: 4% 1% 0% 2%;
+        padding: 4% 1% 0% 15% !important;
 
         & > .informacion {
           font-size: 10px;

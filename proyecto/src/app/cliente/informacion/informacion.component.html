@@ -1,8 +1,7 @@
 <div class="content">
   <div id="descripcion">
     <div class="card">
-
-      <button (click)="regresar()"> regresar</button>
+      <button class="volver" (click)="regresar()">❮</button>
       <img class="card-img-top" src="{{data_plato.imagen}}" alt="Imagen demostrativa">
       <div class="card-body">
         <h2 id="titulo" class="textoPrimario">{{data_plato.nombre}}</h2>
@@ -23,7 +22,7 @@
               <p>+</p>
             </label>
           </div>
-          <a id="regresar" class="btn btn-primary" (click)="agregar_carro()" style="color: white;"> AGREGAR PLATO</a>
+          <a class="btn btn-primary" (click)="agregar_carro()"> AGREGAR PLATO</a>
         </div>
       </div>
     </div>
