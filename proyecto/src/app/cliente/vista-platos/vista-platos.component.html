@@ -14,7 +14,7 @@
   </div>
 
   <div [ngClass]="{'scroll': data_activos.length > 4}" >
-    <div class="card" *ngFor="let activos of data_activos ; let index = index" (click)="plato_selccionado(activos.id_plato)">
+    <div class="card" *ngFor="let activos of data_activos ; let index = index" (click)="plato_seleccionado(activos.id_plato)">
       <div class="imagen">
         <img src="{{activos.imagen}}" alt="Imagen Descriptiva" />
       </div>

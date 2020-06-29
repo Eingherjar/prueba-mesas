@@ -16,6 +16,8 @@ export class PedidoComponent implements OnInit {
   precio_total:number=0;
 
   precio_base:number=0;
+
+  nota:String='';
   constructor() {}
 
 
@@ -36,6 +38,25 @@ export class PedidoComponent implements OnInit {
             this.precio_base += element.precio
           })
 
+        break;
+
+        case 'realizar_pedido':
+           this.send_vista_pedidos.emit({
+             event:'especificar_pedido',
+             platos:this.data_recibidos,
+             id_pedido:this.config.id_pedido
+           })
+        break;
+
+        case 'especificar_pedido':
+          this.data_recibidos= [];
+          this.precio_base = 0;
+          this.precio_total = 0 
+          this.nota = '';
+
+          this.send_vista_pedidos.emit({
+            event: 'terminar_pedido'
+          })
         break;
       }
     }
@@ -78,4 +99,23 @@ export class PedidoComponent implements OnInit {
     })
   }
 
+  realizar_pedido(){
+    // recoleccion de los datos del local storage
+    let usuario = localStorage.getItem("id_usuario");
+    let mesa = localStorage.getItem("id_mesa");
+
+    let pedido = {
+    id_usuario: usuario,
+    mesa:mesa,
+    precio:this.precio_total,
+    nota_cocinero:this.nota
+    }
+
+    this.send_vista_pedidos.emit({
+      event:'realizar_pedido',
+      pedido:pedido
+    })
+
+
+  }
 }

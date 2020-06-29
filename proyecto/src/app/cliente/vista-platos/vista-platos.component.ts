@@ -36,7 +36,7 @@ export class VistaPlatosComponent implements OnInit {
     })
   }
 
-  plato_selccionado(id){
+  plato_seleccionado(id){
     this.send_vista_platos.emit({
       event:"plato_seleccionado",
       id:id

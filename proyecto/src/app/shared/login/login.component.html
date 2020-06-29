@@ -12,7 +12,7 @@
       <button class="btn-primary" (click)="condicion = 'vista_iniciar'">INICIAR SESIÓN</button>
     </div>
     <div id="segundo-boton">
-      <button class="btn-primary">INGRESAR COMO INVITADO</button>
+      <button class="btn-primary" (click)="iniciar('invitado')">INGRESAR COMO INVITADO</button>
     </div>
     <div id="tercer-boton">
       <button class="btn-primary" (click)="condicion='registrarse'">REGISTRARSE</button>
@@ -43,7 +43,7 @@
     </div>
     <!-- Ingresar -->
     <div id="iniciar" class="box-submit">
-      <input type="submit" class="btn-primary" value="INGRESAR" (click)="iniciar()" /> <br />
+      <input type="submit" class="btn-primary" value="INGRESAR" (click)="iniciar('registrado')" /> <br />
       <a href="#" class="textoCuerpo" (click)="condicion = 'validar'; texto_usuario = ''; texto_password = '';">¿Ha olvidado su contraseña?</a>
     </div>
   </div>
@@ -67,9 +67,9 @@
   </div>
 
   <div id="RadioButton">
-    <input type="radio" class="r_button" name="optradio" [(ngModel)]="masculino" (ngModelChange)="validar_sexo('masculino')" /> Masculino
-    <input type="radio" class="r_button" name="optradio" [(ngModel)]="femenino" (ngModelChange)="validar_sexo('femenino')"/> Femenino
-    <input type="radio" class="r_button" name="optradio" [(ngModel)]="otro" (ngModelChange)="validar_sexo('otro')"/> Otro
+    <input type="radio" class="r_button" name="optradio"  (click)="validar_sexo('masculino')" /> Masculino
+    <input type="radio" class="r_button" name="optradio"  (click)="validar_sexo('femenino')"/> Femenino
+    <input type="radio" class="r_button" name="optradio"  (click)="validar_sexo('otro')"/> Otro
   </div>
 
   <div class="box-submit">

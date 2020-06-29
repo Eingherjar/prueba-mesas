@@ -55,6 +55,11 @@ export class BuscadorComponent implements OnInit {
             
             this.platos_añadidos = this.contador === 0 ? [] : this.platos_añadidos;
         break; 
+      
+        case 'terminar_pedido':
+          this.contador = 0;
+          this.platos_añadidos=[] 
+        break;
       }
     }
   }

@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import { class_http } from '../shared/abstract_class.component';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/Operators';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -69,6 +70,24 @@ export class ClienteService extends class_http {
       map(data=>{
         console.log("datos del servicio de mostrar plato",data);
         return data;
+      })
+    )
+  }
+
+  Realizar_Pedido(data):Observable<Object>{
+    return this.http.post(this.API_URL+"Pedidos/Realizar",data,this.getHeaders()).pipe(
+      map(data=>{
+        console.log("datos que responde el pedido realizado",data);
+        return data
+      })
+    )
+  }
+
+  Especificar_Pedido(data):Observable<Object>{
+    return this.http.post(this.API_URL+"Pedidos/Especificar",data,this.getHeaders()).pipe(
+      map(data=>{
+        console.log("datos que responde el pedido realizado",data);
+        return data
       })
     )
   }

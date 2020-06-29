@@ -105,7 +105,6 @@ export class ClienteComponent implements OnInit {
     }
   }
 
-
   events_vista_vendidos(e){
     switch(e.event){
       case 'regresar_menu':
@@ -205,9 +204,6 @@ export class ClienteComponent implements OnInit {
 
   events_vista_pedidos(e){
     switch(e.event){
-      case "prueba": 
-      console.log("dasdasd");
-      break;
 
       case 'cantidad_platos':
         this.config_buscador={
@@ -216,6 +212,42 @@ export class ClienteComponent implements OnInit {
         } 
       break;
 
+      case 'realizar_pedido':
+         this.service.Realizar_Pedido(e.pedido).subscribe((data:any)=>{
+           this.notifier.notify("info","Se esta realizando el pedido porfavor espere");
+           this.config_vista_pedidos={
+             event:'realizar_pedido',
+             id_pedido:data.pedido.id_pedido
+           }
+         })
+      break;
+
+      case 'especificar_pedido':
+          for(let i=0 ; i < e.platos.length ; i++ ){
+            let pedido = {
+              id_pedido: e.id_pedido,
+              id_plato:e.platos[i].id_plato,
+              cantidad:e.platos[i].cantidad
+            }
+
+            this.service.Especificar_Pedido(pedido).subscribe((data:any)=>{
+              console.log("datos del pedido especificado",data);
+            })
+
+            if(i === e.platos.length - 1){
+              this.notifier.notify("success","Se ha procesado el pedido satisfactoriamente");
+              this.config_vista_pedidos={
+                event: 'especificar_pedido'
+              }
+            }
+          } 
+      break;
+
+      case 'terminar_pedido': 
+          this.config_buscador={
+            event: e.event
+          }
+      break;
       case 'regresar':
         this.vista_components ="vista platos" ;
       break;
