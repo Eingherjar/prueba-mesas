@@ -49,14 +49,17 @@ export class PedidoComponent implements OnInit {
         break;
 
         case 'especificar_pedido':
+          this.send_vista_pedidos.emit({
+            event: 'terminar_pedido',
+            id_pedido:this.config.id_pedido,
+            estado:this.data_recibidos[0].estado
+          })
           this.data_recibidos= [];
           this.precio_base = 0;
           this.precio_total = 0 
           this.nota = '';
 
-          this.send_vista_pedidos.emit({
-            event: 'terminar_pedido'
-          })
+         
         break;
       }
     }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AdministradorService } from "./administrador.service";
 import { NotifierService } from 'angular-notifier';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-administrador',
   templateUrl: './administrador.component.html',
@@ -19,7 +21,7 @@ export class AdministradorComponent implements OnInit {
 
   private notifier: NotifierService;
 
-  constructor(private service: AdministradorService, notifier: NotifierService) { this.notifier = notifier }
+  constructor(private service: AdministradorService, notifier: NotifierService, private router: Router) { this.notifier = notifier }
 
 
   ngOnInit(): void {
@@ -134,6 +136,7 @@ export class AdministradorComponent implements OnInit {
 
       case 'cerrar':
         localStorage.setItem("id_usuario", "null");
+        this.router.navigate(['/login/'+Math.floor(Math.random() * (20 - 1)) + 1]);
         break;
     }
   }
@@ -235,6 +238,62 @@ export class AdministradorComponent implements OnInit {
   }
 
   events_pedidos(e){
-    console.log("esto");
+    switch(e.event){
+
+      case 'actualizacion_pedidos': 
+      this.service.Mostrar_Pedidos_Realizados().subscribe((data:any)=>{
+        if(data.estado === "success" ){
+          this.config_pedidos={
+            event:"actualizacion_pedidos",
+            activos:data.pedidos            
+          }
+        } 
+        else if (data.estado === "error"){
+          console.log("error al traer los datos del pedido",data); 
+        }
+      });
+      break;
+
+      case 'pedido_seleccionado':
+        let id={
+          id_pedido:e.id
+        }
+        this.service.Mostrar_Informacion_Pedido(id).subscribe((data:any)=>{
+          if(data.estado === 'success'){
+            this.config_pedidos={
+              event: 'pedido_seleccionado',
+              pedido:data.pedido
+            }
+          }
+          else if(data.estado === 'error'){
+            this.notifier.notify("error","Ha ocurrido un error al intentar traer los datos del pedido, por favor intente nuevamente ");
+          }
+        }) 
+      break;
+
+      case 'confirmar_pedido':
+        this.service.Confirmar_Pedido(e.pedido).subscribe((data:any)=>{
+          if(data.estado === 'success'){
+            this.config_pedidos={
+              event:'confirmar_pedidos_activos'
+            }
+          }else{  
+            this.notifier.notify("error","error al confirmar un pedido");
+          }
+        }) 
+      break;
+
+      case 'finalizar_pedido':
+        this.service.Finalizar_Pedido(e.pedido).subscribe((data:any)=>{
+          if(data.estado === 'success'){
+            this.config_pedidos={
+              event:'finalizar_pedidos_cursos'
+            }
+          }else{  
+            this.notifier.notify("error","error al finalizar un pedido");
+          }
+        }) 
+      break;
+    }
   }
 }

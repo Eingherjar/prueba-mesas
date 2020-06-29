@@ -25,6 +25,8 @@ export class ClienteComponent implements OnInit {
   config_vista_pedidos:any;
 
   config_buscador:any;
+
+  config_vista_finalizar:any;
   
   private notifier: NotifierService;
 
@@ -237,7 +239,8 @@ export class ClienteComponent implements OnInit {
             if(i === e.platos.length - 1){
               this.notifier.notify("success","Se ha procesado el pedido satisfactoriamente");
               this.config_vista_pedidos={
-                event: 'especificar_pedido'
+                event: 'especificar_pedido',
+                id_pedido: e.id_pedido
               }
             }
           } 
@@ -247,10 +250,77 @@ export class ClienteComponent implements OnInit {
           this.config_buscador={
             event: e.event
           }
+          this.config_vista_finalizar={
+            event:'inicio',
+            id_pedido:e.id_pedido,
+            estado:e.estado
+          }
+          this.vista_components ="vista finalizar";
+
       break;
       case 'regresar':
         this.vista_components ="vista platos" ;
       break;
     }
+  }
+
+  events_vista_finalizar(e){
+   switch(e.event){
+    case 'regresar': 
+      this.vista_components = 'vista platos';
+      this.confirmar_pedido(e.id)
+    break;
+
+    case 'confirmar_pedido': 
+      this.service.Mostrar_Informacion_Pedido(e.pedido).subscribe((data:any)=>{
+        if (data.estado === 'success'){
+          this.config_vista_finalizar ={
+            event:'confirmar_pedido',
+            estado:data.pedido[0].estado
+          }
+        }
+        else{
+          console.log("algo ha ocurrido al mostrar la informacion del pedido en la vista finalizar");
+        }
+      })
+    break;
+
+    case 'valorar_pedido':
+      this.service.Valorar_Pedido(e.valorar).subscribe((data:any)=>{
+        if(data.estado === 'success'){
+          this.notifier.notify("success","Pedido valorado satisfactoriamente");
+          this.vista_components = 'vista platos'; 
+        }else if (data.estado === 'error'){
+          this.notifier.notify("error","ha ocurrido un error al valorar su pedid, por favor intente nuevamente");
+          console.log("error al valorar un pedido",data);
+        }
+      })
+     
+    break;
+   }
+  }
+
+
+  confirmar_pedido(id){
+    setTimeout(() => {
+      this.service.Mostrar_Informacion_Pedido(id).subscribe((data:any)=>{
+        if(data.pedido[0].estado !== 3){
+
+          this.confirmar_pedido(id);
+          
+        }else if (data.pedido[0].estado === 3){
+          
+          this.config_vista_finalizar={
+            event:'calificar',
+            estado: data.pedido[0].estado,
+            id:id
+          }
+
+          this.vista_components='vista finalizar';
+        }
+
+        console.log("entro en la condicion de el confirmar pedido de cliente",data);
+      })
+    }, 15000);
   }
 }

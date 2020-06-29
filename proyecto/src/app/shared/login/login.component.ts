@@ -94,6 +94,7 @@ export class LoginComponent implements OnInit {
           this.texto_new_password = '';
           this.condicion = 'cambiar_password';
           this.id_usuario = this.id_usuario != this.configuracion.id_usuario ? this.configuracion.id_usuario : this.id_usuario;
+          this.router.navigate(['/login/'+ localStorage.getItem("id_mesa")]);
 
           break;
 

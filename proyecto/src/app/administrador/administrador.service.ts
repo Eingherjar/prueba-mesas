@@ -108,4 +108,31 @@ export class AdministradorService  extends class_http{
     )
   }
 
+  Mostrar_Informacion_Pedido(id):Observable<Object>{
+    return this.http.post(this.API_URL+"Pedidos/Informacion",id,this.getHeaders()).pipe(
+      map(data=>{
+        console.log("datos que responde el servicio de mostar informacion de un pedido",data);
+        return data;
+      })
+    )
+  }
+
+  Confirmar_Pedido(id):Observable<Object>{
+    return this.http.post(this.API_URL+"Pedidos/Confirmar",id,this.getHeaders()).pipe(
+      map(data=>{
+        console.log("datos que responde el servicio de confirmar pedido",data);
+        return data;
+      })
+    )
+  }
+
+  Finalizar_Pedido(id):Observable<Object>{
+    return this.http.post(this.API_URL+"Pedidos/Finalizar",id,this.getHeaders()).pipe(
+      map(data=>{
+        console.log("datos que responde el servicio de confirmar pedido",data);
+        return data;
+      })
+    )
+  }
+
 }

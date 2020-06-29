@@ -13,5 +13,5 @@
   <app-informacion *ngIf="vista_components == 'vista informacion'"
    [config]="config_vista_informacion" (send_vista_informacion)="events_vista_informacion($event)"></app-informacion>
 
-  <app-finalizar *ngIf="vista_components == 'vista finalizar'"></app-finalizar>
+  <app-finalizar *ngIf="vista_components == 'vista finalizar'" [config]="config_vista_finalizar" (send_vista_finalizar)="events_vista_finalizar($event)"></app-finalizar>
 </div>

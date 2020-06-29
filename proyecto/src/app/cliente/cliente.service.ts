@@ -91,4 +91,24 @@ export class ClienteService extends class_http {
       })
     )
   }
+
+  Mostrar_Informacion_Pedido(id):Observable<Object>{
+    return this.http.post(this.API_URL+"Pedidos/Informacion",id,this.getHeaders()).pipe(
+      map(data=>{
+        console.log("datos que responde el servicio de mostar informacion de un pedido",data);
+        return data;
+      })
+    )
+  }
+
+  Valorar_Pedido(data):Observable<Object>{
+    return this.http.post(this.API_URL+"Pedidos/Valoracion",data,this.getHeaders()).pipe(
+      map(data=>{
+        console.log("datos que responde el servicio de valorar un pedido",data);
+        return data;
+      })
+    )
+  }
+
+
 }
