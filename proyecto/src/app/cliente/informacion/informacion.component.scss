@@ -1,9 +1,10 @@
+// Estilos de contenedor principal
 .content {
   display: block;
   width: 100%;
   height: 812px;
 
-  //-------------------------------------buscador-------------------------------------------------
+  //Buscador
   .input-group {
     padding: 10px;
     margin-bottom: unset !important;
@@ -41,10 +42,9 @@
     }
   }
 
-
+  // Estilos de las tarjetas
   .card {
     border: unset;
-
 
     &>.volver {
       width: 6%;
@@ -110,9 +110,9 @@
       }
     }
   }
-
-  //-------------------------------------lista-descripcion-------------------------------------------------
 }
+
+//Responsives
 
 @media (max-width:425px) {
   .content {
@@ -137,19 +137,19 @@
 }
 
 @media (max-width:320px) {
-    .content {
-      .card {
-        &>.card-img-top {
-          width: 90%;
-          margin: 10px auto;
-        }
-  
-        &>.card-body {
-          #des-plato {
-            padding: 1% 1%;
-            text-align: justify;
-          }
+  .content {
+    .card {
+      &>.card-img-top {
+        width: 90%;
+        margin: 10px auto;
+      }
+
+      &>.card-body {
+        #des-plato {
+          padding: 1% 1%;
+          text-align: justify;
         }
       }
     }
   }
+}

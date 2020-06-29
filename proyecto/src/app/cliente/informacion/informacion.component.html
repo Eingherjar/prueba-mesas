@@ -1,8 +1,11 @@
+<!-- Contenedor principal -->
 <div class="content">
   <div id="descripcion">
+    <!-- Tarjeta -->
     <div class="card">
       <button class="volver" (click)="regresar()">❮</button>
       <img class="card-img-top" src="{{data_plato.imagen}}" alt="Imagen demostrativa">
+      <!-- Contenido de la tarjeta -->
       <div class="card-body">
         <h2 id="titulo" class="textoPrimario">{{data_plato.nombre}}</h2>
         <div id="des-plato">
@@ -10,6 +13,7 @@
            <p class="textoCuerpo">{{data_plato.descripcion}}</p>
           <p class="textoCuerpo">Valor del plato:<br> ${{data_plato.precio}}</p>
         </div>
+        <!-- Botones para definir la cantidad -->
         <div id="btn-a-p">
           <div class="btn-group btn-group-toggle">
             <label id="restar" class="btn btn-secondary" (click)="contador >= 2 ? contador = contador -1 : ''">

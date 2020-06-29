@@ -1,3 +1,4 @@
+// Estilos del contenedor principal
 .content {
   width: 100%;
   height: auto;
@@ -8,16 +9,12 @@
   }
 
 
+  // Estilos de los platos contenido en los artículos
   .platos {
     display: block;
     float: right;
     width: 75%;
     padding: 1% 5%;
-
-    //#modificar {
-    //------------------------------- FALTA ----------------
-    //}
-
 
     .textoPrimario {
       display: block;
@@ -43,6 +40,7 @@
     }
   }
 
+  // Estilos del formulario para añadir el nuevo plato
   .nuevo_plato {
     display: inline-block;
     width: 53%;
@@ -72,6 +70,7 @@
       }
     }
 
+    // Estilos de los inputs
     &>#box-inputs {
       display: block;
       width: 100%;
@@ -126,6 +125,7 @@
     }
   }
 
+  // Estilos del apartado de categorías
   .content_categorias {
     display: block;
     float: right;
@@ -153,6 +153,8 @@
     }
   }
 }
+
+// Estilo de las tarjetas
 
 .card {
   display: flex;
@@ -185,7 +187,7 @@
     width: 72%;
     padding: 1% 1% 0% 2%;
     cursor: pointer;
-    
+
     &>.eliminar {
       position: absolute;
       top: 6px;
@@ -245,6 +247,7 @@
   }
 }
 
+// Estilo del scroll para ver los platos
 .scroll {
   height: 550px;
   max-height: 550px;
@@ -266,6 +269,9 @@
     border-radius: 10px;
   }
 }
+
+
+// Responsives
 
 @media (max-width: 1024px) {
   .content {

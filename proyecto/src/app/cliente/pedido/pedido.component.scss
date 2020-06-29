@@ -1,3 +1,4 @@
+// Estilos del contenedor principal
 .content {
   display: block;
   width: 25%;
@@ -17,14 +18,30 @@
     margin-bottom: 50px;
   }
 
+  // Estilos de la nota para el cocinero
   &>.nota {
-    margin: 35px 0px;
+    display: block;
+    outline: unset;
+    width: 100%;
+    border: none;
+    padding: 6px;
+    background-color: rgba(180, 180, 180, 0.09);
 
     &>textarea {
       width: 100%;
+      border: 1px solid #ccc;
+    }
+
+    &>#nota_text:focus {
+      outline: unset;
+      border: transparent;
+      background-color: rgba(180, 180, 180, 0.12);
+      border-bottom: 2px solid var(--color-principal);
+      caret-color: var(--color-principal);
     }
   }
 
+  //Estilos del total y el botón de confirmar
   &>.total {
     text-align: center;
     margin: 0px;
@@ -37,6 +54,7 @@
   }
 }
 
+// Estilos de las tarjetas
 .card {
   display: block;
   width: 100%;
@@ -59,6 +77,8 @@
       height: auto;
     }
   }
+
+  // Estilos de la información de las tarjetas
 
   .cardb {
     display: flex;
@@ -124,8 +144,7 @@
   }
 }
 
-//-------------------------------------card-------------------------------------------------
-
+// Scroll para visualizar los platos
 .scroll {
   height: 786px;
   max-height: 786px;
@@ -148,6 +167,7 @@
   }
 }
 
+//Responsives
 @media (max-width: 768px) {
   .content {
     width: 90%;
@@ -291,7 +311,7 @@
       }
 
       &>.cardb {
-        padding: 4% 1% 0% 4% !important;
+        padding: 4% 1% 0% 11% !important;
       }
     }
 
@@ -343,6 +363,7 @@
 
       &>.cardb {
         padding: 3% 0% 0% 11% !important;
+
         &>.informacion {
           font-size: 10px;
         }

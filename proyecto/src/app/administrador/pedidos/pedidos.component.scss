@@ -1,9 +1,18 @@
+// Importar el ícono 
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
-fieldset, label { margin: -3px; padding: 0; }
+
+fieldset,
+label {
+  margin: -3px;
+  padding: 0;
+}
+
+// Estilos al contenedor principal
 .content {
   width: 100%;
   height: auto;
 
+  // Estilo a los estados de los pedidos
   .p-confirmar,
   .p-curso,
   .p-finalizados {
@@ -62,6 +71,7 @@ fieldset, label { margin: -3px; padding: 0; }
       font-size: 32px;
     }
 
+    // Estilos al icono de la estrella
     &>.rating {
       border: none;
       float: left;
@@ -104,6 +114,7 @@ fieldset, label { margin: -3px; padding: 0; }
     }
 
 
+    // Estilo al contenido de la tabla 
     &>.platos_pedido {
       margin-top: 70px;
 
@@ -131,6 +142,7 @@ fieldset, label { margin: -3px; padding: 0; }
   }
 }
 
+// Scroll para ver los pedidos
 .scroll {
   height: 740px;
   max-height: 740px;
@@ -153,6 +165,8 @@ fieldset, label { margin: -3px; padding: 0; }
   }
 }
 
+
+// Responsives
 
 @media (max-width: 1024px) {
   .content {

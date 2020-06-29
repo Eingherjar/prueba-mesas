@@ -1,3 +1,4 @@
+<!-- Vista de calificar pedidos -->
 <div id="divContainerCalificar" class="container" *ngIf="condicion === 'calificar_pedido'">
     <div id=divHeader>
         <p class="textoPrimario">CALIFICA TU PEDIDO!</p>
@@ -7,6 +8,7 @@
         <p class="textoSecundario">Para nosotros es muy importante tu opinión</p>
     </div>
 
+    <!-- Icono de estrellas -->
     <div id="divContainerRating">
         <fieldset class="rating">
             <input type="radio" id="star5" name="rating" value="5"  [checked]="valoracion === 10 " (click)="valoracion = 10"/><label class = "full" for="star5" title="Awesome - 5 stars"></label>
@@ -22,6 +24,7 @@
         </fieldset>
     </div>
 
+    <!-- Confirmar valoración -->
     <div id="divBtnConfirmar">
         <button type="button" class="btn btn-primary" (click)="valorar_pedido()">CONFIRMAR</button>
     </div>

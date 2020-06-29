@@ -1,8 +1,10 @@
+// Estilos contenedor principal
 .content {
   display: block;
   width: 25%;
   margin: 20px auto;
 
+  // Estilos platos recomendados
   & > .p-recomendados {
     display: block;
     width: 100%;
@@ -21,7 +23,7 @@
   }
 }
 
-//-------------------------------------card-------------------------------------------------
+//Estilo de las tarjetas
 .card {
   display: block;
   width: 100%;
@@ -44,6 +46,8 @@
       height: auto;
     }
   }
+
+  // Estilos de la información de las tarjetas
   .cardb {
     display: flex;
     flex-direction: column;
@@ -102,7 +106,8 @@
     }
   }
 }
-//-------------------------------------card-------------------------------------------------
+
+//Estilos del scroll
 
 .scroll {
   height: 585px;
@@ -124,12 +129,14 @@
       border-radius: 5px;
   }
 }
+
+//Responsives
 @media (max-width: 768px) {
   .content {
     width: 90%;
 
     & > .btn-primary {
-      font-size: 21px;
+      font-size: 18px;
     }
 
     & > .p-recomendados {
@@ -154,7 +161,7 @@
       }
     }
     & > .cardb {
-      padding: 4% 1% 0% 2%;
+      padding: 4% 1% 0% 11%;
     }
   }
 }
@@ -164,7 +171,7 @@
     width: 90%;
 
     & > .btn-primary {
-      font-size: 16px;
+      font-size: 18px;
     }
 
     & > .p-recomendados {
@@ -213,7 +220,7 @@
         }
       }
       & > .cardb {
-        padding: 4% 1% 0% 10%;
+        padding: 4% 1% 0% 12% !important;
       }
     }
   }
@@ -244,7 +251,7 @@
         }
       }
       & > .cardb {
-        padding: 4% 1% 0% 15% !important;
+        padding: 4% 1% 0% 14% !important;
 
         & > .informacion {
           font-size: 10px;

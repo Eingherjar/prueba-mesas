@@ -1,19 +1,21 @@
+// Estilos del contenedor principal
 .content {
   display: block;
   width: 25%;
   margin: 20px auto;
 
-  & > .p-recomendados {
+  // Estilos de la categoria
+  &>.p-recomendados {
     display: block;
     width: 100%;
     padding: 2px;
     margin-top: 40px;
 
-    & > .textoSecundario {
+    &>.textoSecundario {
       font-size: 17px;
     }
 
-    & > .img-recomendados img {
+    &>.img-recomendados img {
       width: 24%;
       margin-right: 7px;
       margin-bottom: 20px;
@@ -21,7 +23,7 @@
   }
 }
 
-//-------------------------------------card-------------------------------------------------
+//Estilo de las tarjetas
 .card {
   display: block;
   width: 100%;
@@ -30,6 +32,7 @@
   margin-bottom: 10px;
   border: 1px solid #ccc;
 
+  // Efecto al pasar por encima de las tarjetas
   &:hover {
     box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 2px 10px 1px rgba(0, 0, 0, 0.13), 0 3px 12px 2px rgba(0, 0, 0, 0.1);
   }
@@ -39,18 +42,20 @@
     float: left;
     width: 28%;
 
-    & > img {
+    &>img {
       width: 100%;
       height: auto;
     }
   }
+
+  // Estilos de la información contenida en las tarjetas
   .cardb {
     display: flex;
     flex-direction: column;
     width: 72%;
     padding: 1% 1% 0% 2%;
 
-    & > .informacion {
+    &>.informacion {
       position: absolute;
       top: 6px;
       right: 10px;
@@ -65,7 +70,7 @@
       outline: unset;
     }
 
-    & > .titulo.textoPrimario {
+    &>.titulo.textoPrimario {
       color: black;
       font-size: 25px;
     }
@@ -75,7 +80,7 @@
       flex-direction: column;
       justify-content: space-between;
 
-      & > .textoCuerpo {
+      &>.textoCuerpo {
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
@@ -83,6 +88,7 @@
       }
     }
 
+    // Estilos botones de cantidad
     .btn-group.btn-group-toggle {
       border: 1px solid rgba(0, 0, 0, 0.125);
       border-radius: 4px;
@@ -94,6 +100,7 @@
         color: black;
         background-color: white;
         border: none;
+
         p {
           margin-top: -8.7px;
           margin-bottom: 1rem;
@@ -102,6 +109,7 @@
     }
   }
 }
+
 //-------------------------------------card-------------------------------------------------
 
 .scroll {
@@ -111,35 +119,37 @@
 
 
   &::-webkit-scrollbar {
-      width: 10px;
-      margin-left:2px;
-    }
-  &::-webkit-scrollbar-thumb{
-      background: var(--color-secundario); 
-      border-radius: 5px;
+    width: 10px;
+    margin-left: 2px;
   }
 
-  &::-webkit-scrollbar-track{
-      box-shadow: inset 0 0 5px grey; 
-      border-radius: 5px;
+  &::-webkit-scrollbar-thumb {
+    background: var(--color-secundario);
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 5px;
   }
 }
+
 @media (max-width: 768px) {
   .content {
     width: 90%;
 
-    & > .btn-primary {
+    &>.btn-primary {
       font-size: 18px;
     }
 
-    & > .p-recomendados {
+    &>.p-recomendados {
       &.img-recomendados img {
         width: 20%;
         margin-right: 0px;
         margin-bottom: 20px;
       }
 
-      & > .textoSecundario {
+      &>.textoSecundario {
         font-size: 34px;
       }
     }
@@ -147,13 +157,16 @@
 
   .card {
     height: 185px;
-    & > .imagen {
+
+    &>.imagen {
       height: 185px;
-      & > img {
+
+      &>img {
         height: 183px;
       }
     }
-    & > .cardb {
+
+    &>.cardb {
       padding: 4% 1% 0% 2%;
     }
   }
@@ -163,37 +176,42 @@
   .content {
     width: 90%;
 
-    & > .btn-primary {
+    &>.btn-primary {
       font-size: 23px;
     }
 
-    & > .p-recomendados {
-      & > .img-recomendados > img {
+    &>.p-recomendados {
+      &>.img-recomendados>img {
         margin-right: 3px;
       }
-      & > .textoSecundario {
+
+      &>.textoSecundario {
         font-size: 25px;
       }
     }
   }
+
   .card {
     height: 116px;
-    & > .imagen {
+
+    &>.imagen {
       height: 116px;
-      & > img {
+
+      &>img {
         height: 114px;
       }
     }
-  
-    & > .cardb {
+
+    &>.cardb {
       padding: 4% 1% 0% 2%;
+
       .titulo.textoPrimario {
         font-size: 21px;
       }
     }
   }
 
-  .scroll{
+  .scroll {
     max-height: 560px;
     height: 560px;
   }
@@ -203,25 +221,30 @@
 @media (max-width: 375px) {
   .content {
     width: 93%;
-    & > .p-recomendados {
+
+    &>.p-recomendados {
       width: 98%;
     }
 
     &>div>.card {
       height: 115px;
-      & > .imagen {
+
+      &>.imagen {
         height: 113px;
-        & > img {
+
+        &>img {
           height: 111px;
         }
       }
-      & > .cardb {
+
+      &>.cardb {
         padding: 4% 1% 0% 2%;
       }
     }
-  
+
   }
-  .scroll{
+
+  .scroll {
     height: 560px;
     max-height: 560px;
   }
@@ -230,41 +253,46 @@
 @media (max-width: 320px) {
   .content {
     width: 93%;
-    & > .p-recomendados {
+
+    &>.p-recomendados {
       width: 98%;
 
-      & > .img-recomendados img {
+      &>.img-recomendados img {
         width: 24%;
       }
     }
 
-    & > .btn-primary{
+    &>.btn-primary {
       font-size: 18px;
     }
 
     .card {
       height: 105px;
-      & > .imagen {
+
+      &>.imagen {
         height: 102px;
-        & > img {
+
+        &>img {
           width: 102px;
           height: 102px;
         }
       }
-      & > .cardb {
+
+      &>.cardb {
         padding: 4% 1% 0% 12% !important;
 
-        & > .informacion {
+        &>.informacion {
           font-size: 10px;
         }
-        & > .titulo.textoPrimario {
+
+        &>.titulo.textoPrimario {
           font-size: 17px;
         }
       }
     }
   }
 
-  .scroll{
+  .scroll {
     height: 560px;
     max-height: 560px;
   }
