@@ -394,24 +394,16 @@ res.append('Access-Control-Allow-Methods','*')
     let parametros ={
         id_usuario:req.body.id_usuario,
         mesa:req.body.mesa,
-        precio:req.body.precio
+        precio:req.body.precio,
+        nota_cocinero:req.body.nota_cocinero
     }
 
     const pedidos = await Realizar_Pedido(parametros);
-
-    if(platos[0][0].id_alerta ){
-        res.json({
-            estado: "error",
-            error: pedidos[0][0],
-            // mensaje: "Plato creado satisfactoriamente"
-        })
-    }else{
-        res.json({
-            estado: "success",
-            pedido: pedidos[0][0],
-            mensaje: "Pedido realizado satisfactoriamente"
-        })
-    }
+    res.json({
+        estado: "success",
+        pedido: pedidos[0][0],
+        mensaje: "Pedido realizado satisfactoriamente"
+    })
 });
 
 // ruta para especificar los platos que tiene un pedido (error de fecha pedido)
@@ -756,7 +748,7 @@ async function Mostrar_Plato(req, res) {
 async function Realizar_Pedido(req, res) {
 
     return new Promise(function (resolve, reject) {
-        getDbPool().query("call realizarPedido("+req.id_usuario+","+req.precio+","+req.mesa+")", function (err, result) {
+        getDbPool().query("call realizarPedido("+req.id_usuario+","+req.precio+","+req.mesa+",'"+req.nota_cocinero+"')", function (err, result) {
             if (err) resolve(err);
             resolve(result);
             console.log("datos que se deben de estar mostrando ahora,", result);
