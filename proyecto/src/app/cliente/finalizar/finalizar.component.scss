@@ -1,4 +1,4 @@
-// Rating input
+// Importación del Bootstrap del botón de Rating
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
 fieldset,
@@ -16,7 +16,7 @@ h1 {
   margin: 10px;
 }
 
-/****** Style Star Rating Widget *****/
+//Estilo del widget de las estrellas
 
 .rating {
   border: none;
@@ -45,40 +45,43 @@ h1 {
   float: right;
 }
 
-/***** CSS Magic to Highlight Stars on Hover *****/
+// Efectos del hover y onclick de los input de las estrellas en la valoración
 
 .rating>input:checked~label,
-/* show gold star when clicked */
 .rating:not(:checked)>label:hover,
-/* hover current star */
 .rating:not(:checked)>label:hover~label {
   color: #ff9200;
 }
 
-/* hover previous stars in list */
 
 .rating>input:checked+label:hover,
-/* hover current star when changing rating */
 .rating>input:checked~label:hover,
 .rating>label:hover~input:checked~label,
-/* lighten current selection */
 .rating>input:checked~label:hover~label {
   color: #FFC77B;
 }
 
+//Estilo del contenedor principal
+
 .container {
   text-align: center;
 }
+
+//Estilo del texto en encabezado
 
 #divHeader {
   margin-top: 57px;
   margin-bottom: 41px;
 }
 
+//Estilo del texto cuerpo
+
 #divMensaje {
   margin-top: 41px;
   margin-bottom: 31px;
 }
+
+//Estilo del contenedor de las estrellas de la valoración
 
 #divContainerRating {
   height: 40px;
@@ -90,10 +93,14 @@ h1 {
   justify-content: center;
 }
 
+//Estilos del botón confirmar
+
 #divBtnConfirmar {
   margin-top: 41px;
   margin-bottom: 41px;
 }
+
+//Estilos de la imagen del restaurante
 
 img {
   max-width: 395px;
@@ -107,20 +114,21 @@ img {
   text-align: center;
 }
 
-#divMensajeTiempo {
+//Estilo del contenedor del mensaje del cuerpo
+
+#divMensajeCuerpo {
   margin-top: 33.5px;
   margin-bottom: 20px;
 }
 
-#divContador {
-  margin-top: 20px;
-  margin-bottom: 44px;
-}
+//Estilo del contenedor del botón de regresar
 
-#divBtnMenu {
+#divBtnRegresar {
   margin-top: 44px;
   margin-bottom: 44px;
 }
+
+//Responsive
 
 @media only screen and (min-width: 768px) {
   #divMensaje {
@@ -138,8 +146,6 @@ img {
     justify-content: center;
   }
 }
-
-//Responsive
 
 @media only screen and (min-width: 1024px) {
   .textoPrimario {
