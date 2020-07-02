@@ -15,8 +15,10 @@ export class AdministradorComponent implements OnInit {
 
   // datos que se envian al compnente pedidos
   config_pedidos:any={};
+  //  variabklle para condiciones de vistra del componente plato
   config_vista_plato: String = 'menu_principal';
 
+  // con esta variable se hace la condicion de cual es la vita que se verá actualmente en la pagina 
   display_components: String = 'menu';
 
   private notifier: NotifierService;
@@ -53,9 +55,10 @@ export class AdministradorComponent implements OnInit {
     });
   }
 
-
+  // datos que recibe del componente menu
   events_menu(e) {
     console.log("entro en el evento del menu", e.event);
+    //  cada vez que entra a este metodo se encarga de recvcibir los datos del componente menu y hacer las solicitudes a la api por medio del servicio
     switch (e.event) {
       case 'menu':
         this.service.Listado_Platos().subscribe((data: any) => {
@@ -140,8 +143,10 @@ export class AdministradorComponent implements OnInit {
         break;
     }
   }
-
+ 
+  // datos que recibe del componente plato
   events_plato(e) {
+    //  cada vez que entra a este metodo se encarga de recvcibir los datos del componente plato y hacer las solicitudes a la api por medio del servicio
     switch (e.event) {
 
       case 'crear_plato':
@@ -236,8 +241,10 @@ export class AdministradorComponent implements OnInit {
         break;
     }
   }
-
+   
+  // datos que recibe del componente pedidos
   events_pedidos(e){
+      //  cada vez que entra a este metodo se encarga de recvcibir los datos del componente menu y hacer las solicitudes a la api por medio del servicio
     switch(e.event){
 
       case 'actualizacion_pedidos': 

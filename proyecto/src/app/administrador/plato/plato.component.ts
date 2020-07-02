@@ -7,6 +7,7 @@ import { Component, OnInit,Input,Output, EventEmitter, SimpleChanges } from '@an
 })
 export class PlatoComponent implements OnInit {
 
+  //  se encarga de recoger y enviar los datos del componente administrador 
   @Input() config:any;
   @Output() send_plato= new EventEmitter();
   @Input() config_vista:string;
@@ -46,6 +47,7 @@ export class PlatoComponent implements OnInit {
   constructor() { }
   
   ngOnInit(): void {
+    //  se encarga de añadir todas las categorias que se necesitan en el array list de las categorias para crear platos y modificar platos 
     this.categroias.push({
       id:'1',
       nombre:'Bebidas'
@@ -80,16 +82,22 @@ export class PlatoComponent implements OnInit {
   ngOnChanges(changes: SimpleChanges): void {
     console.log("simple changes", changes);
 
+    //  nada mas entra aca cada vez que se mandan datos del componente administrador al componente de plato
     if (changes.hasOwnProperty('config') && this.config) {
+      // switch para hacer las validaciones de todo lo que manda el componente administador al componente de plato
       switch(this.config.event){
+        // condicion para que cuando el plato este creado se entre al meetodo de asignar las categorias al plato
         case 'crear_plato':
           if(this.config.data){
+            // datos enviados al componente admisnistrador que se encarga de recoger todas las categorias y hacer un bucle de la cantidad de categroias para hacer las peticiones 
             this.send_plato.emit({
               event: "agregar_categoria",
               case:"crear",
               ciclo:this.id_categorias,
               id_plato:this.config.data.plato.id_plato
             })
+
+            // se recolecta el id del plato que se acaba de crear
             this.id_plato_creado = this.config.data.plato;
             console.log("datos del plato creaado de id_plato_creado",this.id_plato_creado);
 
@@ -104,6 +112,8 @@ export class PlatoComponent implements OnInit {
         break;
 
         case 'agregado_plato':
+          // entra cuando se ha agregado todas las categorias al plato que se creo
+          //  se añade el plato creado al array que contiene todos los platos creados con el fin de que se añada al instante 
           this.data_platos.push({
             descripcion: this.descripcion,
             estado: 1,
@@ -112,11 +122,13 @@ export class PlatoComponent implements OnInit {
             nombre: this.nombre,
             precio: this.precio,
           })
+          //  se reincia todos los campos de crear plato por si el usuario quiere crear mas de un plato
           this.nombre="";
           this.descripcion="";
           this.precio="";
           this.imagen="";
 
+          // se elimina todas las categorias seleccionadas de ese plato para que no quede ninguna categoria seleccionada
           for(let i=0; i < this.id_categorias.length ;i++){
             console.log("id de la categoria ",'categoria-'+this.id_categorias[i]);
             let id= this.id_categorias.indexOf(this.id_categorias[i]);
@@ -130,16 +142,19 @@ export class PlatoComponent implements OnInit {
           break;
 
         case 'listado_platos':
+          // muestra todos los platos disponibles 
           this.data_platos = this.config.platos
           console.log("datos de data_platos",this.data_platos);
         break;
 
         case 'platos_no_disponibles':
+          // muestra todos los platos no disponibles 
           this.platos_no_disponibles = this.config.platos;
           console.log("datos de los platos no disponibles en plato", this.platos_no_disponibles);
         break;
 
         case 'traer_categorias':
+          // se trae todas las categorias que tiene un plato y se muestran 
           for(let i=0; i< this.config.categorias.length ;i++){
             this.id_categorias.push(""+this.config.categorias[i].id_categoria);
             console.log("datos de las categorias",this.id_categorias);
@@ -147,6 +162,7 @@ export class PlatoComponent implements OnInit {
         break;
 
         case 'mostrar_plato':
+          //  se muestra todos los datos del plato seleccionado para la posterior muestra de el 
           this.nombre = this.config.plato[0].nombre;
           this.descripcion = this.config.plato[0].descripcion;
           this.imagen = this.config.plato[0].imagen;
@@ -169,6 +185,7 @@ export class PlatoComponent implements OnInit {
         break;
       
         case 'modificar_plato':
+          // cuando se ha modificado un plato tambien se manda las categorias que existen por si hay categorias nuevas que añadir
           this.send_plato.emit({
             event: "agregar_categoria",
             case:"modificar",
@@ -181,11 +198,13 @@ export class PlatoComponent implements OnInit {
 
           console.log("entro en la condicion de modificado plato");
            
+          //  en esta parte se recorre el array de los platos activos para ver la posicion de que plato es el que se modifico
           if(this.estado_plato === true){
 
             this.data_platos.forEach((data,index)=>{
               let incluido = data.id_plato === this.id_plato_seleccionado ? true : false ;
 
+              //  si se encuentra el plato al cual se modifico entonces se actulizan los datos en la vista
               if (incluido === true){
                 this.data_platos[index]={
                   descripcion: this.descripcion,
@@ -196,6 +215,7 @@ export class PlatoComponent implements OnInit {
                   precio: this.precio
                 }
               }
+              //  si el plato que se modifico se cambia el estado del plato a disponible entonces se encarga de quitar los datos de ese plato en los platos no disponibles y lo añade en los platos disponibles 
               if (index  ===  this.data_platos.length -1  && incluido === false){
                 this.platos_no_disponibles.forEach((data,index)=>{
                   let incluido = data.id_plato === this.id_plato_seleccionado ? true : false ;
@@ -211,7 +231,7 @@ export class PlatoComponent implements OnInit {
           }
            
           else{
-
+            //  si el plato que se modifico se le cambia el estado a no disponible se quita de los platos disponibles y se añade a los platos no disponibles
             this.data_platos.forEach((data,index)=>{
               let incluido = data.id_plato === this.id_plato_seleccionado ? true : false ;
 
@@ -234,6 +254,7 @@ export class PlatoComponent implements OnInit {
     } 
   }
 
+  //  metodo que se encarga dependiendo de la condicon mandar ciertos datos al componente administador
   plato(condicion){
     if(condicion === 'crear'){
       let plato ={
@@ -268,6 +289,7 @@ export class PlatoComponent implements OnInit {
     }
   }
 
+  //  metodo que se encarga de añadir o quitar categorias cada vez que una categoria esta siendo seleccionada
   onChecked(categoria, cheked){
     if(cheked === true){
       this.id_categorias.push(categoria);
@@ -278,12 +300,14 @@ export class PlatoComponent implements OnInit {
     }
   }
 
-  // metodo para regresar al menu principal
 
+
+  //  metodo que se encarga de recoger el id del platro seleccionado para mandarlo al componente adminsitardor el cual se encarga de ejecutar el servicio 
   seleccion_plato(plato:number){
     this.id_plato_seleccionado = plato;
 
     this.vista = "modificar_plato";
+    this.titulo = "MODIFICAR PLATO"
     
     this.send_plato.emit({
       event:'mostrar_plato',
@@ -293,11 +317,15 @@ export class PlatoComponent implements OnInit {
     });
   }
 
-
+  // metodo para regresar al menu principal
   volver(){
     this.vista = "menu_principal";
     this.id_categorias =[];
     this.id_plato_seleccionado=0;
+    this.nombre="";
+    this.descripcion="";
+    this.precio="";
+    this.imagen="";
   }
 
 }
