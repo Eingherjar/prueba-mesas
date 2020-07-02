@@ -308,7 +308,7 @@ export class PlatoComponent implements OnInit {
 
     this.vista = "modificar_plato";
     this.titulo = "MODIFICAR PLATO"
-    
+    this.texto_boton ="MODIFICAR PLATO"
     this.send_plato.emit({
       event:'mostrar_plato',
       data:{
