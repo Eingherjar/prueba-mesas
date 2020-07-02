@@ -207,7 +207,8 @@ export class LoginComponent implements OnInit {
       correo: this.texto_correo,
       password: this.texto_password
     }
-    if (this.texto_usuario != '' && this.texto_correo != '' && this.texto_password != '' && (this.femenino || this.masculino || this.otro)) {
+    // && (this.femenino || this.masculino || this.otro)
+    if (this.texto_usuario != '' && this.texto_correo != '' && this.texto_password != '') {
       this.send_login.emit({
         event: "registrar",
         data: registrar

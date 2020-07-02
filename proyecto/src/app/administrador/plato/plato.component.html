@@ -61,8 +61,8 @@
       <button class="volver" (click)="volver()">❮</button>
       <span>{{titulo}}</span>
       <br>
-      <input type="checkbox" [checked]="estado_plato" (change)="estado_plato = $event.target.checked " /> <span
-        style="color: var(--color-secundario);">Estado del plato</span>
+      <input type="checkbox" [checked]="estado_plato" (change)="estado_plato = $event.target.checked "  *ngIf="titulo === 'MODIFICAR PLATO'"/> <span
+        style="color: var(--color-secundario);" *ngIf="titulo === 'MODIFICAR PLATO'">Estado del plato</span>
     </div>
     <!-- Formulario para añadir el nuevo plato -->
     <div id="box-inputs">

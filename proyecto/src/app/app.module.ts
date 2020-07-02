@@ -11,6 +11,8 @@ import { ClienteComponent } from './cliente/cliente.component';
 import {SharedComponent} from './shared/shared.component';
 import { AdministradorComponent } from './administrador/administrador.component';
 import {AdministradorModule} from  './administrador/administrador.module'
+
+//  esta constante tiene toda la configuracion de la libreria angular-notifier
 const customNotifierOptions: NotifierOptions = {
   position: {
 		horizontal: {

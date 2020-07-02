@@ -67,12 +67,14 @@ export class VistaVendidosComponent implements OnInit {
     }
   }
 
+  //  se enecarga de regresar al menu principal
   regresar_menu() {
     this.send_vista_vendidos.emit({
       event: 'regresar_menu'
     })
   }
 
+  //  se encarga de enviar los datos al componente cliente necesarios para que el se peuda traer todos los datos de los platos que contienen la misma categoria seleccionada
   seleccion(condicion) {
     switch (condicion) {
 

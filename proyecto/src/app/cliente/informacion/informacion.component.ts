@@ -23,6 +23,7 @@ export class InformacionComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // metodo que recibe valores cuando cambia la variable config
   ngOnChanges(changes: SimpleChanges) {
     if (changes.hasOwnProperty('config') && this.config) {
 
@@ -36,6 +37,7 @@ export class InformacionComponent implements OnInit {
     }
   }
 
+  // metodo para añadir la cantidad de platos a el carro y añadir los platos al componente pedido
   agregar_carro(){
     console.log("esto es para agregar al carro");
 
@@ -53,6 +55,7 @@ export class InformacionComponent implements OnInit {
     })  
   }
 
+  // regresa al menu de donde se abrio la descipcion del plato
   regresar(){
     console.log("click",this.origen);
     if(this.origen === 'principal'){

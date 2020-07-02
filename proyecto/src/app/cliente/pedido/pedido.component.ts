@@ -7,14 +7,18 @@ import { Component, OnInit,Input,Output,EventEmitter,SimpleChanges } from '@angu
 })
 export class PedidoComponent implements OnInit {
 
+  // variables que envian y reciben del componente ciente
   @Input() config:any;
 
   @Output() send_vista_pedidos = new EventEmitter();
 
+  // recoge los platos que manda el componente informacion al componente  cliente 
   data_recibidos:Array<any>=[];
 
+  // suma el precio taotal de todos los platos añadidos
   precio_total:number=0;
 
+  // valor del precio base de todos los platos que se añadieron
   precio_base:number=0;
 
   nota:String='';
@@ -24,8 +28,10 @@ export class PedidoComponent implements OnInit {
  
   ngOnInit(): void {}
 
+   // metodo que se ejecuta cdada vez que se actualizan lo datos de config  
   ngOnChanges(changes: SimpleChanges) {
 
+   
     if (changes.hasOwnProperty('config') && this.config) {
       switch(this.config.event){
         case 'carrito':
@@ -65,6 +71,7 @@ export class PedidoComponent implements OnInit {
     }
   }
 
+  // metodo para eliminar un plato del pedido 
   eliminar_plato(index){
     this.precio_total = this.precio_total - (this.data_recibidos[index].precio * this.data_recibidos[index].cantidad)
     this.precio_base = this.precio_base - this.data_recibidos[index].precio;
@@ -82,6 +89,7 @@ export class PedidoComponent implements OnInit {
   }
 
   
+  //  metodo que se ejecuta cada vez que se añade o se quita cantidades de un plato 
   cambiar_precio_total(index,condicion){
     if (condicion === "sumar"){
       this.precio_total += this.data_recibidos[index].precio
@@ -96,12 +104,14 @@ export class PedidoComponent implements OnInit {
 
 
 
+  //  se envia al componente principal hacia donde se va a regresar 
   regresar(){
     this.send_vista_pedidos.emit({
       event:"regresar"
     })
   }
 
+  //  metodo para realizar un pedido 
   realizar_pedido(){
     // recoleccion de los datos del local storage
     let usuario = localStorage.getItem("id_usuario");

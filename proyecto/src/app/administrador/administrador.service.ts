@@ -12,6 +12,7 @@ export class AdministradorService  extends class_http{
     super();
   }
 
+  // este servicio se encarga de hacer las peticiones a la api-rest de google cloud  
   // crear un plato 
   Crear_Platos(data):Observable<Object>{
     return this.http.post(this.API_URL+"/Platos/Crear",data,this.getHeaders()).pipe(
