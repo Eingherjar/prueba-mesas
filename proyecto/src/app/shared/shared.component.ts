@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from './shared.service';
 import { NotifierService } from 'angular-notifier';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-shared',
   templateUrl: './shared.component.html',
@@ -10,10 +11,14 @@ export class SharedComponent implements OnInit {
 
   config_login: any;
 
+  id:number;
   private notifier: NotifierService;
-  constructor(private servicio: SharedService ,  notifier: NotifierService) { this.notifier = notifier }
+  constructor(private servicio: SharedService ,  notifier: NotifierService,private router_url: ActivatedRoute) { this.notifier = notifier }
 
   ngOnInit(): void {
+    console.log("entro en la condicion");
+    this.id = parseInt(this.router_url.snapshot.paramMap.get('id'));
+    
   }
 
 

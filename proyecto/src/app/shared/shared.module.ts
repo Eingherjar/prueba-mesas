@@ -4,7 +4,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {BuscadorComponent} from './buscador/buscador.component';
 import {LoginComponent} from './login/login.component';
-
+import {SharedRoutingModule} from './shared-routuing.module';
 @NgModule({
   declarations: [
     BuscadorComponent,
@@ -13,7 +13,8 @@ import {LoginComponent} from './login/login.component';
   imports: [
     CommonModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    SharedRoutingModule
   ],
   exports:[
     BuscadorComponent,

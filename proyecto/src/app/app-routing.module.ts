@@ -5,9 +5,9 @@ import {ClienteComponent} from './cliente/cliente.component';
 
 // sdefinicion de las rutas de la aplicacion por las cuales entran los usuarios 
 const routes: Routes = [
-  { path: '', redirectTo: '/login/', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'admin', component:AdministradorComponent},
-  { path: 'login/:id', component:SharedComponent},
+  { path: 'login/:id', loadChildren:'.shared/shared.module#SharedModule'},
   { path: 'cliente/:mesa',component:ClienteComponent}
 ];
 export const APP_ROUTING = RouterModule.forRoot(routes);

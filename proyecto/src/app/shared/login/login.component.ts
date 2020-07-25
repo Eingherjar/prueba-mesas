@@ -40,9 +40,7 @@ export class LoginComponent implements OnInit {
 
   ngAfterViewInit() {
     this.id_mesa = parseInt(this.router_url.snapshot.paramMap.get('id'));
-    if (this.id_mesa == undefined || this.id_mesa== null || this.id_mesa == 0) {
-      this.router.navigate(['/login/']);
-    }
+   
   }
 
   ngOnInit(): void {
@@ -50,7 +48,8 @@ export class LoginComponent implements OnInit {
     localStorage.setItem("id_mesa",""+this.id_mesa);
     let usuario = localStorage.getItem('id_usuario');
 
-    if (usuario != 'null' && usuario != "0") {
+    console.log("datos que entran en el componente de login", usuario);
+    if (usuario !== null) {
       let id = localStorage.getItem("id_mesa");
       this.router.navigate(['cliente/'+(this.id_mesa != 0 ? this.id_mesa : id)]);
     }
